@@ -157,6 +157,61 @@ void Grafo::inserirNo(int id, int peso)
     }
 }
 
+void Grafo::removerNo(int id)
+{
+    No* p = this->cabeca;
+
+    if(p == nullptr)
+    {
+        cout << "GRAFO VAZIO" << endl;
+        return;
+    }
+
+    if(this->cabeca->getId() == id)
+    {
+        this->cabeca = this->cabeca->getProx();
+        delete p;
+    } else
+    {
+        No* aux = p->getProx();
+
+        while(aux != nullptr)
+        {
+            if(aux->getId() == id)
+            {
+                break;
+            } else
+            {
+                p = aux;
+                aux = aux->getProx();
+            }
+        }
+
+        if(this->cauda != nullptr)
+        {
+            if(this->cauda == aux)
+            {
+                this->cauda = p;
+            }
+            p->setProx(aux->getProx());
+            delete aux;
+        }
+    }
+    removeAdjacencias(id);
+}
+
+
+void Grafo::removeAdjacencias(int id)
+{
+    No* p = this->cabeca;
+
+    while (p != nullptr)
+    {
+        p->removerAresta(id);
+        p = p->getProx();
+    }
+}
+
 /**
     Função responsável por inserir as Arestas entre os Nós
     @param: idOrigem - O Nó de origem da aresta
@@ -182,6 +237,30 @@ void Grafo::inserirAresta(int idOrigem, int idDestino, int peso)
     } else {
         cout << "Nó não existe! " << endl << endl;
         return;
+    }
+}
+
+/**
+    Função responsável por remover Arestas
+    @param: idOrigem - O no de onde parte a aresta
+    @param: idDestino - O no onde a aresta se direciona
+*/
+void Grafo::removerAresta(int idOrigem, int idDestino)
+{
+    if(!existeNo(idOrigem) && existeNo(idDestino))
+    {
+        cout << "\nIDs Inválidos!" << endl;
+        return;
+    }
+
+    No* origem = buscaNo(idOrigem);
+    No* destino = buscaNo(idDestino);
+
+    if(origem != nullptr && destino != nullptr)
+    {
+        origem->removerAresta(destino->getId());
+        destino->removerAresta(origem->getId());
+        this->numArestas--;
     }
 }
 

@@ -14,13 +14,16 @@ class Grafo
 
         void carregarConfiguracoes(bool dir, bool pondA, bool pondN);
 
-        void inserirNo(int id, int peso);
-        void inserirAresta(int idOrigem, int idDestino, int peso);
-
-        void imprimirListaAdj();
-
         int getOrdem();
         int getNumAretas();
+
+        void inserirNo(int id, int peso);
+        void inserirAresta(int idOrigem, int idDestino, int peso);
+        void removerNo(int id);
+        void removerAresta(int idOrigem, int idDestino);
+
+
+        void imprimirListaAdj();
 
         int **getMatrizAdj();
         int getPosicaoMatriz(int id);
@@ -38,6 +41,8 @@ class Grafo
 
         bool existeNo(int id);
         No* buscaNo(int id);
+
+        void removeAdjacencias(int id);
 };
 
 #endif // GRAFO_H

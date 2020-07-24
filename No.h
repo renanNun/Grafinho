@@ -27,6 +27,7 @@ class No
 
         Aresta* buscaAresta(int id);
         bool inserirAresta(int id, int peso);
+        void removerAresta(int id);
 
     private:
         int id;

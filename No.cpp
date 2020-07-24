@@ -124,3 +124,32 @@ bool No::inserirAresta(int id, int peso)
     } else
         return false;
 }
+
+void No::removerAresta(int id)
+{
+    Aresta* a = this->cabeca;
+    Aresta* aux = nullptr;
+
+    for(; a != nullptr; a = a->getProx())
+    {
+        if(a->getNoAdj() == id)
+        {
+            if(aux != nullptr)
+            {
+                aux->setProx(a->getProx());
+
+                if(a->getProx() == nullptr)
+                    this->cauda = aux;
+            } else {
+                if(this->cauda == this->cabeca)
+                    this->cabeca = this->cauda = a->getProx();
+                else
+                    this->cabeca = a->getProx();
+            }
+
+            delete a;
+            break;
+        } else
+            aux = a;
+    }
+}

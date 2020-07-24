@@ -9,17 +9,17 @@
 	<iostream>
 	"Grafo.h"
 
-1595610765 source:/home/renan/Documentos/Grafo/No.cpp
+1595620912 source:/home/renan/Documentos/Grafo/No.cpp
 	"No.h"
 
-1595610685 /home/renan/Documentos/Grafo/No.h
+1595620584 /home/renan/Documentos/Grafo/No.h
 	<iostream>
 	"Aresta.h"
 
-1595614924 /home/renan/Documentos/Grafo/Grafo.h
+1595621355 /home/renan/Documentos/Grafo/Grafo.h
 	<iostream>
 	"No.h"
 
-1595614520 source:/home/renan/Documentos/Grafo/Grafo.cpp
+1595620625 source:/home/renan/Documentos/Grafo/Grafo.cpp
 	"Grafo.h"
 
