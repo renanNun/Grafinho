@@ -28,6 +28,10 @@ class Grafo
         int **getMatrizAdj();
         int getPosicaoMatriz(int id);
 
+        bool isDir();
+        bool isPondA();
+        bool isPondN();
+
     private:
         No* cabeca;
         No* cauda;

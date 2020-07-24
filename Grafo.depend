@@ -5,8 +5,11 @@
 1595553591 /home/renan/Documentos/Grafo/Aresta.h
 	<iostream>
 
-1595614534 source:/home/renan/Documentos/Grafo/main.cpp
+1595624188 source:/home/renan/Documentos/Grafo/main.cpp
 	<iostream>
+	<string>
+	<sstream>
+	<fstream>
 	"Grafo.h"
 
 1595620912 source:/home/renan/Documentos/Grafo/No.cpp
@@ -16,10 +19,10 @@
 	<iostream>
 	"Aresta.h"
 
-1595621355 /home/renan/Documentos/Grafo/Grafo.h
+1595622460 /home/renan/Documentos/Grafo/Grafo.h
 	<iostream>
 	"No.h"
 
-1595620625 source:/home/renan/Documentos/Grafo/Grafo.cpp
+1595623756 source:/home/renan/Documentos/Grafo/Grafo.cpp
 	"Grafo.h"
 

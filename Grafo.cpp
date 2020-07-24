@@ -56,6 +56,21 @@ int Grafo::getNumAretas()
     return this->numArestas;
 }
 
+bool Grafo::isDir()
+{
+    return this->direcionado;
+}
+
+bool Grafo::isPondA()
+{
+    return this->ponderadoA;
+}
+
+bool Grafo::isPondN()
+{
+    return this->ponderadoN;
+}
+
 /**
     Função responsável pela impressão do Grafo em forma de lista de Adjacência
 */
@@ -152,7 +167,7 @@ void Grafo::inserirNo(int id, int peso)
             this->ordem++;
         }
     } else {
-        //cout << "Nó já inserido!" << endl;
+        cout << "Nó já inserido!" << endl;
         return;
     }
 }
