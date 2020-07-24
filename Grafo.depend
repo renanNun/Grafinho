@@ -1,0 +1,25 @@
+# depslib dependency file v1.0
+1595553752 source:/home/renan/Documentos/Grafo/Aresta.cpp
+	"Aresta.h"
+
+1595553591 /home/renan/Documentos/Grafo/Aresta.h
+	<iostream>
+
+1595614534 source:/home/renan/Documentos/Grafo/main.cpp
+	<iostream>
+	"Grafo.h"
+
+1595610765 source:/home/renan/Documentos/Grafo/No.cpp
+	"No.h"
+
+1595610685 /home/renan/Documentos/Grafo/No.h
+	<iostream>
+	"Aresta.h"
+
+1595614924 /home/renan/Documentos/Grafo/Grafo.h
+	<iostream>
+	"No.h"
+
+1595614520 source:/home/renan/Documentos/Grafo/Grafo.cpp
+	"Grafo.h"
+
