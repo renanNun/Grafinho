@@ -90,10 +90,20 @@ void Grafo::imprimirListaAdj()
 
         for(Aresta* a = no->getAresta(); a != nullptr; a = a->getProx())
         {
-            if(a->getProx() != nullptr)
-                cout << a->getNoAdj() << "--->";
+            if(isPondA())
+            {
+                if(a->getProx() != nullptr)
+                    cout << a->getNoAdj() << "(" << a->getPeso() << ") ---> ";
+                else
+                    cout << a->getNoAdj();
+            }
             else
-                cout << a->getNoAdj();
+            {
+                if(a->getProx() != nullptr)
+                    cout << a->getNoAdj() << "---> ";
+                else
+                    cout << a->getNoAdj();
+            }
         }
 
         cout << endl;
@@ -166,7 +176,9 @@ void Grafo::inserirNo(int id, int peso)
             novo->setProx(nullptr);
             this->ordem++;
         }
-    } else {
+    }
+    else
+    {
         cout << "Nó já inserido!" << endl;
         return;
     }
@@ -186,7 +198,8 @@ void Grafo::removerNo(int id)
     {
         this->cabeca = this->cabeca->getProx();
         delete p;
-    } else
+    }
+    else
     {
         No* aux = p->getProx();
 
@@ -195,7 +208,8 @@ void Grafo::removerNo(int id)
             if(aux->getId() == id)
             {
                 break;
-            } else
+            }
+            else
             {
                 p = aux;
                 aux = aux->getProx();
@@ -244,12 +258,16 @@ void Grafo::inserirAresta(int idOrigem, int idDestino, int peso)
         {
             origem->inserirAresta(idDestino,peso);
             this->numArestas++;
-        } else {
+        }
+        else
+        {
             origem->inserirAresta(idDestino,peso);
             destino->inserirAresta(idOrigem,peso);
             this->numArestas++;
         }
-    } else {
+    }
+    else
+    {
         cout << "Nó não existe! " << endl << endl;
         return;
     }

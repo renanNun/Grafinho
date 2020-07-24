@@ -123,6 +123,8 @@ bool No::inserirAresta(int id, int peso)
 
     } else
         return false;
+
+    return true;
 }
 
 void No::removerAresta(int id)

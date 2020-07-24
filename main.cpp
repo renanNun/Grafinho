@@ -9,29 +9,67 @@ using namespace std;
 std::fstream fin;
 
 void menu(Grafo* g);
-void getConfig(Grafo* g);
+void getConfig();
 Grafo* realizaLeitura();
 
 int main(int argc,char* argv[])
 {
-    Grafo* g = new Grafo();
+    Grafo* g;
 
-    g->carregarConfiguracoes(false,false,false);
+    fin.open(argv[1]);
 
-    g->inserirNo(1,0);
-    g->inserirNo(2,0);
-    g->inserirNo(3,0);
-    g->inserirNo(4,0);
-    g->inserirNo(5,0);
-    g->inserirNo(6,0);
-    g->inserirNo(7,0);
-
-    g->inserirAresta(1,2,0);
-    g->inserirAresta(3,2,0);
+    g = realizaLeitura();
 
     menu(g);
 
     return 0;
+}
+
+Grafo* realizaLeitura()
+{
+    Grafo* gf = new Grafo();
+
+    gf->carregarConfiguracoes(false,false,false);
+
+    string linha;
+
+    if(fin.is_open())
+    {
+        getline(fin,linha); //Lendo a primeira linha do arquivo
+        int ordem = (stoi(linha)); //Convertendo de String para inteiro
+
+
+        while(getline(fin,linha))
+        {
+            istringstream str_stream(linha);
+            int no1,no2,peso;
+
+            if(gf->isPondA())
+            {
+                str_stream >> no1 >> no2 >> peso;
+
+                gf->inserirNo(no1,0);
+                gf->inserirNo(no2,0);
+                gf->inserirAresta(no1,no2,peso);
+
+            }
+            else
+            {
+                str_stream >> no1 >> no2;
+
+                gf->inserirNo(no1,0);
+                gf->inserirNo(no2,0);
+                gf->inserirAresta(no1,no2,0);
+            }
+        }
+    }
+    else
+    {
+        cout << "Erro ao Abrir o Arquivo!" << endl;
+        exit(-2);
+    }
+
+    return gf;
 }
 
 void menu(Grafo* g)
