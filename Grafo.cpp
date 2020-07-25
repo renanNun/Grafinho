@@ -179,7 +179,7 @@ void Grafo::inserirNo(int id, int peso)
     }
     else
     {
-        cout << "Nó já inserido!" << endl;
+        //cout << "Nó já inserido!" << endl;
         return;
     }
 }
@@ -359,37 +359,52 @@ bool Grafo::visitado(int id,int* vetor, int tam)
     return false;
 }
 
-void Grafo::buscaEmProfundidade(int idOrigem,int idDestino)
+void Grafo::buscaEmProfundidade(int id)
 {
-    bool flag = true;
-    No* v = buscaNo(idOrigem);
-    int* controle = new int[this->ordem];
-    PilhaEncadeada* pilha = new PilhaEncadeada();
-    int* visitados;
+    bool* vetorColoracao = new bool[this->ordem];
+    No* p = this->cabeca;
 
-    if(v == nullptr)
+    for(int i = 0; p != nullptr && i < this->ordem; i++)
     {
-        cout << "O Vértice de Origem é Nulo " << endl;
+        p->visitado = i;
+        vetorColoracao[i] = 0;
+        p = p->getProx();
+    }
+
+    int nivel = 0;
+    No* pai = nullptr;
+    p = buscaNo(id);
+
+    cout << "BUSCA EM PROFUNDIDADE A PARTIR DO NÓ " << id << endl << endl;
+
+    if(p != nullptr)
+    {
+        buscaEmProfundidadeF(p,vetorColoracao,pai,nivel);
+    } else {
+        cout << "Nó não encontrado" << endl;
         return;
     }
 
-    /*Inciando vetor de visitados*/
-    for(int i = 0; i < this->ordem; i++)
-        visitados[i] = -1;
+    delete [] vetorColoracao;
+}
 
+void Grafo::buscaEmProfundidadeF(No* v, bool* vetorColoracao, No* pai,int nivel)
+{
+    if(v == nullptr)
+        return;
+    if(nivel == 0)
+        cout << "No: " << v->getId() << " Pai: NULL Nivel: " << nivel << endl;
+    else
+        cout << "No: " << v->getId() << " Pai: " << pai->getId() << " Nivel: " << nivel << endl;
 
-    cout << "Busca em profundidade de " << idOrigem << " a " << idDestino <<endl;
-    cout << endl << endl;
+    vetorColoracao[v->visitado] = 1;
+    Aresta* a = v->getAresta();
 
-
-    while (flag)
+    while( a != nullptr)
     {
-
-        if(v->getId() == idDestino)
-        {
-
-        }
-
-
+        No* aux = buscaNo(a->getNoAdj());
+        if(vetorColoracao[aux->visitado] == 0)
+            buscaEmProfundidadeF(aux,vetorColoracao,v,nivel+1);
+        a = a->getProx();
     }
 }

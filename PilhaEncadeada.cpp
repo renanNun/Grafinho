@@ -29,6 +29,11 @@ int PilhaEncadeada::getTopo()
     }
 }
 
+int PilhaEncadeada::tamanho()
+{
+    return this->tam;
+}
+
 bool PilhaEncadeada::vazia()
 {
     return this->topo == nullptr;
@@ -39,6 +44,7 @@ void PilhaEncadeada::empilha(int id)
     NoAux* n = new NoAux(id);
     n->setProx(this->topo);
     this->topo = n;
+    this->tam++;
 }
 
 int PilhaEncadeada::desempilha()
@@ -50,6 +56,7 @@ int PilhaEncadeada::desempilha()
         this->topo = n->getProx();
         int info = n->getId();
         delete n;
+        this->tam--;
         return info;
     } else {
         exit(-4);

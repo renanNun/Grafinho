@@ -34,7 +34,8 @@ class Grafo
         bool isPondA();
         bool isPondN();
 
-        void buscaEmProfundidade(int idOrigem, int idDestino);
+        void buscaEmProfundidade(int id);
+        void buscaEmLargura(int id);
 
     private:
         No* cabeca;
@@ -53,6 +54,7 @@ class Grafo
         bool visitado(int id, int* vetor, int tam);
 
         void removeAdjacencias(int id);
+        void buscaEmProfundidadeF(No* v,bool* vetorColoracao, No* pai, int nivel);
 };
 
 #endif // GRAFO_H

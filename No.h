@@ -29,6 +29,8 @@ class No
         bool inserirAresta(int id, int peso);
         void removerAresta(int id);
 
+        int visitado;
+
     private:
         int id;
         int peso;

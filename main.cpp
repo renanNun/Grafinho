@@ -29,7 +29,7 @@ Grafo* realizaLeitura()
 {
     Grafo* gf = new Grafo();
 
-    gf->carregarConfiguracoes(false,true,false);
+    gf->carregarConfiguracoes(false,false,false);
 
     string linha;
 
@@ -103,6 +103,7 @@ void menu(Grafo* g)
         cout << "\t 04) Inserir Aresta no Grafo" << endl;
         cout << "\t 05) Remover Nó do Grafo" << endl;
         cout << "\t 06) Remover Aresta do Grafo" << endl;
+        cout << "\t 07) Busca em Profundidade" << endl;
         cout << "\t  0) Sair" << endl;
         cout << endl << "Opção: ";
 
@@ -190,6 +191,15 @@ void menu(Grafo* g)
             b = atoi(stringEscolhaAux.c_str());
 
             g->removerAresta(a,b);
+
+            break;
+        case 7:
+            cout << "Insira o Nó de Origem: ";
+            cin >> stringEscolha;
+
+            a = atoi(stringEscolha.c_str());
+
+            g->buscaEmProfundidade(a);
 
             break;
         default:
