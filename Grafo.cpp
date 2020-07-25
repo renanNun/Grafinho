@@ -93,14 +93,14 @@ void Grafo::imprimirListaAdj()
             if(isPondA())
             {
                 if(a->getProx() != nullptr)
-                    cout << a->getNoAdj() << "(" << a->getPeso() << ") ---> ";
+                    cout << a->getNoAdj() << " (" << a->getPeso() << ")--->";
                 else
                     cout << a->getNoAdj();
             }
             else
             {
                 if(a->getProx() != nullptr)
-                    cout << a->getNoAdj() << "---> ";
+                    cout << a->getNoAdj() << "--->";
                 else
                     cout << a->getNoAdj();
             }
@@ -349,4 +349,47 @@ int Grafo::getPosicaoMatriz(int id)
     }
 
     return -1;
+}
+
+bool Grafo::visitado(int id,int* vetor, int tam)
+{
+    for(int i = 0; i < tam; i++)
+        if(vetor[i] == id)
+            return true;
+    return false;
+}
+
+void Grafo::buscaEmProfundidade(int idOrigem,int idDestino)
+{
+    bool flag = true;
+    No* v = buscaNo(idOrigem);
+    int* controle = new int[this->ordem];
+    PilhaEncadeada* pilha = new PilhaEncadeada();
+    int* visitados;
+
+    if(v == nullptr)
+    {
+        cout << "O Vértice de Origem é Nulo " << endl;
+        return;
+    }
+
+    /*Inciando vetor de visitados*/
+    for(int i = 0; i < this->ordem; i++)
+        visitados[i] = -1;
+
+
+    cout << "Busca em profundidade de " << idOrigem << " a " << idDestino <<endl;
+    cout << endl << endl;
+
+
+    while (flag)
+    {
+
+        if(v->getId() == idDestino)
+        {
+
+        }
+
+
+    }
 }

@@ -29,7 +29,7 @@ Grafo* realizaLeitura()
 {
     Grafo* gf = new Grafo();
 
-    gf->carregarConfiguracoes(false,false,false);
+    gf->carregarConfiguracoes(false,true,false);
 
     string linha;
 
@@ -203,3 +203,11 @@ void menu(Grafo* g)
 
     }
 }
+
+/**
+    Exit:
+    (-1) - Número de Argumentos Insuficientes
+    (-2) - ERRO NA LEITURA DO ARQUIVO DE ENTRADA
+    (-3) - LISTA ENCADEADA VAZIA
+    (-4) - PILHA VAZIA
+**/
