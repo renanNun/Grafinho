@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include "No.h"
+#include "PilhaEncadeada.h"
+#include "FilaEncadeada.h"
 
 using namespace std;
 
@@ -28,6 +30,12 @@ class Grafo
         int **getMatrizAdj();
         int getPosicaoMatriz(int id);
 
+        bool isDir();
+        bool isPondA();
+        bool isPondN();
+
+        void buscaEmProfundidade(int idOrigem, int idDestino);
+
     private:
         No* cabeca;
         No* cauda;
@@ -41,6 +49,8 @@ class Grafo
 
         bool existeNo(int id);
         No* buscaNo(int id);
+
+        bool visitado(int id, int* vetor, int tam);
 
         void removeAdjacencias(int id);
 };

@@ -56,6 +56,21 @@ int Grafo::getNumAretas()
     return this->numArestas;
 }
 
+bool Grafo::isDir()
+{
+    return this->direcionado;
+}
+
+bool Grafo::isPondA()
+{
+    return this->ponderadoA;
+}
+
+bool Grafo::isPondN()
+{
+    return this->ponderadoN;
+}
+
 /**
     Função responsável pela impressão do Grafo em forma de lista de Adjacência
 */
@@ -75,10 +90,20 @@ void Grafo::imprimirListaAdj()
 
         for(Aresta* a = no->getAresta(); a != nullptr; a = a->getProx())
         {
-            if(a->getProx() != nullptr)
-                cout << a->getNoAdj() << "--->";
+            if(isPondA())
+            {
+                if(a->getProx() != nullptr)
+                    cout << a->getNoAdj() << " (" << a->getPeso() << ")--->";
+                else
+                    cout << a->getNoAdj();
+            }
             else
-                cout << a->getNoAdj();
+            {
+                if(a->getProx() != nullptr)
+                    cout << a->getNoAdj() << "--->";
+                else
+                    cout << a->getNoAdj();
+            }
         }
 
         cout << endl;
@@ -151,8 +176,10 @@ void Grafo::inserirNo(int id, int peso)
             novo->setProx(nullptr);
             this->ordem++;
         }
-    } else {
-        //cout << "Nó já inserido!" << endl;
+    }
+    else
+    {
+        cout << "Nó já inserido!" << endl;
         return;
     }
 }
@@ -171,7 +198,8 @@ void Grafo::removerNo(int id)
     {
         this->cabeca = this->cabeca->getProx();
         delete p;
-    } else
+    }
+    else
     {
         No* aux = p->getProx();
 
@@ -180,7 +208,8 @@ void Grafo::removerNo(int id)
             if(aux->getId() == id)
             {
                 break;
-            } else
+            }
+            else
             {
                 p = aux;
                 aux = aux->getProx();
@@ -229,12 +258,16 @@ void Grafo::inserirAresta(int idOrigem, int idDestino, int peso)
         {
             origem->inserirAresta(idDestino,peso);
             this->numArestas++;
-        } else {
+        }
+        else
+        {
             origem->inserirAresta(idDestino,peso);
             destino->inserirAresta(idOrigem,peso);
             this->numArestas++;
         }
-    } else {
+    }
+    else
+    {
         cout << "Nó não existe! " << endl << endl;
         return;
     }
@@ -316,4 +349,47 @@ int Grafo::getPosicaoMatriz(int id)
     }
 
     return -1;
+}
+
+bool Grafo::visitado(int id,int* vetor, int tam)
+{
+    for(int i = 0; i < tam; i++)
+        if(vetor[i] == id)
+            return true;
+    return false;
+}
+
+void Grafo::buscaEmProfundidade(int idOrigem,int idDestino)
+{
+    bool flag = true;
+    No* v = buscaNo(idOrigem);
+    int* controle = new int[this->ordem];
+    PilhaEncadeada* pilha = new PilhaEncadeada();
+    int* visitados;
+
+    if(v == nullptr)
+    {
+        cout << "O Vértice de Origem é Nulo " << endl;
+        return;
+    }
+
+    /*Inciando vetor de visitados*/
+    for(int i = 0; i < this->ordem; i++)
+        visitados[i] = -1;
+
+
+    cout << "Busca em profundidade de " << idOrigem << " a " << idDestino <<endl;
+    cout << endl << endl;
+
+
+    while (flag)
+    {
+
+        if(v->getId() == idDestino)
+        {
+
+        }
+
+
+    }
 }

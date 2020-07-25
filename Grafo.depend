@@ -5,21 +5,45 @@
 1595553591 /home/renan/Documentos/Grafo/Aresta.h
 	<iostream>
 
-1595614534 source:/home/renan/Documentos/Grafo/main.cpp
+1595692501 source:/home/renan/Documentos/Grafo/main.cpp
 	<iostream>
+	<string>
+	<sstream>
+	<fstream>
 	"Grafo.h"
 
-1595620912 source:/home/renan/Documentos/Grafo/No.cpp
+1595625696 source:/home/renan/Documentos/Grafo/No.cpp
 	"No.h"
 
-1595620584 /home/renan/Documentos/Grafo/No.h
+1595688640 /home/renan/Documentos/Grafo/No.h
 	<iostream>
 	"Aresta.h"
 
-1595621355 /home/renan/Documentos/Grafo/Grafo.h
+1595692629 /home/renan/Documentos/Grafo/Grafo.h
 	<iostream>
 	"No.h"
+	"PilhaEncadeada.h"
+	"FilaEncadeada.h"
 
-1595620625 source:/home/renan/Documentos/Grafo/Grafo.cpp
+1595691988 source:/home/renan/Documentos/Grafo/Grafo.cpp
 	"Grafo.h"
+
+1595690461 source:/home/renan/Documentos/Grafo/NoAux.cpp
+	"NoAux.h"
+
+1595690375 /home/renan/Documentos/Grafo/NoAux.h
+
+1595691073 /home/renan/Documentos/Grafo/FilaEncadeada.h
+	<iostream>
+	"NoAux.h"
+
+1595691294 source:/home/renan/Documentos/Grafo/FilaEncadeada.cpp
+	"FilaEncadeada.h"
+
+1595692242 /home/renan/Documentos/Grafo/PilhaEncadeada.h
+	<iostream>
+	"NoAux.h"
+
+1595692609 source:/home/renan/Documentos/Grafo/PilhaEncadeada.cpp
+	"PilhaEncadeada.h"
 
