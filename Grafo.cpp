@@ -492,3 +492,57 @@ void Grafo::buscaEmLarguraF(No* pai, int* vetorColoracao, bool* vetorColoracaoB,
             a = a->getProx();
     }
 }
+
+/**
+    TENTATIVA DE ARRUMAR A BUSCA EM LARGURA
+
+    BuscaEmLargura
+   escolha uma raiz s de G
+   marque s
+   insira s em F
+   enquanto F não está vazia faça
+      seja v o primeiro vértice de F
+      para cada w ∈ listaDeAdjacência de v faça
+         se w não está marcado então
+            visite aresta entre v e w
+            marque w
+            insira w em F
+         senao se w ∈ F entao
+            visite aresta entre v e w
+         fim se
+      fim para
+      retira v de F
+   fim enquanto
+
+*/
+void Grafo::BEL(int id)
+{
+    No* p = this->cabeca;
+
+    for(int i = 0; p != nullptr && i < this->ordem; i++)
+    {
+        p->visitado = 0;
+        p = p->getProx();
+    }
+
+    p = buscaNo(id);
+
+    p->visitado = 1;
+
+    FilaEncadeada* F;
+
+    F->enfileira(p->getId());
+
+    while(!F->vazia())
+    {
+        Aresta* a = p->getAresta();
+        for(No* n = buscaNo(a->getNoAdj()); a != nullptr; a = a->getProx())
+        {
+            if(n->visitado != 1)
+            {
+
+            }
+        }
+    }
+
+}

@@ -36,6 +36,7 @@ class Grafo
 
         void buscaEmProfundidade(int id);
         void buscaEmLargura(int id); //Tá com erro de Falha de segmentação
+        void BEL(int id);
 
     private:
         No* cabeca;
