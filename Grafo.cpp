@@ -408,3 +408,87 @@ void Grafo::buscaEmProfundidadeF(No* v, bool* vetorColoracao, No* pai,int nivel)
         a = a->getProx();
     }
 }
+
+void Grafo::buscaEmLargura(int id)
+{
+    int* vetorColoracao = new int[this->ordem]; //Fila de armazenagem dos nos percorridos
+    bool* vetorColoracaoB = new bool [this->ordem];
+    bool* vetorColoracaoC = new bool [this->ordem];
+
+    No* p = this->cabeca;
+
+    for(int i = 0; p != nullptr && i < this->ordem; i++)
+    {
+        p->visitado = i;
+        vetorColoracaoB[i] = 0;
+        vetorColoracaoC[i] = 0;
+        p = p->getProx();
+    }
+
+    p = buscaNo(id);
+
+    if(p != nullptr)
+    {
+        buscaEmLarguraF(p,vetorColoracao,vetorColoracaoB,vetorColoracaoC);
+
+    } else {
+        cout << "No não encontrado!" << endl;
+        return;
+    }
+    cout << "FIM" << endl;
+
+    delete [] vetorColoracao;
+    delete [] vetorColoracaoB;
+    delete [] vetorColoracaoC;
+}
+
+void Grafo::buscaEmLarguraF(No* pai, int* vetorColoracao, bool* vetorColoracaoB, bool* vetorColoracaoC)
+{
+    int nivel = 0;
+    int controleFila = 0;
+    int controleImpressao = 0;
+    int controleNivel = 0;
+
+    cout << "No: " << pai->getId() << " Pai: NULL Nivel: " << nivel << endl;
+
+    vetorColoracao[controleFila] = pai->getId();
+    vetorColoracaoB[pai->visitado] = 1;
+    vetorColoracaoC[pai->visitado] = 1;
+    nivel++;
+
+    Aresta* a = pai->getAresta();
+    while(1)
+    {
+        while (a != nullptr)
+        {
+            No* aux = buscaNo(a->getNoAdj());
+            if(vetorColoracaoC[aux->visitado] == 0)
+            {
+                cout << "No: " << aux->getId() << " Pai: " << pai->getId() << " Nivel: " << nivel << endl;
+                vetorColoracao[controleFila] = aux->getId();
+                controleFila++;
+            }
+
+            vetorColoracaoC[aux->visitado] = 1;
+            a = a->getProx();
+        }
+
+        if(controleImpressao == controleNivel)
+        {
+            controleNivel = controleFila-1;
+            nivel++;
+        }
+        controleImpressao++;
+
+        if(controleFila == controleNivel)
+            break;
+
+        pai = buscaNo(vetorColoracao[controleImpressao]);
+        vetorColoracaoB[pai->visitado] = 1;
+        a = pai->getAresta();
+
+        No* check = buscaNo(a->getNoAdj());
+        while(a != nullptr && vetorColoracaoB[check->getId()] == 1)
+            a = a->getProx();
+    }
+}

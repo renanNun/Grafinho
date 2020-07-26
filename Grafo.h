@@ -35,7 +35,7 @@ class Grafo
         bool isPondN();
 
         void buscaEmProfundidade(int id);
-        void buscaEmLargura(int id);
+        void buscaEmLargura(int id); //Tá com erro de Falha de segmentação
 
     private:
         No* cabeca;
@@ -55,6 +55,7 @@ class Grafo
 
         void removeAdjacencias(int id);
         void buscaEmProfundidadeF(No* v,bool* vetorColoracao, No* pai, int nivel);
+        void buscaEmLarguraF(No* pai, int* vetorColoracao,bool* vetorColoracaoB,bool* vetorColoracaoC);
 };
 
 #endif // GRAFO_H

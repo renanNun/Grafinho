@@ -2,6 +2,8 @@
 #include <string>
 #include <sstream>
 #include <fstream>
+#include <time.h>
+#include <chrono>
 
 #include "Grafo.h"
 
@@ -104,6 +106,7 @@ void menu(Grafo* g)
         cout << "\t 05) Remover Nó do Grafo" << endl;
         cout << "\t 06) Remover Aresta do Grafo" << endl;
         cout << "\t 07) Busca em Profundidade" << endl;
+        cout << "\t 08) Busca em Largura" << endl;
         cout << "\t  0) Sair" << endl;
         cout << endl << "Opção: ";
 
@@ -200,7 +203,14 @@ void menu(Grafo* g)
             a = atoi(stringEscolha.c_str());
 
             g->buscaEmProfundidade(a);
+            break;
+        case 8:
+            cout << "Insira o Nó de Origem: ";
+            cin >> stringEscolha;
 
+            a = atoi(stringEscolha.c_str());
+
+            g->buscaEmLargura(a);
             break;
         default:
             flagInvalido = true;
