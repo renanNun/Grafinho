@@ -1,3 +1,13 @@
-# Grafinho
+# Trabalho de Grafos
 
-Codigo em c++ que contém um grafo e suas funcionalidades criado pelos alunos Luan Ciribelli e Renan Nunes para a materia de Grados ministrada na UFJF
+![](https://img.shields.io/badge/C%2B%2B-v1.0-red")
+
+Este é um projeto para a disciplina de Introdução à Teoria dos Grafos, ofertada pela Universidade Federal de Juiz de Fora no semestre de 2020.3. O mesmo tem como objetivo realizar a manipulação de um Grafo simples, sem self-loops.
+
+# Funcionabilidades
+* Impressão por Lista de Adjacência
+
+# Compilando
+```C++
+   $ g++ *.cpp -o main && .\main <arquivo_de_entrada> <arquivo_de_saida>
+```
