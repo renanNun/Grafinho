@@ -51,7 +51,7 @@ int Grafo::getOrdem()
     return this->ordem;
 }
 
-int Grafo::getNumAretas()
+int Grafo::getNumArestas()
 {
     return this->numArestas;
 }
@@ -78,7 +78,7 @@ void Grafo::imprimirListaAdj()
 {
     cout << "\tImpressão por Lista de Adjacência;" << endl;
     cout << "\tOrdem: " << getOrdem() << endl;
-    cout << "\tNúmero de Arestas: " << getNumAretas() << endl;
+    cout << "\tNúmero de Arestas: " << getNumArestas() << endl;
     cout << endl;
 
     for(No* no = this->cabeca;  no != nullptr; no = no->getProx())
@@ -351,6 +351,49 @@ int Grafo::getPosicaoMatriz(int id)
     return -1;
 }
 
+/**
+  Funções que calculam e retornam o grau medio do grafo
+ */
+int Grafo::grauMedioPorSomatorio()
+{
+
+    if(this->ordem !=0)
+    {
+
+        No * percorreGrafo= cabeca;
+        int somatorioGraus=0;
+        while (percorreGrafo->getProx() != NULL )
+        {
+            somatorioGraus=percorreGrafo->getPeso();
+            percorreGrafo=percorreGrafo->getProx();
+        }
+
+        int grauMedio= (1/this->ordem) * somatorioGraus;
+        return grauMedio;
+
+    }
+    else
+    {
+        cout<<"Não é possivel calcular o grau medio sem nós no grafo";
+        return -1;
+    }
+}
+
+int Grafo::grauMedioPorAdjacencia()
+{
+
+    if(this->ordem !=0)
+    {
+        int grauMedio= (2) * (this->ordem/this->numArestas);
+        return grauMedio;
+    }
+    else
+    {
+        cout<<"Não é possivel calcular o grau medio sem nós no grafo";
+        return -1;
+    }
+}
+
 bool Grafo::visitado(int id,int* vetor, int tam)
 {
     for(int i = 0; i < tam; i++)
@@ -380,7 +423,9 @@ void Grafo::buscaEmProfundidade(int id)
     if(p != nullptr)
     {
         buscaEmProfundidadeF(p,vetorColoracao,pai,nivel);
-    } else {
+    }
+    else
+    {
         cout << "Nó não encontrado" << endl;
         return;
     }
@@ -431,7 +476,9 @@ void Grafo::buscaEmLargura(int id)
     {
         buscaEmLarguraF(p,vetorColoracao,vetorColoracaoB,vetorColoracaoC);
 
-    } else {
+    }
+    else
+    {
         cout << "No não encontrado!" << endl;
         return;
     }

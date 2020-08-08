@@ -107,6 +107,7 @@ void menu(Grafo* g)
         cout << "\t 06) Remover Aresta do Grafo" << endl;
         cout << "\t 07) Busca em Profundidade" << endl;
         cout << "\t 08) Busca em Largura" << endl;
+        cout << "\t 09) Grau Medio Grafo" << endl;
         cout << "\t  0) Sair" << endl;
         cout << endl << "Opção: ";
 
@@ -211,6 +212,14 @@ void menu(Grafo* g)
             a = atoi(stringEscolha.c_str());
 
             g->buscaEmLargura(a);
+            break;
+        case 9:
+            int a;
+            int b;
+            a=g->grauMedioPorAdjacencia();
+            b=g->grauMedioPorSomatorio();
+            cout<<"\n O grau medio usando adj é: "<<a;
+            cout<<"\n O grau medio usando sum é: "<<b;
             break;
         default:
             flagInvalido = true;

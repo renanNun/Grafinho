@@ -38,10 +38,16 @@
 		<Unit filename="Aresta.h" />
 		<Unit filename="FilaEncadeada.cpp" />
 		<Unit filename="FilaEncadeada.h" />
+		<Unit filename="Floyd.cpp" />
+		<Unit filename="Floyd.h" />
 		<Unit filename="Grafo.cpp" />
 		<Unit filename="Grafo.h" />
+		<Unit filename="Kruskal.cpp" />
+		<Unit filename="Kruskal.h" />
 		<Unit filename="No.cpp" />
 		<Unit filename="No.h" />
+		<Unit filename="NoAux.cpp" />
+		<Unit filename="NoAux.h" />
 		<Unit filename="PilhaEncadeada.cpp" />
 		<Unit filename="PilhaEncadeada.h" />
 		<Unit filename="main.cpp" />
