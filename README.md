@@ -9,5 +9,8 @@ Este é um projeto para a disciplina de Introdução à Teoria dos Grafos, ofert
 
 # Compilando
 ```C++
-   $ g++ *.cpp -o main && .\main <arquivo_de_entrada> <arquivo_de_saida>
+   $ g++ *.cpp -o main && .\main <arquivo_de_entrada> <arquivo_de_saida>  - BRANCH MASTER
+   
+   $ g++ *.cpp -o main && .\main <arquivo_de_entrada> <arquivo_de_saida> <direcionado> <ponderado_aresta> <ponderado_no> - BRANCH RENAN (LINUX)
+    $ g++ *.cpp -o main && main.exe <arquivo_de_entrada> <arquivo_de_saida> <direcionado> <ponderado_aresta> <ponderado_no> - BRANCH RENAN (WINDOWS)
 ```
