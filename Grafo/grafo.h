@@ -2,6 +2,10 @@
 #define GRAFO_H
 #include <iostream>
 #include <fstream>
+#include <chrono>
+#include <stack>
+#include <list>
+#include <queue>
 
 #include "no.h"
 #include "aresta.h"
@@ -47,6 +51,7 @@ class Grafo
         bool ehConexo();
         float** floydMarshall();
         float* dijkstra(int id);
+        void kruskal(ofstream& output_file);
 
         void imprimir();
 
@@ -62,6 +67,7 @@ class Grafo
         //Funções auxiliares
         bool existeNo(int id);
         void removerAdjacencias(int id);
+        void depthFirstSearchF(No* no, bool* vetor_coloracao,No* pai, int nivel, int id_alvo);
 };
 
 #endif // GRAFO_H

@@ -212,6 +212,118 @@ int Grafo::grauMedioPorAdjacencia()
     }
 }
 
+//BUSCA EM PROFUNDIDADE
+bool Grafo::depthFirstSearch(int id_inicial,int id_alvo)
+{
+    bool* vetor_coloracao = new bool[this->ordem];
+    No* no = this->primeiro_no;
+
+    for(int i = 0; i < this->ordem && no != nullptr; i++)
+    {
+        no->i = i;
+        vetor_coloracao[i] = 0;
+        no = no->getProx();
+    }
+
+    int nivel;
+    No* pai = nullptr;
+    no = getNo(id_inicial);
+
+    cout << "BUSCA EM PROFUNDIDADE A PARTIR DO NO " << id_inicial << " AO NO " << id_alvo << endl << endl;
+
+
+    if(no != nullptr)
+    {
+        depthFirstSearchF(no,vetor_coloracao,pai,0,id_alvo);
+    } else {
+        cout << "NO NAO ENCONTRADO" << endl;
+        return false;
+    }
+
+    delete [] vetor_coloracao;
+    return true;
+}
+
+/**
+    ARRUMAR PONTO DE PARADA DE MODO QUE ELE SÓ VÁ ATÉ O NÓ QUE ESTAMOS PROCURANDO
+    RESPONSÁVEL: LUAN
+*/
+void Grafo::depthFirstSearchF(No* no, bool* vetor_coloracao, No* pai, int nivel, int id_alvo)
+{
+    if(no == nullptr)
+        return;
+
+    if(nivel == 0)
+    {
+        //cout << "debug" << endl;
+        cout << "NO: " <<  no->getId() << " PAI: NULL NIVEL: " << nivel << endl;
+    }
+    else
+    {
+        //cout << "debug" << endl;
+        cout << "NO: " <<  no->getId() << " PAI: " << pai->getId() << " NIVEL: " << nivel << endl;
+    }
+
+    vetor_coloracao[no->i] = 1;
+    Aresta* aresta = no->getPrimeiraAresta();
+
+    while(aresta != nullptr)
+    {
+        No* aux = getNo(aresta->getId());
+        if(vetor_coloracao[aux->i] == 0)
+            depthFirstSearchF(aux,vetor_coloracao,no,nivel+1,id_alvo);
+        aresta = aresta->getProxAresta();
+    }
+}
+
+//BUSCA EM LARGURA
+void Grafo::breathFirstSearch(ofstream& output_file)
+{
+   queue<No*> fila; //FILA
+
+   No* no = this->primeiro_no; //PRIMEIRO NO DO GRAFO
+
+   bool* visitado = new bool[this->ordem]; //VETOR DE MARCAÇÃO
+
+   for(int i = 0; i < this->ordem && no != nullptr; i++)
+   {
+       visitado[i] = false;
+       no->i = i;
+       no = no->getProx();
+   }
+
+   no = this->primeiro_no; //VOLTAMOS PARA O PRIMEIRO NO DO GRAFO
+   visitado[no->i] = 1;
+
+   fila.push(no);
+
+   No* aux;
+   Aresta* aresta;
+
+    output_file << "BUSCA EM LARGURA " << endl << endl;
+
+   while(!fila.empty())
+   {
+       aux = fila.front();
+       fila.pop();
+       aresta = aux->getPrimeiraAresta();
+       output_file << aux->getId() << ", ";
+
+       while(aresta != nullptr)
+       {
+           No* no_aux = getNo(aresta->getId());
+           if(visitado[no_aux->i] == 0)
+           {
+               visitado[no_aux->i] = 1;
+               fila.push(no_aux);
+           }
+
+           aresta = aresta->getProxAresta();
+       }
+   }
+
+}
+
 //IMPRESSÃO
 void Grafo::imprimir()
 {
@@ -248,3 +360,4 @@ void Grafo::imprimir()
         cout << endl;
     }
 }
+

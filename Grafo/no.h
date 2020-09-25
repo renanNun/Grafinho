@@ -36,6 +36,8 @@ class No
         void diminuiGrauSaida();
         Aresta* existeArestaEntre(int id_alvo);
 
+        int i; //Variavel para DFS e BFS
+
     private:
         Aresta* primeira_aresta;
         Aresta* ultima_aresta;

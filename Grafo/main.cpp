@@ -16,7 +16,6 @@ Grafo* leitura(int direcionado, int ponderadoAresta, int ponderadoNo)
     int id_no;
     int id_no_alvo;
     int ordem;
-    int num_arestas;
 
     string line;
 
@@ -90,21 +89,15 @@ void clear()
     #endif // defined
 }
 
-void retornar()
-{
-    #if defined(__WIN32)
-        system("read retornar");
-    #elif defined(__linux__)
-        system("read retornar");
-    #elif defined(__APPLE__)
-        system("read retornar");
-    #endif // defined
-}
-
 void mainMenu(Grafo* graph)
 {
     int selecao;
     bool flag = false;
+    string retornar;
+
+    string id_inicial;
+    string id_alvo;
+    int a,b;
 
     cout << endl << endl;
 
@@ -123,8 +116,16 @@ void mainMenu(Grafo* graph)
             cout << endl << endl;
             cout << "\t\t MENU" << endl;
             cout << "--------------------------------" << endl;
-            cout << "[01] Impressao por Lista de Adjacencia; " << endl;
-            cout << "[02] Grau Medio do Grafo" << endl;
+            cout << "[01] Impressao por Lista de Adjacencia " << endl;
+            cout << "[02] Ordem e Numero de Arestas do Grafo" << endl;
+            cout << "[03] Grau Medio do Grafo" << endl;
+            cout << "[04] Fecho Triadico" << endl;
+            cout << "[05] Busca Em Profundidade" << endl;
+            cout << "[06] Busca em Largura" << endl;
+            cout << "[07] Algoritmo de Dijkstra" << endl;
+            cout << "[08] Algoritmo de Prim" << endl;
+            cout << "[09] Algoritmo de FloydMarshall" << endl;
+            cout << "[10] Algoritmo de Kruskal" << endl;
             cout << " [0] Sair" << endl;
 
             cout << endl << "Escolha: ";
@@ -143,9 +144,29 @@ void mainMenu(Grafo* graph)
                     graph->imprimir();
                     break;
                 case 2:
+                    cout << "Ordem do Grafo: " << graph->getOrdem() << endl;
+                    cout << "Numero de Arestas: " << graph->getNumeroArestas() << endl;
+                    break;
+                case 3:
                     cout << "Grau Medio do Grafo " << endl;
                     cout << "\tPor Somatorio: " << graph->grauMedioPorSomatorio() << endl;
                     cout << "\tPor Adjacencia: " << graph->grauMedioPorAdjacencia() << endl;
+                    break;
+                case 4:
+                    //Fecho triadico
+                    break;
+                case 5:
+                    cout << "\tNo inicial: ";
+                    cin >> id_inicial;
+                    cout << "\tNo alvo: ";
+                    cin >> id_alvo;
+                    cout << endl;
+                    a = atoi(id_inicial.c_str());
+                    b = atoi(id_alvo.c_str());
+                    graph->depthFirstSearch(a,b);
+                    break;
+                case 6:
+                    graph->breathFirstSearch(output_file);
                     break;
                 default:
                     flag = true;
@@ -154,7 +175,15 @@ void mainMenu(Grafo* graph)
             cout << endl<< endl<<"Pressione ENTER para voltar ao menu."<<endl;
 
             if(!flag)
-                retornar();
+            {
+                    #if defined(__WIN32)
+                        system("read retornar");
+                    #elif defined(__linux__)
+                        system("read retornar");
+                    #elif defined(__APPLE__)
+                        system("read retornar");
+                    #endif // defined
+            }
         }
         else
             cout << "Unable to open the output_file" << endl;

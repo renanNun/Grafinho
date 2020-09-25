@@ -7,19 +7,23 @@
 1600991281 source:c:\users\renan\desktop\grafo\no.cpp
 	"no.h"
 
-1600988290 c:\users\renan\desktop\grafo\no.h
+1601009336 c:\users\renan\desktop\grafo\no.h
 	"aresta.h"
 
-1601001134 source:c:\users\renan\desktop\grafo\grafo.cpp
+1601045720 source:c:\users\renan\desktop\grafo\grafo.cpp
 	"grafo.h"
 
-1600994724 c:\users\renan\desktop\grafo\grafo.h
+1601045180 c:\users\renan\desktop\grafo\grafo.h
 	<iostream>
 	<fstream>
+	<chrono>
+	<stack>
+	<list>
+	<queue>
 	"no.h"
 	"aresta.h"
 
-1600998488 source:c:\users\renan\desktop\grafo\main.cpp
+1601045757 source:c:\users\renan\desktop\grafo\main.cpp
 	<iostream>
 	<fstream>
 	<sstream>
