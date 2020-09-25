@@ -1,0 +1,30 @@
+# depslib dependency file v1.0
+1600986897 source:c:\users\renan\desktop\grafo\aresta.cpp
+	"aresta.h"
+
+1600986903 c:\users\renan\desktop\grafo\aresta.h
+
+1600991281 source:c:\users\renan\desktop\grafo\no.cpp
+	"no.h"
+
+1600988290 c:\users\renan\desktop\grafo\no.h
+	"aresta.h"
+
+1601001134 source:c:\users\renan\desktop\grafo\grafo.cpp
+	"grafo.h"
+
+1600994724 c:\users\renan\desktop\grafo\grafo.h
+	<iostream>
+	<fstream>
+	"no.h"
+	"aresta.h"
+
+1600998488 source:c:\users\renan\desktop\grafo\main.cpp
+	<iostream>
+	<fstream>
+	<sstream>
+	<string>
+	<chrono>
+	"grafo.h"
+	"no.h"
+
