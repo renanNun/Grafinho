@@ -236,6 +236,25 @@ int Grafo::grauMedioPorAdjacencia()
     }
 }
 
+bool fechoTriadico(No *a, No  *b){
+
+if (!a->existeArestaEntreBool(b->getId())){
+
+return false;
+}
+else{
+
+return true;
+}
+
+
+}
+
+double coeficienteDeAgrupamento(){
+return 0;
+
+}
+
 //BUSCA EM PROFUNDIDADE
 bool Grafo::depthFirstSearch(int id_inicial,int id_alvo)
 {

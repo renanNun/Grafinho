@@ -183,3 +183,11 @@ Aresta* No::existeArestaEntre(int id_alvo)
             return aux;
     return nullptr;
 }
+
+bool No::existeArestaEntreBool(int id_alvo)
+{
+    for(Aresta* aux = this->primeira_aresta; aux != nullptr; aux = aux->getProxAresta())
+        if(aux->getId() == id_alvo)
+            return true;
+    return false;
+}
