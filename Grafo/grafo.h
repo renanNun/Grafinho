@@ -52,8 +52,10 @@ public:
     void kruskal(ofstream& output_file);
 
     void imprimir();
+    void imprimirMatriz();
 
-
+    void adicionaArestaMatriz(int i,int j);
+    void removeArestaMatriz(int i, int j);
 
 private:
     int ordem;
@@ -64,8 +66,11 @@ private:
     No* primeiro_no;
     No* ultimo_no;
 
-    int** getMatrizAdjacencia();
+    bool** matriz_adjacencia;
+    void getMatrizAdj();
+    void deleteMatrizAdj();
     int getPosicaoMatriz(int id);
+
 
     //Funções auxiliares
     bool existeNo(int id);

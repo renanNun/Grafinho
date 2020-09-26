@@ -8,10 +8,15 @@ Grafo::Grafo(int ordem, bool direcionado,bool ponderado_aresta,bool ponderado_no
     this->ponderado_no = ponderado_no;
     this->primeiro_no = this->ultimo_no = nullptr;
     this->numero_arestas = 0;
+
+    this->matriz_adjacencia = nullptr;
+    this->getMatrizAdj();
 }
 
 Grafo::~Grafo()
 {
+    this->deleteMatrizAdj();
+
     No* prox_no = this->primeiro_no;
 
     while(prox_no != nullptr)
@@ -21,6 +26,7 @@ Grafo::~Grafo()
         delete prox_no;
         prox_no = aux;
     }
+
 }
 
 //Getters
@@ -373,9 +379,6 @@ void Grafo::breathFirstSearch(ofstream& output_file)
 void Grafo::imprimir()
 {
     cout << endl << "IMPRESSAO POR LISTA DE ADJACENCIA" << endl;
-    cout << "\t\t ORDEM: " << this->ordem << endl;
-    cout << "\t\t NUMERO DE ARESTAS: " << this->numero_arestas << endl;
-    cout << "\t\t GRAU MEDIO DO GRAFO: " << this->grauMedioPorAdjacencia() << endl;
     cout << endl;
 
     for(No* no = this->primeiro_no; no != nullptr; no = no->getProx())
@@ -407,33 +410,55 @@ void Grafo::imprimir()
     }
 }
 
-int** Grafo::getMatrizAdjacencia()
+void Grafo::imprimirMatriz()
 {
-    int** matriz_adjacencia;
-    int n = this->ordem;
-    int origem,destino;
-
-    /*INICIANDO A MATRIZ*/
-    matriz_adjacencia = new int*[n];
-    for(int i = 0; i < n; i++)
+    cout << endl << "IMPRESSAO POR MATRIZ DE ADJACENCIA" << endl;
+    cout << endl;
+    int a,b;
+    for( No* no = this->primeiro_no;no != nullptr; no = no->getProx())
     {
-        matriz_adjacencia[i] = new int[n];
-        for(int j = 0; j < n; j++)
-            matriz_adjacencia[i][j] = -1;
-    }
-
-    for(No* no = this->primeiro_no; no != nullptr; no = no->getProx())
-    {
-        origem = getPosicaoMatriz(no->getId());
-
+        a = getPosicaoMatriz(no->getId());
+        cout << endl;
+        cout << "(" << no->getId() << ") ";
         for(Aresta* aresta = no->getPrimeiraAresta(); aresta != nullptr; aresta = aresta->getProxAresta())
         {
-            destino = this->getPosicaoMatriz(aresta->getId());
-            matriz_adjacencia[origem][destino] = aresta->getPeso();
+            //cout << "ENTROU" << endl;
+            b = getPosicaoMatriz(aresta->getId());
+            cout << this->matriz_adjacencia[a][b] << " | ";
         }
     }
 
-    return matriz_adjacencia;
+}
+
+void Grafo::getMatrizAdj()
+{
+    this->matriz_adjacencia = new bool*[this->ordem];
+    for(int i = 0; i < this->ordem; i++)
+    {
+        //cout << " " << i;
+        this->matriz_adjacencia[i] = new bool[this->ordem];
+        for(int j = 0; j < this->ordem; j++)
+        {
+            this->matriz_adjacencia[i][j] = 0;
+        }
+    }
+}
+
+void Grafo::adicionaArestaMatriz(int i, int j)
+{
+    matriz_adjacencia[this->getPosicaoMatriz(i)][this->getPosicaoMatriz(j)] = true;
+}
+
+void Grafo::deleteMatrizAdj()
+{
+    for(int i = 0; i < this->ordem; i++)
+    {
+        for(int j = 0; j < this->ordem; j++)
+        {
+            delete [] matriz_adjacencia[i];
+        }
+        delete [] matriz_adjacencia;
+    }
 }
 
 int Grafo::getPosicaoMatriz(int id)

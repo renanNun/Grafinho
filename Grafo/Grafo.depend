@@ -72,16 +72,16 @@
 
 1600986903 c:\users\renan\documents\github\grafo\grafinho\grafo\aresta.h
 
-1600991281 source:c:\users\renan\documents\github\grafo\grafinho\grafo\no.cpp
+1601152240 source:c:\users\renan\documents\github\grafo\grafinho\grafo\no.cpp
 	"no.h"
 
-1601150449 c:\users\renan\documents\github\grafo\grafinho\grafo\no.h
+1601152240 c:\users\renan\documents\github\grafo\grafinho\grafo\no.h
 	"aresta.h"
 
-1601149315 source:c:\users\renan\documents\github\grafo\grafinho\grafo\grafo.cpp
+1601158147 source:c:\users\renan\documents\github\grafo\grafinho\grafo\grafo.cpp
 	"grafo.h"
 
-1601151963 c:\users\renan\documents\github\grafo\grafinho\grafo\grafo.h
+1601158172 c:\users\renan\documents\github\grafo\grafinho\grafo\grafo.h
 	<iostream>
 	<fstream>
 	<chrono>
@@ -91,7 +91,7 @@
 	"no.h"
 	"aresta.h"
 
-1601150340 source:c:\users\renan\documents\github\grafo\grafinho\grafo\main.cpp
+1601158367 source:c:\users\renan\documents\github\grafo\grafinho\grafo\main.cpp
 	<iostream>
 	<fstream>
 	<sstream>
