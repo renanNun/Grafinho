@@ -75,13 +75,13 @@
 1600991281 source:c:\users\renan\documents\github\grafo\grafinho\grafo\no.cpp
 	"no.h"
 
-1601009336 c:\users\renan\documents\github\grafo\grafinho\grafo\no.h
+1601150449 c:\users\renan\documents\github\grafo\grafinho\grafo\no.h
 	"aresta.h"
 
 1601149315 source:c:\users\renan\documents\github\grafo\grafinho\grafo\grafo.cpp
 	"grafo.h"
 
-1601149315 c:\users\renan\documents\github\grafo\grafinho\grafo\grafo.h
+1601151963 c:\users\renan\documents\github\grafo\grafinho\grafo\grafo.h
 	<iostream>
 	<fstream>
 	<chrono>
@@ -90,4 +90,13 @@
 	<queue>
 	"no.h"
 	"aresta.h"
+
+1601150340 source:c:\users\renan\documents\github\grafo\grafinho\grafo\main.cpp
+	<iostream>
+	<fstream>
+	<sstream>
+	<string>
+	<chrono>
+	"grafo.h"
+	"no.h"
 

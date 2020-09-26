@@ -47,16 +47,13 @@ public:
 
     bool depthFirstSearch(int id_inicial, int id_alvo);
     void breathFirstSearch(ofstream& output_file);
-    Grafo* getComplementar();
-    Grafo* getSubjacente();
-    bool existeCircuito();
-    bool ehConexo();
     float** floydMarshall();
     float* dijkstra(int id);
     void kruskal(ofstream& output_file);
 
-
     void imprimir();
+
+
 
 private:
     int ordem;
@@ -66,6 +63,9 @@ private:
     bool ponderado_aresta;
     No* primeiro_no;
     No* ultimo_no;
+
+    int** getMatrizAdjacencia();
+    int getPosicaoMatriz(int id);
 
     //Funções auxiliares
     bool existeNo(int id);

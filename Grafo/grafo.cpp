@@ -407,3 +407,47 @@ void Grafo::imprimir()
     }
 }
 
+int** Grafo::getMatrizAdjacencia()
+{
+    int** matriz_adjacencia;
+    int n = this->ordem;
+    int origem,destino;
+
+    /*INICIANDO A MATRIZ*/
+    matriz_adjacencia = new int*[n];
+    for(int i = 0; i < n; i++)
+    {
+        matriz_adjacencia[i] = new int[n];
+        for(int j = 0; j < n; j++)
+            matriz_adjacencia[i][j] = -1;
+    }
+
+    for(No* no = this->primeiro_no; no != nullptr; no = no->getProx())
+    {
+        origem = getPosicaoMatriz(no->getId());
+
+        for(Aresta* aresta = no->getPrimeiraAresta(); aresta != nullptr; aresta = aresta->getProxAresta())
+        {
+            destino = this->getPosicaoMatriz(aresta->getId());
+            matriz_adjacencia[origem][destino] = aresta->getPeso();
+        }
+    }
+
+    return matriz_adjacencia;
+}
+
+int Grafo::getPosicaoMatriz(int id)
+{
+    int c = 0;
+
+    for(No* no = this->primeiro_no; no != nullptr; no = no->getProx())
+    {
+        if(no->getId() == id)
+        {
+            return c;
+        }
+        c++;
+    }
+
+    return -1;
+}
