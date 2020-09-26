@@ -59,7 +59,7 @@ No* Grafo::getUltimoNo()
     return this->ultimo_no;
 }
 
-//Outros MÈtodos
+//Outros M√©todos
 void Grafo::aumentaNumArestas()
 {
     this->numero_arestas++;
@@ -76,8 +76,8 @@ No* Grafo::getNo(int id)
     if(this->primeiro_no != nullptr)
     {
         for(No* aux = this->primeiro_no; aux != nullptr; aux = aux->getProx())
-                if(aux->getId() == id)
-                    return aux;
+            if(aux->getId() == id)
+                return aux;
     }
 
     return nullptr;
@@ -88,8 +88,8 @@ bool Grafo::existeNo(int id)
     if(this->primeiro_no != nullptr)
     {
         for(No* aux = this->primeiro_no; aux != nullptr; aux = aux->getProx())
-                if(aux->getId() == id)
-                    return true;
+            if(aux->getId() == id)
+                return true;
     }
 
     return false;
@@ -104,7 +104,9 @@ void Grafo::inserirNo(int id)
             No* no = new No(id);
             this->ultimo_no->setProxNo(no);
             this->ultimo_no = no;
-        } else {
+        }
+        else
+        {
             this->primeiro_no = new No(id);
             this->ultimo_no = this->primeiro_no;
         }
@@ -120,7 +122,9 @@ void Grafo::removerNo(int id)
             No* aux = this->primeiro_no;
             this->primeiro_no = this->primeiro_no->getProx();
             delete aux;
-        } else {
+        }
+        else
+        {
 
             No* anterior;
             No* aux = this->primeiro_no;
@@ -146,7 +150,7 @@ void Grafo::removerNo(int id)
             No* p = this->primeiro_no;
             while(p != nullptr)
             {
-                    p->removerAresta(id,direcionado,p);
+                p->removerAresta(id,direcionado,p);
             }
 
             delete aux;
@@ -170,7 +174,9 @@ void Grafo::inserirAresta(int id,int id_alvo,float peso)
         no->inserirAresta(id_alvo,peso);
         no->aumentaGrauSaida();
         no_alvo->aumentaGrauEntrada();
-    } else {
+    }
+    else
+    {
         No* no = getNo(id);
         no->inserirAresta(id_alvo,peso);
         no->aumentaGrauEntrada();
@@ -183,18 +189,34 @@ int Grafo::grauMedioPorSomatorio()
     if(this->ordem != 0)
     {
         No* percorreGrafo = this->primeiro_no;
-        float somatorioGraus = 0;
+        int somatorioGraus = 0;
 
-        while(percorreGrafo->getProx() != nullptr)
+        if(!this->direcionado)
         {
-            somatorioGraus += percorreGrafo->getPeso();
-            percorreGrafo = percorreGrafo->getProx();
+            while(percorreGrafo->getProx() != nullptr)
+            {
+                somatorioGraus += percorreGrafo->getGrauEntrada();
+                percorreGrafo = percorreGrafo->getProx();
+            }
+        }
+        else
+        {
+            while(percorreGrafo->getProx() != nullptr)
+            {
+                somatorioGraus += percorreGrafo->getGrauSaida();
+                percorreGrafo = percorreGrafo->getProx();
+            }
+
+
         }
 
-        int grauMedio = (1.0/this->ordem) * somatorioGraus;
+
+        int grauMedio = somatorioGraus/this->ordem;
         return grauMedio;
-    } else {
-        cout << "Nao e possÌvel calcular o grau medio sem nos no grafo";
+    }
+    else
+    {
+        cout << "Nao e poss√≠vel calcular o grau medio sem nos no grafo";
         return -1;
     }
 }
@@ -204,10 +226,12 @@ int Grafo::grauMedioPorAdjacencia()
 {
     if(this->ordem != 0)
     {
-        int grauMedio = (2) * (this->ordem/this->numero_arestas);
+        int grauMedio = (2) * (this->numero_arestas/this->ordem);
         return grauMedio;
-    } else {
-        cout << "Nao e possÌvel calcular o grau medio sem nos no grafo";
+    }
+    else
+    {
+        cout << "Nao e poss√≠vel calcular o grau medio sem nos no grafo";
         return -1;
     }
 }
@@ -235,7 +259,9 @@ bool Grafo::depthFirstSearch(int id_inicial,int id_alvo)
     if(no != nullptr)
     {
         depthFirstSearchF(no,vetor_coloracao,pai,0,id_alvo);
-    } else {
+    }
+    else
+    {
         cout << "NO NAO ENCONTRADO" << endl;
         return false;
     }
@@ -245,8 +271,8 @@ bool Grafo::depthFirstSearch(int id_inicial,int id_alvo)
 }
 
 /**
-    ARRUMAR PONTO DE PARADA DE MODO QUE ELE S” V¡ AT… O N” QUE ESTAMOS PROCURANDO
-    RESPONS¡VEL: LUAN
+    ARRUMAR PONTO DE PARADA DE MODO QUE ELE S√ì V√Å AT√â O N√ì QUE ESTAMOS PROCURANDO
+    RESPONS√ÅVEL: LUAN
 */
 void Grafo::depthFirstSearchF(No* no, bool* vetor_coloracao, No* pai, int nivel, int id_alvo)
 {
@@ -279,52 +305,52 @@ void Grafo::depthFirstSearchF(No* no, bool* vetor_coloracao, No* pai, int nivel,
 //BUSCA EM LARGURA
 void Grafo::breathFirstSearch(ofstream& output_file)
 {
-   queue<No*> fila; //FILA
+    queue<No*> fila; //FILA
 
-   No* no = this->primeiro_no; //PRIMEIRO NO DO GRAFO
+    No* no = this->primeiro_no; //PRIMEIRO NO DO GRAFO
 
-   bool* visitado = new bool[this->ordem]; //VETOR DE MARCA«√O
+    bool* visitado = new bool[this->ordem]; //VETOR DE MARCA√á√ÉO
 
-   for(int i = 0; i < this->ordem && no != nullptr; i++)
-   {
-       visitado[i] = false;
-       no->i = i;
-       no = no->getProx();
-   }
+    for(int i = 0; i < this->ordem && no != nullptr; i++)
+    {
+        visitado[i] = false;
+        no->i = i;
+        no = no->getProx();
+    }
 
-   no = this->primeiro_no; //VOLTAMOS PARA O PRIMEIRO NO DO GRAFO
-   visitado[no->i] = 1;
+    no = this->primeiro_no; //VOLTAMOS PARA O PRIMEIRO NO DO GRAFO
+    visitado[no->i] = 1;
 
-   fila.push(no);
+    fila.push(no);
 
-   No* aux;
-   Aresta* aresta;
+    No* aux;
+    Aresta* aresta;
 
     output_file << "BUSCA EM LARGURA " << endl << endl;
 
-   while(!fila.empty())
-   {
-       aux = fila.front();
-       fila.pop();
-       aresta = aux->getPrimeiraAresta();
-       output_file << aux->getId() << ", ";
+    while(!fila.empty())
+    {
+        aux = fila.front();
+        fila.pop();
+        aresta = aux->getPrimeiraAresta();
+        output_file << aux->getId() << ", ";
 
-       while(aresta != nullptr)
-       {
-           No* no_aux = getNo(aresta->getId());
-           if(visitado[no_aux->i] == 0)
-           {
-               visitado[no_aux->i] = 1;
-               fila.push(no_aux);
-           }
+        while(aresta != nullptr)
+        {
+            No* no_aux = getNo(aresta->getId());
+            if(visitado[no_aux->i] == 0)
+            {
+                visitado[no_aux->i] = 1;
+                fila.push(no_aux);
+            }
 
-           aresta = aresta->getProxAresta();
-       }
-   }
+            aresta = aresta->getProxAresta();
+        }
+    }
 
 }
 
-//IMPRESS√O
+//IMPRESS√ÉO
 void Grafo::imprimir()
 {
     cout << endl << "IMPRESSAO POR LISTA DE ADJACENCIA" << endl;
@@ -348,11 +374,12 @@ void Grafo::imprimir()
                     cout << aresta->getId() << "(" << aresta->getPeso() << ")--->";
                 else
                     cout << aresta->getId();
-            } else
+            }
+            else
             {
-               if(aresta->getProxAresta() != nullptr)
+                if(aresta->getProxAresta() != nullptr)
                     cout << aresta->getId() << "--->";
-               else
+                else
                     cout << aresta->getId();
             }
         }

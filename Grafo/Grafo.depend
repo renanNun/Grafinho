@@ -2,6 +2,8 @@
 1600986897 source:c:\users\renan\desktop\grafo\aresta.cpp
 	"aresta.h"
 
+1601045757 
+
 1600986903 c:\users\renan\desktop\grafo\aresta.h
 
 1600991281 source:c:\users\renan\desktop\grafo\no.cpp
@@ -31,4 +33,37 @@
 	<chrono>
 	"grafo.h"
 	"no.h"
+
+1601146720 source:/home/luan/Github/Grafinho/Grafo/aresta.cpp
+	"aresta.h"
+
+1601146720 /home/luan/Github/Grafinho/Grafo/aresta.h
+
+1601146720 source:/home/luan/Github/Grafinho/Grafo/main.cpp
+	<iostream>
+	<fstream>
+	<sstream>
+	<string>
+	<chrono>
+	"grafo.h"
+	"no.h"
+
+1601148238 /home/luan/Github/Grafinho/Grafo/grafo.h
+	<iostream>
+	<fstream>
+	<chrono>
+	<stack>
+	<list>
+	<queue>
+	"no.h"
+	"aresta.h"
+
+1601146720 /home/luan/Github/Grafinho/Grafo/no.h
+	"aresta.h"
+
+1601146720 source:/home/luan/Github/Grafinho/Grafo/no.cpp
+	"no.h"
+
+1601148107 source:/home/luan/Github/Grafinho/Grafo/grafo.cpp
+	"grafo.h"
 
