@@ -230,9 +230,11 @@ int main(int argc, char const *argv[])
 
     output_file << "\t\tTRABALHO DE GRAFOS" << endl;
     output_file << "alunos: Luan Reis Ciribelli e Renan Nunes da Costa Gonçalves" << endl << endl;
-    output_file << "Numero de Vertices: " << endl;
-    output_file << "Numero de Nos: "  <<endl;
-    output_file << "Grau Medio do Grafo: " << endl;
+    output_file << "Numero de Vertices: " << graph->getOrdem() << endl;
+    output_file << "Numero de Arestas: " << graph->getNumeroArestas()  <<endl;
+    output_file << "Grau Medio do Grafo" << endl;
+    output_file << "\tPor Adjacencia: " << graph->grauMedioPorAdjacencia() << endl;
+    output_file << "\tPor Adjacencia: " << graph->grauMedioPorSomatorio() << endl;
     output_file << "Fecho Triadico: " << endl;
     output_file << endl << endl;
 

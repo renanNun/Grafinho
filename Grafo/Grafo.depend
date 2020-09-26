@@ -78,3 +78,16 @@
 1601009336 c:\users\renan\documents\github\grafo\grafinho\grafo\no.h
 	"aresta.h"
 
+1601149315 source:c:\users\renan\documents\github\grafo\grafinho\grafo\grafo.cpp
+	"grafo.h"
+
+1601149315 c:\users\renan\documents\github\grafo\grafinho\grafo\grafo.h
+	<iostream>
+	<fstream>
+	<chrono>
+	<stack>
+	<list>
+	<queue>
+	"no.h"
+	"aresta.h"
+
