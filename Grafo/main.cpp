@@ -117,15 +117,16 @@ void mainMenu(Grafo* graph)
             cout << "\t\t MENU" << endl;
             cout << "--------------------------------" << endl;
             cout << "[01] Impressao por Lista de Adjacencia " << endl;
-            cout << "[02] Ordem e Numero de Arestas do Grafo" << endl;
-            cout << "[03] Grau Medio do Grafo" << endl;
-            cout << "[04] Fecho Triadico" << endl;
-            cout << "[05] Busca Em Profundidade" << endl;
-            cout << "[06] Busca em Largura" << endl;
-            cout << "[07] Algoritmo de Dijkstra" << endl;
-            cout << "[08] Algoritmo de Prim" << endl;
-            cout << "[09] Algoritmo de FloydMarshall" << endl;
-            cout << "[10] Algoritmo de Kruskal" << endl;
+            cout << "[02] Impressao por Matriz de Adjacencia " << endl;
+            cout << "[03] Ordem e Numero de Arestas do Grafo" << endl;
+            cout << "[04] Grau Medio do Grafo" << endl;
+            cout << "[05] Fecho Triadico" << endl;
+            cout << "[06] Busca Em Profundidade" << endl;
+            cout << "[07] Busca em Largura" << endl;
+            cout << "[08] Algoritmo de Dijkstra" << endl;
+            cout << "[09] Algoritmo de Prim" << endl;
+            cout << "[10] Algoritmo de FloydMarshall" << endl;
+            cout << "[11] Algoritmo de Kruskal" << endl;
             cout << " [0] Sair" << endl;
 
             cout << endl << "Escolha: ";
@@ -144,6 +145,8 @@ void mainMenu(Grafo* graph)
                     graph->imprimir();
                     break;
                 case 2:
+                    break;
+                case 3:
                     cout << "Ordem do Grafo: " << graph->getOrdem() << endl;
                     cout << "Numero de Arestas: " << graph->getNumeroArestas() << endl;
                     break;
