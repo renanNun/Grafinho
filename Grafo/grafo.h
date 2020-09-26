@@ -42,6 +42,8 @@ public:
 
     int grauMedioPorSomatorio();
     int grauMedioPorAdjacencia();
+    bool fechoTriadico(No *a, No* b);
+    double coeficienteDeAgrupamento();
 
     bool depthFirstSearch(int id_inicial, int id_alvo);
     void breathFirstSearch(ofstream& output_file);

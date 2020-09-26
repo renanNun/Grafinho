@@ -35,6 +35,7 @@ class No
         void aumentaGrauSaida();
         void diminuiGrauSaida();
         Aresta* existeArestaEntre(int id_alvo);
+        bool existeArestaEntreBool(int id_alvo);
 
         int i; //Variavel para DFS e BFS
 
