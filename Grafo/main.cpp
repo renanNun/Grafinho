@@ -206,10 +206,6 @@ int main(int argc, char const *argv[])
     string input_file_name(argv[1]);
 
     string instance;
-    if(input_file_name.find("v") <= input_file_name.size()){
-        string instance = input_file_name.substr(input_file_name.find("v"));
-        cout << "Running " << program_name << " com a instancia " << instance << " ... " << endl;
-    }
 
     //Abrindo arquivo de entrada
     input_file.open(argv[1], ios::in);
@@ -227,7 +223,18 @@ int main(int argc, char const *argv[])
 
     mainMenu(graph);
 
+    if(input_file_name.find("v") <= input_file_name.size()){
+        string instance = input_file_name.substr(input_file_name.find("v"));
+        cout << "Running " << program_name << " com a instancia " << instance << " ... " << endl;
+    }
 
+    output_file << "\t\tTRABALHO DE GRAFOS" << endl;
+    output_file << "alunos: Luan Reis Ciribelli e Renan Nunes da Costa Gonçalves" << endl << endl;
+    output_file << "Numero de Vertices: " << endl;
+    output_file << "Numero de Nos: "  <<endl;
+    output_file << "Grau Medio do Grafo: " << endl;
+    output_file << "Fecho Triadico: " << endl;
+    output_file << endl << endl;
 
     //Fechando arquivo de entrada
     input_file.close();
