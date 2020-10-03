@@ -38,9 +38,13 @@
 		<Unit filename="aresta.h" />
 		<Unit filename="grafo.cpp" />
 		<Unit filename="grafo.h" />
+		<Unit filename="kruskal.cpp" />
+		<Unit filename="kruskal.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="no.cpp" />
 		<Unit filename="no.h" />
+		<Unit filename="prim.cpp" />
+		<Unit filename="prim.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

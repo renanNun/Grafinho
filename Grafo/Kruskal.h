@@ -1,5 +1,7 @@
-#ifndef FLOYD_H
-#define FLOYD_H
+#ifndef KRUSKAL_H
+#define KRUSKAL_H
+
+#include "grafo.h"
 
 using namespace std;
 
@@ -8,13 +10,14 @@ using namespace std;
 *   Criador: Luan Reis Ciribelli
 *   vers�o: 1.0
 */
-class floyd
+class kruskal
 {
     public:
 
+    kruskal (Grafo * grafo);
 
     private:
      
 };
 
-#endif // FLOYD_H
+#endif // KRUSKAL_H

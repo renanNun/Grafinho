@@ -1,5 +1,5 @@
-#ifndef KRUSKAL_H
-#define KRUSKAL_H
+#ifndef FLOYD_H
+#define FLOYD_H
 
 using namespace std;
 
@@ -8,7 +8,7 @@ using namespace std;
 *   Criador: Luan Reis Ciribelli
 *   vers�o: 1.0
 */
-class kruskal
+class Floyd
 {
     public:
 
@@ -17,4 +17,4 @@ class kruskal
      
 };
 
-#endif // KRUSKAL_H
+#endif // FLOYD_H

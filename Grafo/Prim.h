@@ -1,5 +1,5 @@
-#ifndef DJIKSRTRA_H
-#define DJIKSRTRA_H
+#ifndef PRIM_H
+#define PRIM_H
 
 using namespace std;
 
@@ -8,7 +8,7 @@ using namespace std;
 *   Criador: Luan Reis Ciribelli
 *   vers�o: 1.0
 */
-class Djikstra
+class Prim
 {
     public:
 
@@ -17,4 +17,4 @@ class Djikstra
      
 };
 
-#endif // DJIKSRTRA_H
+#endif // PRIM_H

@@ -1,5 +1,6 @@
-#ifndef PRIM_H
-#define PRIM_H
+#ifndef CAMINHOMINIMO_H
+#define CAMINHOMINIMO_H
+
 
 using namespace std;
 
@@ -8,13 +9,15 @@ using namespace std;
 *   Criador: Luan Reis Ciribelli
 *   vers�o: 1.0
 */
-class prim
+class CaminhoMinimo
 {
     public:
 
-
+        CaminhoMinimo(Grafo *grafo);
     private:
-     
+    
+    
+
 };
 
-#endif // PRIM_H
+#endif // CAMINHOMINIMO_H

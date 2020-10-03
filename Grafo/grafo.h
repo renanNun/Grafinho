@@ -47,9 +47,9 @@ public:
 
     bool depthFirstSearch(int id_inicial, int id_alvo);
     void breathFirstSearch(ofstream& output_file);
-    float** floydMarshall();
-    float* dijkstra(int id);
-    void kruskal(ofstream& output_file);
+    //float** floydMarshall();
+    //float* dijkstra(int id);
+    //void kruskal(ofstream& output_file);
 
     void imprimir();
     void imprimirMatriz();
