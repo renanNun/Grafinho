@@ -12,7 +12,7 @@ std::ofstream output_file;
 
 Grafo* leitura(int direcionado, int ponderadoAresta, int ponderadoNo)
 {
-    //Variáveis auxiliares
+    //Variï¿½veis auxiliares
     int id_no;
     int id_no_alvo;
     int ordem;
@@ -142,13 +142,12 @@ void mainMenu(Grafo* graph)
         cout << "[02] Impressao por Matriz de Adjacencia " << endl;
         cout << "[03] Ordem e Numero de Arestas do Grafo" << endl;
         cout << "[04] Grau Medio do Grafo" << endl;
-        cout << "[05] Fecho Triadico" << endl;
-        cout << "[06] Busca Em Profundidade" << endl;
-        cout << "[07] Busca em Largura" << endl;
-        cout << "[08] Algoritmo de Dijkstra" << endl;
-        cout << "[09] Algoritmo de Prim" << endl;
-        cout << "[10] Algoritmo de FloydMarshall" << endl;
-        cout << "[11] Algoritmo de Kruskal" << endl;
+        cout << "[05] Busca Em Profundidade" << endl;
+        cout << "[06] Busca em Largura" << endl;
+        cout << "[07] Algoritmo de Dijkstra" << endl;
+        cout << "[08] Algoritmo de Prim" << endl;
+        cout << "[09] Algoritmo de FloydMarshall" << endl;
+        cout << "[10] Algoritmo de Kruskal" << endl;
         cout << " [0] Sair" << endl;
 
         cout << endl << "Escolha: ";
@@ -178,10 +177,7 @@ void mainMenu(Grafo* graph)
                 cout << "\tPor Somatorio: " << graph->grauMedioPorSomatorio() << endl;
                 cout << "\tPor Adjacencia: " << graph->grauMedioPorAdjacencia() << endl;
                 break;
-            case 5:
-                //Fecho triadico
-                break;
-            case 6:
+            case 5:       
                 cout << "\tNo inicial: ";
                 cin >> id_inicial;
                 cout << "\tNo alvo: ";
@@ -191,9 +187,21 @@ void mainMenu(Grafo* graph)
                 b = atoi(id_alvo.c_str());
                 graph->depthFirstSearch(a,b);
                 break;
-            case 7:
+            case 6:
                 graph->breathFirstSearch(output_file);
                 break;
+            case 7:
+               
+                break;
+            case 8:
+                
+                break;
+            case 9:
+                
+                break;
+            case 10:
+               
+                break;   
             default:
                 flag = true;
             }
@@ -221,7 +229,7 @@ void mainMenu(Grafo* graph)
 
 int main(int argc, char const *argv[])
 {
-    //Verificação se todos os parâmetros do programa foram entrados
+    //Verificaï¿½ï¿½o se todos os parï¿½metros do programa foram entrados
     if(argc != 6)
     {
         cout << "ERROR: Espera-se: ./<program_name> <input_file> <output_file> <direcionado> <ponderado_aresta> <ponderado_no>" << endl;
@@ -258,7 +266,7 @@ int main(int argc, char const *argv[])
     }
 
     output_file << "\t\tTRABALHO DE GRAFOS" << endl;
-    output_file << "alunos: Luan Reis Ciribelli e Renan Nunes da Costa Gonçalves" << endl << endl;
+    output_file << "alunos: Luan Reis Ciribelli e Renan Nunes da Costa Gonï¿½alves" << endl << endl;
     output_file << "Numero de Vertices: " << graph->getOrdem() << endl;
     output_file << "Numero de Arestas: " << graph->getNumeroArestas()  <<endl;
     output_file << "Grau Medio do Grafo" << endl;
