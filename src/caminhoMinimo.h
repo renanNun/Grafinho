@@ -1,6 +1,7 @@
 #ifndef CAMINHOMINIMO_H
 #define CAMINHOMINIMO_H
 
+#include "grafo.h"
 
 using namespace std;
 
@@ -11,12 +12,14 @@ using namespace std;
 */
 class CaminhoMinimo
 {
-    public:
+public:
 
-        CaminhoMinimo(Grafo *grafo);
-    private:
-    
-    
+    caminhoMinimo(Grafo *grafo);
+    void relax(No *u, No *v, int peso);
+private:
+
+    No * cabeça;
+
 
 };
 
