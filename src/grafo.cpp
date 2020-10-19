@@ -550,10 +550,10 @@ int Grafo::getPosicaoMatriz(int id)
     @param d: grau do nó
     autor: Renan Nunes da Costa Gonçalves
 */
-float Grafo::frequenciaRelativa(int d)
+double Grafo::frequenciaRelativa(int d)
 {
     if(this->primeiro_no == nullptr)
-        return 0;
+        return -1;
     else {
         int cont = 0;
 

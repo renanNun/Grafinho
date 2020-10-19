@@ -111,7 +111,7 @@
 1601763104 c:\users\renan\documents\github\grafo\grafinho\src\kruskal.h
 	"grafo.h"
 
-1603119373 c:\users\renan\documents\github\grafo\grafinho\src\grafo.h
+1603120763 c:\users\renan\documents\github\grafo\grafinho\src\grafo.h
 	<iostream>
 	<fstream>
 	<chrono>
@@ -124,7 +124,7 @@
 1603118974 c:\users\renan\documents\github\grafo\grafinho\src\no.h
 	"aresta.h"
 
-1603119599 source:c:\users\renan\documents\github\grafo\grafinho\src\main.cpp
+1603120633 source:c:\users\renan\documents\github\grafo\grafinho\src\main.cpp
 	<iostream>
 	<fstream>
 	<sstream>
@@ -141,6 +141,12 @@
 
 1603118974 c:\users\renan\documents\github\grafo\grafinho\src\prim.h
 
-1603119621 source:c:\users\renan\documents\github\grafo\grafinho\src\grafo.cpp
+1603120757 source:c:\users\renan\documents\github\grafo\grafinho\src\grafo.cpp
+	"grafo.h"
+
+1603124759 source:c:\users\renan\documents\github\grafo\grafinho\src\dijkstra.cpp
+	"dijkstra.h"
+
+1603124822 c:\users\renan\documents\github\grafo\grafinho\src\dijkstra.h
 	"grafo.h"
 

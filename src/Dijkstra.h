@@ -1,23 +1,28 @@
-#ifndef DJIKSRTRA_H
-#define DJIKSRTRA_H
+#ifndef DIJKSTRA_H
+#define DIJKSTRA_H
 
+#include "grafo.h"
 
 using namespace std;
 
-/**
-*   Universidade Federal de Juiz de Fora
-*   Criador: Luan Reis Ciribelli
-*   vers�o: 1.0
-*/
-class Djikstra
+class Dijkstra
 {
     public:
+        Dijkstra(Grafo* g,int no_inicial);
+        virtual ~Dijkstra();
 
+        void iniciaIndices();
+        void algoritmo();
+        int buscaIndiceComMenorEstimativa(int* distancias, int* abertos,int tam);
 
     private:
-    
-    NO* cabeça;
+        Grafo* graph;
+        int no_inicial;
 
+        int* vertices;
+        int* distancias;
+        int* predecessores;
+        int* abertos;
 };
 
-#endif // DJIKSRTRA_H
+#endif // DIJKSTRA_H

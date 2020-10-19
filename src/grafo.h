@@ -57,7 +57,7 @@ public:
     void adicionaArestaMatriz(int i,int j);
     void removeArestaMatriz(int i, int j);
 
-    float frequenciaRelativa(int d);
+    double frequenciaRelativa(int d);
 private:
     int ordem;
     int numero_arestas;

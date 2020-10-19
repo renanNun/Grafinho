@@ -5,6 +5,7 @@
 #include <chrono>
 #include "grafo.h"
 #include "no.h"
+#include "dijkstra.h"
 
 using namespace std;
 std::ifstream input_file;
@@ -120,6 +121,8 @@ void mainMenu(Grafo* graph)
     string d;
     int a,b;
 
+    Dijkstra* algoritmoDijkstra;
+
     cout << endl << endl;
 
     clear();
@@ -184,7 +187,7 @@ void mainMenu(Grafo* graph)
                 cin >> d;
                 cout << endl;
                 a = atoi(d.c_str());
-                cout << "Frequencia Relativa do Grafo" << graph->frequenciaRelativa(a) << endl;
+                cout << "Frequencia Relativa do Grafo: " << graph->frequenciaRelativa(a) << endl;
                 break;
             case 6:
                 cout << "\tNo inicial: ";
@@ -197,7 +200,11 @@ void mainMenu(Grafo* graph)
                 graph->breathFirstSearch(output_file);
                 break;
             case 8:
-
+                cout << "\tNo inicial: ";
+                cin >> id_inicial;
+                cout << endl;
+                a = atoi(id_inicial.c_str());
+                algoritmoDijkstra = new Dijkstra(graph, a);
                 break;
             case 9:
 
@@ -236,7 +243,7 @@ void mainMenu(Grafo* graph)
 int main(int argc, char const *argv[])
 {
     //Verifica��o se todos os par�metros do programa foram entrados
-    if(argc != 6)
+    if(argc != 3)
     {
         cout << "ERROR: Espera-se: ./<program_name> <input_file> <output_file> <direcionado> <ponderado_aresta> <ponderado_no>" << endl;
         return 1;
@@ -256,8 +263,8 @@ int main(int argc, char const *argv[])
     if(input_file.is_open())
     {
 
-        graph = leitura(atoi(argv[3]), atoi(argv[4]), atoi(argv[5]));
-
+        //graph = leitura(atoi(argv[3]), atoi(argv[4]), atoi(argv[5]));
+        graph = leitura(0,1,0);
     }
     else
         cout << "Unable to open " << argv[1];
