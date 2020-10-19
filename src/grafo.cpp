@@ -520,7 +520,24 @@ void Grafo::imprimirListaAdj(list<int> listAdj[], int v)
 
 void Grafo::getMatrizAdj()
 {
-    this->matriz_adjacencia = new bool*[this->ordem];
+    list<int> listaAdj[]=new list<int>[];
+
+    for(int i = 0; i < this->ordem; i++)
+    {
+        for(int j = 0; j < this->ordem; j++)
+        {
+            adicionaArestaLista(listaAdj,i,j);
+        }
+    }
+
+    imprimirListaAdj(listaAdj,ordem);
+}
+
+
+
+void Grafo::getListAdj()
+{
+
     for(int i = 0; i < this->ordem; i++)
     {
         //cout << " " << i;
@@ -530,6 +547,9 @@ void Grafo::getMatrizAdj()
             this->matriz_adjacencia[i][j] = 0;
         }
     }
+
+
+
 }
 
 void Grafo::adicionaArestaMatriz(int i, int j)
@@ -537,10 +557,10 @@ void Grafo::adicionaArestaMatriz(int i, int j)
     matriz_adjacencia[this->getPosicaoMatriz(i)][this->getPosicaoMatriz(j)] = true;
 }
 
-Grafo::adicionaArestaLista(list<int> listAdj[], int v)
+Grafo::adicionaArestaLista(list<int> listAdj[], int u, int v)
 {
-    adj_list[u].push_back(v);
-    adj_list[v].push_back(u);
+    listAdj[u].push_back(v);
+    listAdj[v].push_back(u);
 }
 
 void Grafo::deleteMatrizAdj()

@@ -51,11 +51,11 @@ public:
 
     void imprimir();
     void imprimirMatriz();
-    void imprimirListaAdj(list<int> listAdj[], int v);
+
 
     void adicionaArestaMatriz(int i,int j);
     void removeArestaMatriz(int i, int j);
-    void adicionaArestaLista(list<int> listAdj[], int u, int v)
+    void getMatrizAdj();
 
 
 private:
@@ -68,10 +68,12 @@ private:
     No* ultimo_no;
 
     bool** matriz_adjacencia;
-    void getMatrizAdj();
+
+    void getListAdj();
     void deleteMatrizAdj();
     int getPosicaoMatriz(int id);
-
+    void adicionaArestaLista(list<int> listAdj[], int u, int v);
+    void imprimirListaAdj(list<int> listAdj[], int v);
 
     //Funções auxiliares
     bool existeNo(int id);

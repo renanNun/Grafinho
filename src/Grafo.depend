@@ -108,13 +108,14 @@
 1603118704 source:/home/luan/Github/Grafinho/src/grafo.cpp
 	"grafo.h"
 
-1603118704 /home/luan/Github/Grafinho/src/grafo.h
+1603149551 /home/luan/Github/Grafinho/src/grafo.h
 	<iostream>
 	<fstream>
 	<chrono>
 	<stack>
 	<list>
 	<queue>
+	<iterator>
 	"no.h"
 	"aresta.h"
 
