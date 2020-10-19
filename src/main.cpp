@@ -117,6 +117,7 @@ void mainMenu(Grafo* graph)
 
     string id_inicial;
     string id_alvo;
+    string d;
     int a,b;
 
     cout << endl << endl;
@@ -142,12 +143,13 @@ void mainMenu(Grafo* graph)
         cout << "[02] Impressao por Matriz de Adjacencia " << endl;
         cout << "[03] Ordem e Numero de Arestas do Grafo" << endl;
         cout << "[04] Grau Medio do Grafo" << endl;
-        cout << "[05] Busca Em Profundidade" << endl;
-        cout << "[06] Busca em Largura" << endl;
-        cout << "[07] Algoritmo de Dijkstra" << endl;
-        cout << "[08] Algoritmo de Prim" << endl;
-        cout << "[09] Algoritmo de FloydMarshall" << endl;
-        cout << "[10] Algoritmo de Kruskal" << endl;
+        cout << "[05] Frequencia Relativa do Grafo" << endl;
+        cout << "[06] Busca Em Profundidade" << endl;
+        cout << "[07] Busca em Largura" << endl;
+        cout << "[08] Algoritmo de Dijkstra" << endl;
+        cout << "[09] Algoritmo de Prim" << endl;
+        cout << "[10] Algoritmo de FloydMarshall" << endl;
+        cout << "[11] Algoritmo de Kruskal" << endl;
         cout << " [0] Sair" << endl;
 
         cout << endl << "Escolha: ";
@@ -177,31 +179,35 @@ void mainMenu(Grafo* graph)
                 cout << "\tPor Somatorio: " << graph->grauMedioPorSomatorio() << endl;
                 cout << "\tPor Adjacencia: " << graph->grauMedioPorAdjacencia() << endl;
                 break;
-            case 5:       
-                cout << "\tNo inicial: ";
-                cin >> id_inicial;
-                cout << "\tNo alvo: ";
-                cin >> id_alvo;
+            case 5:
+                cout << "\tFrequencia: ";
+                cin >> d;
                 cout << endl;
-                a = atoi(id_inicial.c_str());
-                b = atoi(id_alvo.c_str());
-                graph->depthFirstSearch(a,b);
+                a = atoi(d.c_str());
+                cout << "Frequencia Relativa do Grafo" << graph->frequenciaRelativa(a) << endl;
                 break;
             case 6:
-                graph->breathFirstSearch(output_file);
+                cout << "\tNo inicial: ";
+                cin >> id_inicial;
+                cout << endl;
+                a = atoi(id_inicial.c_str());
+                graph->depthFirstSearch(a);
                 break;
             case 7:
-               
+                graph->breathFirstSearch(output_file);
                 break;
             case 8:
-                
+
                 break;
             case 9:
-                
+
                 break;
             case 10:
-               
-                break;   
+
+                break;
+            case 11:
+
+                break;
             default:
                 flag = true;
             }

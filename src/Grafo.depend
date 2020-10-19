@@ -100,3 +100,47 @@
 	"grafo.h"
 	"no.h"
 
+1601763104 source:c:\users\renan\documents\github\grafo\grafinho\src\aresta.cpp
+	"aresta.h"
+
+1601763104 c:\users\renan\documents\github\grafo\grafinho\src\aresta.h
+
+1601763104 source:c:\users\renan\documents\github\grafo\grafinho\src\kruskal.cpp
+	"Kruskal.h"
+
+1601763104 c:\users\renan\documents\github\grafo\grafinho\src\kruskal.h
+	"grafo.h"
+
+1603119373 c:\users\renan\documents\github\grafo\grafinho\src\grafo.h
+	<iostream>
+	<fstream>
+	<chrono>
+	<stack>
+	<list>
+	<queue>
+	"no.h"
+	"aresta.h"
+
+1603118974 c:\users\renan\documents\github\grafo\grafinho\src\no.h
+	"aresta.h"
+
+1603119599 source:c:\users\renan\documents\github\grafo\grafinho\src\main.cpp
+	<iostream>
+	<fstream>
+	<sstream>
+	<string>
+	<chrono>
+	"grafo.h"
+	"no.h"
+
+1603118977 source:c:\users\renan\documents\github\grafo\grafinho\src\no.cpp
+	"no.h"
+
+1603118974 source:c:\users\renan\documents\github\grafo\grafinho\src\prim.cpp
+	"Prim.h"
+
+1603118974 c:\users\renan\documents\github\grafo\grafinho\src\prim.h
+
+1603119621 source:c:\users\renan\documents\github\grafo\grafinho\src\grafo.cpp
+	"grafo.h"
+
