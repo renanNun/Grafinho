@@ -1,5 +1,10 @@
 #include "no.h"
 
+/**
+    Construtor da Classe No.h
+    @param: id - informação contida no nó
+    autor: Renan Nunes da Costa Gonçalves
+*/
 No::No(int id)
 {
     this->id = id;
@@ -11,6 +16,10 @@ No::No(int id)
     this->prox = nullptr;
 }
 
+/**
+    Destrutor da classe No.h
+    autor: Renan Nunes da Costa Gonçalves
+*/
 No::~No()
 {
     Aresta* proxima_aresta = this->primeira_aresta;
@@ -70,6 +79,12 @@ void No::setPeso(float peso)
 }
 
 //Outros métodos
+/**
+    Método que insere uma aresta no No
+    @param: id_alvo - No que possui um caminho
+    @param: peso - custo do caminho
+    autor: Renan Nunes da Costa Gonçalves
+*/
 void No::inserirAresta(int id_alvo,float peso)
 {
     if(this->primeira_aresta != nullptr)
@@ -86,6 +101,10 @@ void No::inserirAresta(int id_alvo,float peso)
     }
 }
 
+/**
+    Método responsável por remover todas as arestas de um nó
+    autor: Renan Nunes da Costa Gonçalves
+*/
 void No::removerTodasArestas()
 {
     if(this->primeira_aresta != nullptr)
@@ -103,6 +122,13 @@ void No::removerTodasArestas()
     this->primeira_aresta = this->ultima_aresta = nullptr;
 }
 
+/**
+    Método resonsável por remover uma aresta da lista de nós
+    @param: id - informação contida no nó
+    @param: direcionado - se o grafo é direcionado ou não
+    @param: no_alvo - o Nó para qual aresta se direcionado
+    autor: Renan Nunes da Costa Gonçalves
+*/
 int No::removerAresta(int id,bool direcionado, No* no_alvo)
 {
     if(this->buscaAresta(id))
@@ -142,6 +168,11 @@ int No::removerAresta(int id,bool direcionado, No* no_alvo)
     return 0;
 }
 
+/**
+    busca uma única aresta
+    @param: id_alvo - id do nó para qual a aresta se direciona
+    autor: Renan Nunes da Costa Gonçalves
+*/
 bool No::buscaAresta(int id_alvo)
 {
     if(this->primeira_aresta != nullptr)
@@ -154,28 +185,49 @@ bool No::buscaAresta(int id_alvo)
     return false;
 }
 
+/**
+    Função que aumenta o Grau de Entrada
+    autor: Renan Nunes da Costa Gonçalves
+*/
 void No::aumentaGrauEntrada()
 {
     this->grau_entrada++;
 }
 
+/**
+    Função que diminui o Grau de Entrada
+    autor: Renan Nunes da Costa Gonçalves
+*/
 void No::diminuiGrauEntrada()
 {
     if(this->grau_entrada > 0)
         this->grau_entrada--;
 }
 
+/**
+   Função que aumenta o Grau de Saida
+   autor: Renan Nunes da Costa Gonçalves
+*/
 void No::aumentaGrauSaida()
 {
     this->grau_saida++;
 }
 
+/**
+    Função que diminui o Grau de Saida
+    autor: Renan Nunes da Costa Gonçalves
+*/
 void No::diminuiGrauSaida()
 {
     if(this->grau_saida > 0)
         this->grau_saida--;
 }
 
+/**
+    Função que verifica a existencia de uma aresta entre nós e retorna o nó
+    @param: id_alvo - informação do nó alvo
+    autor: Renan Nunes da Costa Gonçalves
+*/
 Aresta* No::existeArestaEntre(int id_alvo)
 {
     for(Aresta* aux = this->primeira_aresta; aux != nullptr; aux = aux->getProxAresta())
@@ -184,6 +236,11 @@ Aresta* No::existeArestaEntre(int id_alvo)
     return nullptr;
 }
 
+/**
+    Função que verifica a existencia de uma aresta entre nós e retorna verdadeiro ou falso
+    @param: id_alvo - informação do nó alvo
+    autor: Renan Nunes da Costa Gonçalves
+*/
 bool No::existeArestaEntreBool(int id_alvo)
 {
     for(Aresta* aux = this->primeira_aresta; aux != nullptr; aux = aux->getProxAresta())

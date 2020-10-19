@@ -1,5 +1,13 @@
 #include "grafo.h"
 
+/**
+    Construtor da Classe Grafo.cpp
+    @param ordem: Número total de nós do grafo
+    @param direcionado: Se o Grafo é direcionado ou não
+    @param ponderado_aresta: Se o Grafo possui peso nas aretas
+    @param ponderado_no: Se o Grafo possui peso nos vértices
+    autor: Renan Nunes da Costa Gonçalves
+*/
 Grafo::Grafo(int ordem, bool direcionado,bool ponderado_aresta,bool ponderado_no)
 {
     this->ordem = ordem;
@@ -13,6 +21,10 @@ Grafo::Grafo(int ordem, bool direcionado,bool ponderado_aresta,bool ponderado_no
     this->getMatrizAdj();
 }
 
+/**
+    Destrutor da classe Grafo.cpp
+    autor: Renan Nunes da Costa Gonçalves
+*/
 Grafo::~Grafo()
 {
     this->deleteMatrizAdj();
@@ -66,17 +78,30 @@ No* Grafo::getUltimoNo()
 }
 
 //Outros Métodos
+/**
+    Função que aumenta o número de arestas do Grafo
+    autor: Renan Nunes da Costa Gonçalves
+*/
 void Grafo::aumentaNumArestas()
 {
     this->numero_arestas++;
 }
 
+/**
+    Função que diminui o número de arestas do Grafo
+    autor: Renan Nunes da Costa Gonçalves
+*/
 void Grafo::diminuiNumArestas()
 {
     if(this->numero_arestas > 0)
         this->numero_arestas--;
 }
 
+/**
+    Função que retorna um nó dado um id
+    @param id: informação contida no No
+    autor: Renan Nunes da Costa Gonçalves
+*/
 No* Grafo::getNo(int id)
 {
     if(this->primeiro_no != nullptr)
@@ -89,6 +114,11 @@ No* Grafo::getNo(int id)
     return nullptr;
 }
 
+/**
+    Função que verifica a existencia de um Nó dado um id
+    @param id: informação contida no Id
+    autor: Renan Nunes da Costa Gonçalves
+*/
 bool Grafo::existeNo(int id)
 {
     if(this->primeiro_no != nullptr)
@@ -101,6 +131,11 @@ bool Grafo::existeNo(int id)
     return false;
 }
 
+/**
+    Função que insere um Nó no grafo
+    @param id: Informação continda no No
+    autor: Renan Nunes da Costa Gonçalves
+*/
 void Grafo::inserirNo(int id)
 {
     if(!existeNo(id))
@@ -119,6 +154,11 @@ void Grafo::inserirNo(int id)
     }
 }
 
+/**
+    Função responsável por remover um Nó no grafo
+    @param id: informação contida no No
+    autor: Renan Nunes da Costa Gonçalves
+*/
 void Grafo::removerNo(int id)
 {
     if(existeNo(id))
@@ -164,7 +204,13 @@ void Grafo::removerNo(int id)
     }
 }
 
-
+/**
+    Função responsável por inserir uma aresta no Grafo
+    @param id: informação do Nó
+    @param id_alvo: informação do Nó alvo
+    @param peso: custo da aresta
+    autor: Renan Nunes da Costa Gonçalves
+*/
 void Grafo::inserirAresta(int id,int id_alvo,float peso)
 {
     if(!existeNo(id))
@@ -189,7 +235,11 @@ void Grafo::inserirAresta(int id,int id_alvo,float peso)
     }
 }
 
-//Luan
+
+/**
+    Função responsável por retornar o Grau médio do Grafo pro somatório
+    autor: Luan Reis Ciribelli
+*/
 int Grafo::grauMedioPorSomatorio()
 {
     if(this->ordem != 0)
@@ -227,7 +277,10 @@ int Grafo::grauMedioPorSomatorio()
     }
 }
 
-//Luan
+/**
+    Função responsável por retornar o Grau médio por somatório de adjacências
+    autor: Luan Reis Ciribelli
+*/
 int Grafo::grauMedioPorAdjacencia()
 {
     if(this->ordem != 0)
@@ -242,27 +295,36 @@ int Grafo::grauMedioPorAdjacencia()
     }
 }
 
-bool fechoTriadico(No *a, No  *b){
+bool fechoTriadico(No *a, No  *b)
+{
 
-if (!a->existeArestaEntreBool(b->getId())){
+    if (!a->existeArestaEntreBool(b->getId()))
+    {
 
-return false;
-}
-else{
+        return false;
+    }
+    else
+    {
 
-return true;
-}
+        return true;
+    }
 
-
-}
-
-double coeficienteDeAgrupamento(){
-return 0;
 
 }
 
-//BUSCA EM PROFUNDIDADE
-bool Grafo::depthFirstSearch(int id_inicial,int id_alvo)
+double coeficienteDeAgrupamento()
+{
+    return 0;
+
+}
+
+/**
+    Função responsável por realizar a busca em profundidade
+    @param id_inicial: informação do Nó origem
+    @param id_alvo: informação do Nó alvo
+    autor: Renan Nunes da Costa Gonçalves
+*/
+bool Grafo::depthFirstSearch(int id_inicial)
 {
     bool* vetor_coloracao = new bool[this->ordem];
     No* no = this->primeiro_no;
@@ -278,12 +340,12 @@ bool Grafo::depthFirstSearch(int id_inicial,int id_alvo)
     No* pai = nullptr;
     no = getNo(id_inicial);
 
-    cout << "BUSCA EM PROFUNDIDADE A PARTIR DO NO " << id_inicial << " AO NO " << id_alvo << endl << endl;
+    cout << "BUSCA EM PROFUNDIDADE A PARTIR DO NO " << id_inicial << endl << endl;
 
 
     if(no != nullptr)
     {
-        depthFirstSearchF(no,vetor_coloracao,pai,0,id_alvo);
+        depthFirstSearchF(no,vetor_coloracao,pai,0);
     }
     else
     {
@@ -296,10 +358,14 @@ bool Grafo::depthFirstSearch(int id_inicial,int id_alvo)
 }
 
 /**
-    ARRUMAR PONTO DE PARADA DE MODO QUE ELE SÓ VÁ ATÉ O NÓ QUE ESTAMOS PROCURANDO
-    RESPONSÁVEL: LUAN
+    Função Responsável por auxiliar a busca em profundidade
+    @param:
+    @param:
+    @param:
+    @param:
+    autor: Renan Nunes da Costa Gonçalves
 */
-void Grafo::depthFirstSearchF(No* no, bool* vetor_coloracao, No* pai, int nivel, int id_alvo)
+void Grafo::depthFirstSearchF(No* no, bool* vetor_coloracao, No* pai, int nivel)
 {
     if(no == nullptr)
         return;
@@ -327,7 +393,11 @@ void Grafo::depthFirstSearchF(No* no, bool* vetor_coloracao, No* pai, int nivel,
     }
 }
 
-//BUSCA EM LARGURA
+/**
+    Função Responsável por busca em largura
+    @param output_file: arquivo de saída
+    autor: Renan Nunes da Costa Gonçalves
+*/
 void Grafo::breathFirstSearch(ofstream& output_file)
 {
     queue<No*> fila; //FILA
@@ -375,7 +445,10 @@ void Grafo::breathFirstSearch(ofstream& output_file)
 
 }
 
-//IMPRESSÃO
+/**
+    Função responsável pela impressão do Grafo em forma de lista de adjacência
+    autor: Renan Nunes da Costa Gonçalves
+*/
 void Grafo::imprimir()
 {
     cout << endl << "IMPRESSAO POR LISTA DE ADJACENCIA" << endl;
@@ -415,7 +488,7 @@ void Grafo::imprimirMatriz()
     cout << endl << "IMPRESSAO POR MATRIZ DE ADJACENCIA" << endl;
     cout << endl;
     int a,b;
-    for( No* no = this->primeiro_no;no != nullptr; no = no->getProx())
+    for( No* no = this->primeiro_no; no != nullptr; no = no->getProx())
     {
         a = getPosicaoMatriz(no->getId());
         cout << endl;

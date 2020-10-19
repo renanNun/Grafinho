@@ -45,11 +45,8 @@ public:
     bool fechoTriadico(No *a, No* b);
     double coeficienteDeAgrupamento();
 
-    bool depthFirstSearch(int id_inicial, int id_alvo);
+    bool depthFirstSearch(int id_inicial);
     void breathFirstSearch(ofstream& output_file);
-    //float** floydMarshall();
-    //float* dijkstra(int id);
-    //void kruskal(ofstream& output_file);
 
     void imprimir();
     void imprimirMatriz();
@@ -76,7 +73,8 @@ private:
     //Funções auxiliares
     bool existeNo(int id);
     void removerAdjacencias(int id);
-    void depthFirstSearchF(No* no, bool* vetor_coloracao,No* p  ai, int nivel, int id_alvo);
+    void depthFirstSearchF(No* no, bool* vetor_coloracao,No* pai, int nivel);
+
 };
 
 #endif // GRAFO_H

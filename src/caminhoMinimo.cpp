@@ -1,13 +1,22 @@
 #include "caminhoMinimo.h"
 
-CaminhoMinimo::CaminhoMinimo(Grafo* grafo){
+CaminhoMinimo::caminhoMinimo(Grafo* grafo){
 
-    cabeça=grafo->getPrimeiroNo;
-    
-    while (cabeça->getProx != null)
+    head=grafo->getPrimeiroNo;
+
+    while (head->getProx != nullptr)
     {
-        
+
     }
-    
+
+
+}
+
+void CaminhoMinimo::relax(No *u, No *v, int peso){
+
+if(v->getPeso()>u->getPeso() + peso){
+
+
+}
 
 }
