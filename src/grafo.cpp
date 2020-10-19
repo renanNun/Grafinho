@@ -520,6 +520,24 @@ void Grafo::imprimirListaAdj(list<int> listAdj[], int v)
 
 void Grafo::getMatrizAdj()
 {
+    for(int i = 0; i < this->ordem; i++)
+    {
+        //cout << " " << i;
+        this->matriz_adjacencia[i] = new bool[this->ordem];
+        for(int j = 0; j < this->ordem; j++)
+        {
+            this->matriz_adjacencia[i][j] = 0;
+        }
+    }
+}
+
+
+
+void Grafo::ListAdj()
+{
+
+
+
     list<int> listaAdj[]=new list<int>[];
 
     for(int i = 0; i < this->ordem; i++)
@@ -531,24 +549,6 @@ void Grafo::getMatrizAdj()
     }
 
     imprimirListaAdj(listaAdj,ordem);
-}
-
-
-
-void Grafo::getListAdj()
-{
-
-    for(int i = 0; i < this->ordem; i++)
-    {
-        //cout << " " << i;
-        this->matriz_adjacencia[i] = new bool[this->ordem];
-        for(int j = 0; j < this->ordem; j++)
-        {
-            this->matriz_adjacencia[i][j] = 0;
-        }
-    }
-
-
 
 }
 

@@ -56,7 +56,7 @@ public:
     void adicionaArestaMatriz(int i,int j);
     void removeArestaMatriz(int i, int j);
     void getMatrizAdj();
-
+    void ListAdj();
 
 private:
     int ordem;
@@ -69,7 +69,7 @@ private:
 
     bool** matriz_adjacencia;
 
-    void getListAdj();
+
     void deleteMatrizAdj();
     int getPosicaoMatriz(int id);
     void adicionaArestaLista(list<int> listAdj[], int u, int v);
