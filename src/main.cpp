@@ -278,7 +278,7 @@ int main(int argc, char const *argv[])
     output_file << "Grau Medio do Grafo" << endl;
     output_file << "\tPor Adjacencia: " << graph->grauMedioPorAdjacencia() << endl;
     output_file << "\tPor Adjacencia: " << graph->grauMedioPorSomatorio() << endl;
-    output_file << "Fecho Triadico: " << endl;
+    output_file << "Frequencia média para o grau 5: " << graph->frequenciaRelativa(5) << endl;
     output_file << endl << endl;
 
     //Fechando arquivo de entrada
