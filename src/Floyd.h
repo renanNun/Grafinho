@@ -14,15 +14,17 @@ using namespace std;
 */
 class Floyd
 {
-    public:
+public:
 
-    void imprimirMatrizSolucao(int dist[][V]);
     Floyd (Grafo *G);
+    void imprimirMatrizSolucao(int dist[][ordem]);
 
 
-    private:
+
+private:
 
     int ordem;
+
 
 
 };

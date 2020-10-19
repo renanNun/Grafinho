@@ -295,22 +295,6 @@ int Grafo::grauMedioPorAdjacencia()
     }
 }
 
-bool fechoTriadico(No *a, No  *b)
-{
-
-    if (!a->existeArestaEntreBool(b->getId()))
-    {
-
-        return false;
-    }
-    else
-    {
-
-        return true;
-    }
-
-
-}
 
 double coeficienteDeAgrupamento()
 {
@@ -536,8 +520,6 @@ void Grafo::getMatrizAdj()
 void Grafo::ListAdj()
 {
 
-
-
     list<int> listaAdj[]=new list<int>[];
 
     for(int i = 0; i < this->ordem; i++)
@@ -562,6 +544,8 @@ Grafo::adicionaArestaLista(list<int> listAdj[], int u, int v)
     listAdj[u].push_back(v);
     listAdj[v].push_back(u);
 }
+
+
 
 void Grafo::deleteMatrizAdj()
 {
