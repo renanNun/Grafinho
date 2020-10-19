@@ -1,6 +1,7 @@
 #ifndef DJIKSRTRA_H
 #define DJIKSRTRA_H
 
+#include "no.h"
 
 using namespace std;
 
@@ -15,8 +16,8 @@ class Djikstra
 
 
     private:
-    
-    NO* cabeça;
+
+    No* head;
 
 };
 

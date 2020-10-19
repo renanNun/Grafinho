@@ -40,6 +40,8 @@
 		<Unit filename="Floyd.h" />
 		<Unit filename="Kruskal.cpp" />
 		<Unit filename="Kruskal.h" />
+		<Unit filename="ListaAdjacencia.cpp" />
+		<Unit filename="ListaAdjacencia.h" />
 		<Unit filename="Prim.cpp" />
 		<Unit filename="Prim.h" />
 		<Unit filename="aresta.cpp" />

@@ -2,9 +2,9 @@
 
 CaminhoMinimo::caminhoMinimo(Grafo* grafo){
 
-    cabeça=grafo->getPrimeiroNo;
+    head=grafo->getPrimeiroNo;
 
-    while (cabeça->getProx != null)
+    while (head->getProx != nullptr)
     {
 
     }
@@ -14,7 +14,7 @@ CaminhoMinimo::caminhoMinimo(Grafo* grafo){
 
 void CaminhoMinimo::relax(No *u, No *v, int peso){
 
-if(v.getPeso()>u.getPeso() + peso){
+if(v->getPeso()>u->getPeso() + peso){
 
 
 }

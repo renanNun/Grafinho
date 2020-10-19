@@ -18,7 +18,7 @@ public:
     void relax(No *u, No *v, int peso);
 private:
 
-    No * cabeça;
+    No * head;
 
 
 };
