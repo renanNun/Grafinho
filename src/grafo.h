@@ -57,6 +57,7 @@ public:
     void adicionaArestaMatriz(int i,int j);
     void removeArestaMatriz(int i, int j);
 
+    int frequenciaRelativa(int d);
 private:
     int ordem;
     int numero_arestas;
@@ -75,7 +76,7 @@ private:
     //Funções auxiliares
     bool existeNo(int id);
     void removerAdjacencias(int id);
-    void depthFirstSearchF(No* no, bool* vetor_coloracao,No* pai, int nivel, int id_alvo);
+    void depthFirstSearchF(No* no, bool* vetor_coloracao,No* p  ai, int nivel, int id_alvo);
 };
 
 #endif // GRAFO_H
