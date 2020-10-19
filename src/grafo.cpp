@@ -1,5 +1,13 @@
 #include "grafo.h"
 
+/**
+    Construtor da Classe Grafo.cpp
+    @param ordem: Número total de nós do grafo
+    @param direcionado: Se o Grafo é direcionado ou não
+    @param ponderado_aresta: Se o Grafo possui peso nas aretas
+    @param ponderado_no: Se o Grafo possui peso nos vértices
+    autor: Renan Nunes da Costa Gonçalves
+*/
 Grafo::Grafo(int ordem, bool direcionado,bool ponderado_aresta,bool ponderado_no)
 {
     this->ordem = ordem;
@@ -13,6 +21,10 @@ Grafo::Grafo(int ordem, bool direcionado,bool ponderado_aresta,bool ponderado_no
     this->getMatrizAdj();
 }
 
+/**
+    Destrutor da classe Grafo.cpp
+    autor: Renan Nunes da Costa Gonçalves
+*/
 Grafo::~Grafo()
 {
     this->deleteMatrizAdj();
@@ -66,11 +78,19 @@ No* Grafo::getUltimoNo()
 }
 
 //Outros Métodos
+/**
+    Função que aumenta o número de arestas do Grafo
+    autor: Renan Nunes da Costa Gonçalves
+*/
 void Grafo::aumentaNumArestas()
 {
     this->numero_arestas++;
 }
 
+/**
+    Função que diminui o número de arestas do Grafo
+    autor: Renan Nunes da Costa Gonçalves
+*/
 void Grafo::diminuiNumArestas()
 {
     if(this->numero_arestas > 0)
