@@ -6,6 +6,7 @@
 #include <stack>
 #include <list>
 #include <queue>
+#include<iterator>
 
 #include "no.h"
 #include "aresta.h"
@@ -50,9 +51,12 @@ public:
 
     void imprimir();
     void imprimirMatriz();
+    void imprimirListaAdj(list<int> listAdj[], int v);
 
     void adicionaArestaMatriz(int i,int j);
     void removeArestaMatriz(int i, int j);
+    void adicionaArestaLista(list<int> listAdj[], int u, int v)
+
 
 private:
     int ordem;

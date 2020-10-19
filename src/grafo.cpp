@@ -503,6 +503,21 @@ void Grafo::imprimirMatriz()
 
 }
 
+void Grafo::imprimirListaAdj(list<int> listAdj[], int v)
+{
+    for(int i = 0; i<v; i++)
+    {
+        cout << i << "--->";
+        list<int> :: iterator it;
+        for(it = listAdj[i].begin(); it != listAdj[i].end(); ++it)
+        {
+            cout << *it << " ";
+        }
+        cout << endl;
+    }
+
+}
+
 void Grafo::getMatrizAdj()
 {
     this->matriz_adjacencia = new bool*[this->ordem];
@@ -520,6 +535,12 @@ void Grafo::getMatrizAdj()
 void Grafo::adicionaArestaMatriz(int i, int j)
 {
     matriz_adjacencia[this->getPosicaoMatriz(i)][this->getPosicaoMatriz(j)] = true;
+}
+
+Grafo::adicionaArestaLista(list<int> listAdj[], int v)
+{
+    adj_list[u].push_back(v);
+    adj_list[v].push_back(u);
 }
 
 void Grafo::deleteMatrizAdj()

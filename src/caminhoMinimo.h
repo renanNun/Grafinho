@@ -10,15 +10,14 @@ using namespace std;
 *   Criador: Luan Reis Ciribelli
 *   vers�o: 1.0
 */
-class CaminhoMinimo
+class CaminhoMinimoGrafo
 {
 public:
 
-    caminhoMinimo(Grafo *grafo);
-    void relax(No *u, No *v, int peso);
+    CaminhoMinimoGrafo();
+
 private:
 
-    No * head;
 
 
 };

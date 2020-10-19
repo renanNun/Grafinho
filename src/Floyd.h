@@ -1,6 +1,10 @@
 #ifndef FLOYD_H
 #define FLOYD_H
 
+#include "grafo.h"
+
+
+
 using namespace std;
 
 /**
@@ -12,9 +16,15 @@ class Floyd
 {
     public:
 
+    void imprimirMatrizSolucao(int dist[][V]);
+    Floyd (Grafo *G);
+
 
     private:
-     
+
+    int ordem;
+
+
 };
 
 #endif // FLOYD_H
