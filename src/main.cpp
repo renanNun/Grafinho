@@ -212,7 +212,10 @@ void mainMenu(Grafo* graph)
 
                 break;
             case 10:
+                if (graph->getPonderadoAresta())
                 floyd = new Floyd(graph,graph->getMatriz());
+                else
+                cout<< "Floyd só pode ser usado quando as arestas são ponderadas"<<endl;
                 break;
             case 11:
 
