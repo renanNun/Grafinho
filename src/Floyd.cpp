@@ -1,5 +1,5 @@
 #include "Floyd.h"
-#define INFINITO 999999
+#define INFINITO 999
 
 Floyd::Floyd(Grafo * G)
 {

@@ -187,3 +187,14 @@
 1603154524 /home/luan/Github/Grafinho/src/Dijkstra.h
 	"grafo.h"
 
+1603154874 source:/home/luan/Github/Grafinho/src/Kruskal.cpp
+	"Kruskal.h"
+
+1603154899 /home/luan/Github/Grafinho/src/Kruskal.h
+	"grafo.h"
+
+1603154937 source:/home/luan/Github/Grafinho/src/Prim.cpp
+	"Prim.h"
+
+1603154918 /home/luan/Github/Grafinho/src/Prim.h
+

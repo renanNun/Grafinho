@@ -216,8 +216,8 @@ void mainMenu(Grafo* graph)
                 break;
 
             case 9:
-                    cout<< "Imprimindo solução Floyd: ";
-                    floyd= new Floyd(graph);
+                cout<< "Imprimindo solução Floyd: ";
+                floyd= new Floyd(graph);
 
 
                 break;
