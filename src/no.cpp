@@ -78,6 +78,10 @@ void No::setPeso(float peso)
     this->peso = peso;
 }
 
+void No::setId (int Newid){
+this->id=Newid;
+}
+
 //Outros métodos
 /**
     Método que insere uma aresta no No

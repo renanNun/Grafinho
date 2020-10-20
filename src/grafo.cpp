@@ -114,19 +114,6 @@ No* Grafo::getNo(int id)
     return nullptr;
 }
 
-No* Grafo::getNoInt(int i)
-{
-    if(this->primeiro_no != nullptr)
-    {
-        for(No* aux = this->primeiro_no; aux != nullptr; aux = aux->getProx())
-            if(aux->i == i)
-                return aux;
-    }
-
-    return nullptr;
-}
-
-
 /**
     Função que verifica a existencia de um Nó dado um id
     @param id: informação contida no Id
@@ -308,10 +295,22 @@ int Grafo::grauMedioPorAdjacencia()
     }
 }
 
+bool fechoTriadico(No *a, No  *b){
 
-double coeficienteDeAgrupamento()
-{
-    return 0;
+if (!a->existeArestaEntreBool(b->getId())){
+
+return false;
+}
+else{
+
+return true;
+}
+
+
+}
+
+double coeficienteDeAgrupamento(){
+return 0;
 
 }
 
@@ -485,7 +484,7 @@ void Grafo::imprimirMatriz()
     cout << endl << "IMPRESSAO POR MATRIZ DE ADJACENCIA" << endl;
     cout << endl;
     int a,b;
-    for( No* no = this->primeiro_no; no != nullptr; no = no->getProx())
+    for( No* no = this->primeiro_no;no != nullptr; no = no->getProx())
     {
         a = getPosicaoMatriz(no->getId());
         cout << endl;
@@ -500,30 +499,36 @@ void Grafo::imprimirMatriz()
 
 }
 
-
-
 void Grafo::getMatrizAdj()
 {
+    this->matriz_adjacencia = new float*[this->ordem];
     for(int i = 0; i < this->ordem; i++)
     {
         //cout << " " << i;
-        this->matriz_adjacencia[i] = new bool[this->ordem];
+        this->matriz_adjacencia[i] = new float[this->ordem];
         for(int j = 0; j < this->ordem; j++)
         {
-            this->matriz_adjacencia[i][j] = 0;
+            this->matriz_adjacencia[i][j] = -1;
         }
     }
 }
 
-
-
-
-void Grafo::adicionaArestaMatriz(int i, int j)
+float** Grafo::getMatriz()
 {
-    matriz_adjacencia[this->getPosicaoMatriz(i)][this->getPosicaoMatriz(j)] = true;
+    return this->matriz_adjacencia;
 }
 
+void Grafo::adicionaArestaMatriz(int i, int j,float peso)
+{
+    matriz_adjacencia[this->getPosicaoMatriz(i)][this->getPosicaoMatriz(j)] = peso;
+}
 
+bool Grafo::verificaAdjacencia(int i, int j)
+{
+    if(this->matriz_adjacencia[i][j])
+        return true;
+    return false;
+}
 
 void Grafo::deleteMatrizAdj()
 {
@@ -552,7 +557,6 @@ int Grafo::getPosicaoMatriz(int id)
 
     return -1;
 }
-
 /**
     Frequencia Relativa
     @param d: grau do nó
@@ -574,4 +578,3 @@ double Grafo::frequenciaRelativa(int d)
         return (cont/this->ordem);
     }
 }
-

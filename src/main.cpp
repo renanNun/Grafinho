@@ -5,11 +5,8 @@
 #include <chrono>
 #include "grafo.h"
 #include "no.h"
-
 #include "Dijkstra.h"
-
 #include "Floyd.h"
-
 
 using namespace std;
 std::ifstream input_file;
@@ -36,11 +33,11 @@ Grafo* leitura(int direcionado, int ponderadoAresta, int ponderadoNo)
         while(input_file >> id_no >> id_no_alvo)
         {
             graph->inserirAresta(id_no,id_no_alvo,0);
-            graph->adicionaArestaMatriz(id_no,id_no_alvo);
+            graph->adicionaArestaMatriz(id_no,id_no_alvo,0);
             if(!direcionado)
             {
                 graph->inserirAresta(id_no_alvo,id_no,0);
-                graph->adicionaArestaMatriz(id_no_alvo,id_no);
+                graph->adicionaArestaMatriz(id_no_alvo,id_no,0);
             }
             graph->aumentaNumArestas();
         }
@@ -53,11 +50,11 @@ Grafo* leitura(int direcionado, int ponderadoAresta, int ponderadoNo)
         while(input_file >> id_no >> id_no_alvo >> peso_aresta)
         {
             graph->inserirAresta(id_no,id_no_alvo,peso_aresta);
-            graph->adicionaArestaMatriz(id_no,id_no_alvo);
+            graph->adicionaArestaMatriz(id_no,id_no_alvo,peso_aresta);
             if(!direcionado)
             {
                 graph->inserirAresta(id_no_alvo,id_no,peso_aresta);
-                graph->adicionaArestaMatriz(id_no_alvo,id_no);
+                graph->adicionaArestaMatriz(id_no_alvo,id_no,peso_aresta);
             }
             graph->aumentaNumArestas();
 
@@ -69,11 +66,11 @@ Grafo* leitura(int direcionado, int ponderadoAresta, int ponderadoNo)
         while(input_file >> id_no >> id_no_peso >> id_no_alvo >> id_no_alvo_peso)
         {
             graph->inserirAresta(id_no,id_no_alvo,0);
-            graph->adicionaArestaMatriz(id_no,id_no_alvo);
+            graph->adicionaArestaMatriz(id_no,id_no_alvo,0);
             if(!direcionado)
             {
                 graph->inserirAresta(id_no_alvo,id_no,0);
-                graph->adicionaArestaMatriz(id_no_alvo,id_no);
+                graph->adicionaArestaMatriz(id_no_alvo,id_no,0);
             }
             graph->getNo(id_no)->setPeso(id_no_peso);
             graph->getNo(id_no_alvo)->setPeso(id_no_alvo_peso);
@@ -87,11 +84,11 @@ Grafo* leitura(int direcionado, int ponderadoAresta, int ponderadoNo)
         while(input_file >> id_no >> id_no_peso >> id_no_alvo >> id_no_alvo_peso >> aresta_peso)
         {
             graph->inserirAresta(id_no,id_no_alvo,aresta_peso);
-            graph->adicionaArestaMatriz(id_no,id_no_alvo);
+            graph->adicionaArestaMatriz(id_no,id_no_alvo,aresta_peso);
             if(!direcionado)
             {
                 graph->inserirAresta(id_no_alvo,id_no,aresta_peso);
-                graph->adicionaArestaMatriz(id_no_alvo,id_no);
+                graph->adicionaArestaMatriz(id_no_alvo,id_no,aresta_peso);
             }
             graph->getNo(id_no)->setPeso(id_no_peso);
             graph->getNo(id_no_alvo)->setPeso(id_no_alvo_peso);
@@ -124,9 +121,9 @@ void mainMenu(Grafo* graph)
     string id_alvo;
     string d;
     int a,b;
-    Floyd *floyd;
 
     Dijkstra* algoritmoDijkstra;
+    Floyd* floyd;
 
     cout << endl << endl;
 
@@ -188,7 +185,6 @@ void mainMenu(Grafo* graph)
                 cout << "\tPor Adjacencia: " << graph->grauMedioPorAdjacencia() << endl;
                 break;
             case 5:
-
                 cout << "\tFrequencia: ";
                 cin >> d;
                 cout << endl;
@@ -196,7 +192,6 @@ void mainMenu(Grafo* graph)
                 cout << "Frequencia Relativa do Grafo: " << graph->frequenciaRelativa(a) << endl;
                 break;
             case 6:
-
                 cout << "\tNo inicial: ";
                 cin >> id_inicial;
                 cout << endl;
@@ -204,7 +199,6 @@ void mainMenu(Grafo* graph)
                 graph->depthFirstSearch(a);
                 break;
             case 7:
-
                 graph->breathFirstSearch(output_file);
                 break;
             case 8:
@@ -214,21 +208,15 @@ void mainMenu(Grafo* graph)
                 a = atoi(id_inicial.c_str());
                 algoritmoDijkstra = new Dijkstra(graph, a);
                 break;
-
             case 9:
-                cout<< "Imprimindo solução Floyd: ";
-                floyd= new Floyd(graph);
-
 
                 break;
             case 10:
-
+                floyd = new Floyd(graph,graph->getMatriz());
                 break;
-
             case 11:
 
                 break;
-
             default:
                 flag = true;
             }
