@@ -6,6 +6,7 @@
 #include <stack>
 #include <list>
 #include <queue>
+#include<iterator>
 
 #include "no.h"
 #include "aresta.h"
@@ -36,28 +37,29 @@ public:
     void removerNo(int id);
     bool buscarNo(int id);
     No* getNo(int id);
+    No* getNoInt(int i);
 
     void aumentaNumArestas();
     void diminuiNumArestas();
 
     int grauMedioPorSomatorio();
     int grauMedioPorAdjacencia();
-    bool fechoTriadico(No *a, No* b);
     double coeficienteDeAgrupamento();
 
     bool depthFirstSearch(int id_inicial);
     void breathFirstSearch(ofstream& output_file);
-    //float** floydMarshall();
-    //float* dijkstra(int id);
-    //void kruskal(ofstream& output_file);
 
     void imprimir();
     void imprimirMatriz();
 
+
     void adicionaArestaMatriz(int i,int j);
     void removeArestaMatriz(int i, int j);
+    void getMatrizAdj();
+
 
     double frequenciaRelativa(int d);
+
 private:
     int ordem;
     int numero_arestas;
@@ -68,15 +70,18 @@ private:
     No* ultimo_no;
 
     bool** matriz_adjacencia;
-    void getMatrizAdj();
+
+
     void deleteMatrizAdj();
     int getPosicaoMatriz(int id);
+
 
 
     //Funções auxiliares
     bool existeNo(int id);
     void removerAdjacencias(int id);
     void depthFirstSearchF(No* no, bool* vetor_coloracao,No* pai, int nivel);
+
 };
 
 #endif // GRAFO_H

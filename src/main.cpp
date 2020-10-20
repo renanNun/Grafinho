@@ -5,7 +5,11 @@
 #include <chrono>
 #include "grafo.h"
 #include "no.h"
+
 #include "dijkstra.h"
+
+#include "Floyd.h"
+
 
 using namespace std;
 std::ifstream input_file;
@@ -120,6 +124,7 @@ void mainMenu(Grafo* graph)
     string id_alvo;
     string d;
     int a,b;
+    Floyd *floyd;
 
     Dijkstra* algoritmoDijkstra;
 
@@ -183,6 +188,7 @@ void mainMenu(Grafo* graph)
                 cout << "\tPor Adjacencia: " << graph->grauMedioPorAdjacencia() << endl;
                 break;
             case 5:
+
                 cout << "\tFrequencia: ";
                 cin >> d;
                 cout << endl;
@@ -190,6 +196,7 @@ void mainMenu(Grafo* graph)
                 cout << "Frequencia Relativa do Grafo: " << graph->frequenciaRelativa(a) << endl;
                 break;
             case 6:
+
                 cout << "\tNo inicial: ";
                 cin >> id_inicial;
                 cout << endl;
@@ -197,6 +204,7 @@ void mainMenu(Grafo* graph)
                 graph->depthFirstSearch(a);
                 break;
             case 7:
+
                 graph->breathFirstSearch(output_file);
                 break;
             case 8:
@@ -206,15 +214,21 @@ void mainMenu(Grafo* graph)
                 a = atoi(id_inicial.c_str());
                 algoritmoDijkstra = new Dijkstra(graph, a);
                 break;
+  
             case 9:
+                    cout<< "Imprimindo solução Floyd: ";
+                    floyd= new Floyd(graph);
+
 
                 break;
             case 10:
 
                 break;
+
             case 11:
 
                 break;
+
             default:
                 flag = true;
             }

@@ -1,6 +1,10 @@
 #ifndef FLOYD_H
 #define FLOYD_H
 
+#include "grafo.h"
+
+
+
 using namespace std;
 
 /**
@@ -10,11 +14,19 @@ using namespace std;
 */
 class Floyd
 {
-    public:
+public:
+
+    Floyd (Grafo *G);
 
 
-    private:
-     
+
+
+private:
+
+    int ordem;
+
+
+
 };
 
 #endif // FLOYD_H
