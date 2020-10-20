@@ -6,6 +6,7 @@
 #include "grafo.h"
 #include "no.h"
 #include "dijkstra.h"
+#include "Floyd.h"
 
 using namespace std;
 std::ifstream input_file;
@@ -32,11 +33,11 @@ Grafo* leitura(int direcionado, int ponderadoAresta, int ponderadoNo)
         while(input_file >> id_no >> id_no_alvo)
         {
             graph->inserirAresta(id_no,id_no_alvo,0);
-            graph->adicionaArestaMatriz(id_no,id_no_alvo);
+            graph->adicionaArestaMatriz(id_no,id_no_alvo,0);
             if(!direcionado)
             {
                 graph->inserirAresta(id_no_alvo,id_no,0);
-                graph->adicionaArestaMatriz(id_no_alvo,id_no);
+                graph->adicionaArestaMatriz(id_no_alvo,id_no,0);
             }
             graph->aumentaNumArestas();
         }
@@ -49,11 +50,11 @@ Grafo* leitura(int direcionado, int ponderadoAresta, int ponderadoNo)
         while(input_file >> id_no >> id_no_alvo >> peso_aresta)
         {
             graph->inserirAresta(id_no,id_no_alvo,peso_aresta);
-            graph->adicionaArestaMatriz(id_no,id_no_alvo);
+            graph->adicionaArestaMatriz(id_no,id_no_alvo,peso_aresta);
             if(!direcionado)
             {
                 graph->inserirAresta(id_no_alvo,id_no,peso_aresta);
-                graph->adicionaArestaMatriz(id_no_alvo,id_no);
+                graph->adicionaArestaMatriz(id_no_alvo,id_no,peso_aresta);
             }
             graph->aumentaNumArestas();
 
@@ -65,11 +66,11 @@ Grafo* leitura(int direcionado, int ponderadoAresta, int ponderadoNo)
         while(input_file >> id_no >> id_no_peso >> id_no_alvo >> id_no_alvo_peso)
         {
             graph->inserirAresta(id_no,id_no_alvo,0);
-            graph->adicionaArestaMatriz(id_no,id_no_alvo);
+            graph->adicionaArestaMatriz(id_no,id_no_alvo,0);
             if(!direcionado)
             {
                 graph->inserirAresta(id_no_alvo,id_no,0);
-                graph->adicionaArestaMatriz(id_no_alvo,id_no);
+                graph->adicionaArestaMatriz(id_no_alvo,id_no,0);
             }
             graph->getNo(id_no)->setPeso(id_no_peso);
             graph->getNo(id_no_alvo)->setPeso(id_no_alvo_peso);
@@ -83,11 +84,11 @@ Grafo* leitura(int direcionado, int ponderadoAresta, int ponderadoNo)
         while(input_file >> id_no >> id_no_peso >> id_no_alvo >> id_no_alvo_peso >> aresta_peso)
         {
             graph->inserirAresta(id_no,id_no_alvo,aresta_peso);
-            graph->adicionaArestaMatriz(id_no,id_no_alvo);
+            graph->adicionaArestaMatriz(id_no,id_no_alvo,aresta_peso);
             if(!direcionado)
             {
                 graph->inserirAresta(id_no_alvo,id_no,aresta_peso);
-                graph->adicionaArestaMatriz(id_no_alvo,id_no);
+                graph->adicionaArestaMatriz(id_no_alvo,id_no,aresta_peso);
             }
             graph->getNo(id_no)->setPeso(id_no_peso);
             graph->getNo(id_no_alvo)->setPeso(id_no_alvo_peso);
@@ -122,6 +123,7 @@ void mainMenu(Grafo* graph)
     int a,b;
 
     Dijkstra* algoritmoDijkstra;
+    Floyd* floyd;
 
     cout << endl << endl;
 
@@ -210,7 +212,7 @@ void mainMenu(Grafo* graph)
 
                 break;
             case 10:
-
+                floyd = new Floyd(graph,graph->getMatriz());
                 break;
             case 11:
 

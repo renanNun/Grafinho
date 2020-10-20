@@ -501,21 +501,33 @@ void Grafo::imprimirMatriz()
 
 void Grafo::getMatrizAdj()
 {
-    this->matriz_adjacencia = new bool*[this->ordem];
+    this->matriz_adjacencia = new float*[this->ordem];
     for(int i = 0; i < this->ordem; i++)
     {
         //cout << " " << i;
-        this->matriz_adjacencia[i] = new bool[this->ordem];
+        this->matriz_adjacencia[i] = new float[this->ordem];
         for(int j = 0; j < this->ordem; j++)
         {
-            this->matriz_adjacencia[i][j] = 0;
+            this->matriz_adjacencia[i][j] = -1;
         }
     }
 }
 
-void Grafo::adicionaArestaMatriz(int i, int j)
+float** Grafo::getMatriz()
 {
-    matriz_adjacencia[this->getPosicaoMatriz(i)][this->getPosicaoMatriz(j)] = true;
+    return this->matriz_adjacencia;
+}
+
+void Grafo::adicionaArestaMatriz(int i, int j,float peso)
+{
+    matriz_adjacencia[this->getPosicaoMatriz(i)][this->getPosicaoMatriz(j)] = peso;
+}
+
+bool Grafo::verificaAdjacencia(int i, int j)
+{
+    if(this->matriz_adjacencia[i][j])
+        return true;
+    return false;
 }
 
 void Grafo::deleteMatrizAdj()

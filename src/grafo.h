@@ -47,15 +47,17 @@ public:
 
     bool depthFirstSearch(int id_inicial);
     void breathFirstSearch(ofstream& output_file);
-    //float** floydMarshall();
-    //float* dijkstra(int id);
-    //void kruskal(ofstream& output_file);
+
+    Grafo* copiaGrafo();
 
     void imprimir();
     void imprimirMatriz();
 
-    void adicionaArestaMatriz(int i,int j);
+    float** getMatriz();
+
+    void adicionaArestaMatriz(int i,int j,float peso);
     void removeArestaMatriz(int i, int j);
+    bool verificaAdjacencia(int i, int j);
 
     double frequenciaRelativa(int d);
 private:
@@ -67,7 +69,7 @@ private:
     No* primeiro_no;
     No* ultimo_no;
 
-    bool** matriz_adjacencia;
+    float** matriz_adjacencia;
     void getMatrizAdj();
     void deleteMatrizAdj();
     int getPosicaoMatriz(int id);
