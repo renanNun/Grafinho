@@ -114,6 +114,19 @@ No* Grafo::getNo(int id)
     return nullptr;
 }
 
+No* Grafo::getNoInt(int i)
+{
+    if(this->primeiro_no != nullptr)
+    {
+        for(No* aux = this->primeiro_no; aux != nullptr; aux = aux->getProx())
+            if(aux->i == i)
+                return aux;
+    }
+
+    return nullptr;
+}
+
+
 /**
     Função que verifica a existencia de um Nó dado um id
     @param id: informação contida no Id
@@ -295,22 +308,6 @@ int Grafo::grauMedioPorAdjacencia()
     }
 }
 
-bool fechoTriadico(No *a, No  *b)
-{
-
-    if (!a->existeArestaEntreBool(b->getId()))
-    {
-
-        return false;
-    }
-    else
-    {
-
-        return true;
-    }
-
-
-}
 
 double coeficienteDeAgrupamento()
 {
@@ -503,9 +500,10 @@ void Grafo::imprimirMatriz()
 
 }
 
+
+
 void Grafo::getMatrizAdj()
 {
-    this->matriz_adjacencia = new bool*[this->ordem];
     for(int i = 0; i < this->ordem; i++)
     {
         //cout << " " << i;
@@ -517,10 +515,15 @@ void Grafo::getMatrizAdj()
     }
 }
 
+
+
+
 void Grafo::adicionaArestaMatriz(int i, int j)
 {
     matriz_adjacencia[this->getPosicaoMatriz(i)][this->getPosicaoMatriz(j)] = true;
 }
+
+
 
 void Grafo::deleteMatrizAdj()
 {

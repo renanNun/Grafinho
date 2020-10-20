@@ -5,6 +5,7 @@
 #include <chrono>
 #include "grafo.h"
 #include "no.h"
+#include "Floyd.h"
 
 using namespace std;
 std::ifstream input_file;
@@ -118,6 +119,7 @@ void mainMenu(Grafo* graph)
     string id_inicial;
     string id_alvo;
     int a,b;
+    Floyd *floyd;
 
     cout << endl << endl;
 
@@ -177,7 +179,7 @@ void mainMenu(Grafo* graph)
                 cout << "\tPor Somatorio: " << graph->grauMedioPorSomatorio() << endl;
                 cout << "\tPor Adjacencia: " << graph->grauMedioPorAdjacencia() << endl;
                 break;
-            case 5:       
+            case 5:
                 cout << "\tNo inicial: ";
                 cin >> id_inicial;
                 cout << "\tNo alvo: ";
@@ -191,17 +193,19 @@ void mainMenu(Grafo* graph)
                 graph->breathFirstSearch(output_file);
                 break;
             case 7:
-               
+
                 break;
             case 8:
-                
+
                 break;
             case 9:
-                
+                    cout<< "Imprimindo solução Floyd: ";
+                    floyd= new Floyd(graph);
+
                 break;
             case 10:
-               
-                break;   
+
+                break;
             default:
                 flag = true;
             }

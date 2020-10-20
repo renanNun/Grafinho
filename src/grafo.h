@@ -6,6 +6,7 @@
 #include <stack>
 #include <list>
 #include <queue>
+#include<iterator>
 
 #include "no.h"
 #include "aresta.h"
@@ -36,13 +37,13 @@ public:
     void removerNo(int id);
     bool buscarNo(int id);
     No* getNo(int id);
+    No* getNoInt(int i);
 
     void aumentaNumArestas();
     void diminuiNumArestas();
 
     int grauMedioPorSomatorio();
     int grauMedioPorAdjacencia();
-    bool fechoTriadico(No *a, No* b);
     double coeficienteDeAgrupamento();
 
     bool depthFirstSearch(int id_inicial);
@@ -51,8 +52,11 @@ public:
     void imprimir();
     void imprimirMatriz();
 
+
     void adicionaArestaMatriz(int i,int j);
     void removeArestaMatriz(int i, int j);
+    void getMatrizAdj();
+
 
     int frequenciaRelativa(int d);
 private:
@@ -65,9 +69,11 @@ private:
     No* ultimo_no;
 
     bool** matriz_adjacencia;
-    void getMatrizAdj();
+
+
     void deleteMatrizAdj();
     int getPosicaoMatriz(int id);
+
 
 
     //Funções auxiliares
