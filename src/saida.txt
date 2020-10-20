@@ -1,10 +1,14 @@
-		TRABALHO DE GRAFOS
-alunos: Luan Reis Ciribelli e Renan Nunes da Costa Gonçalves
 
-Numero de Vertices: 3592192
-Numero de Arestas: 4199120
-Grau Medio do Grafo	Por Adjacencia: 2
-	Por Adjacencia: 0
-Fecho Triadico: 
+
+
+		TRABALHO DE GRAFOS
+alunos: Luan Reis Ciribelli e Renan Nunes da Costa Gonï¿½alves
+
+Numero de Vertices: 585
+Numero de Arestas: 5850
+Grau Medio do Grafo
+	Por Adjacencia: 20
+	Por Adjacencia: 19
+Frequencia mÃ©dia para o grau 5: 0
 
 

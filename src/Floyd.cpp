@@ -1,69 +1,54 @@
 #include "Floyd.h"
-#define INFINITO 999999
+#define INT_MAX 9999
 
-Floyd::Floyd(Grafo * G)
+Floyd::Floyd(Grafo* g,float** matrizAdj)
 {
-    if(G->getPonderadoAresta())
+    this->n = g->getOrdem();
+    A = new float*[n+1];
+    B = new int*[n+1];
+
+    for(int i = 0; i < n; i++)
     {
-        ordem= G->getOrdem();
-
-        int dist [ordem][ordem];
-
-        No* head=G->getPrimeiroNo();
-
-        for(int i=0; i<ordem; i++)
-        {
-            head->i=i;
-        }
-
-        for (int i = 0; i < ordem; i++)
-            for (int j = 0; j < ordem; j++)
-            {
-                if(G->getNoInt(i)->existeArestaEntreBool(j))
-                {
-                    Aresta* aresta= G->getNoInt(i)->existeArestaEntre(j);
-                    dist[i][j] = aresta->getPeso();
-                }
-                else
-                    dist[i][j]=INFINITO;
-            }
-
-        for (int k = 0; k < ordem; k++)
-        {
-
-            for (int i = 0; i < ordem; i++)
-            {
-
-                for (int j = 0; j < ordem; j++)
-                {
-
-                    if (dist[i][k] + dist[k][j] < dist[i][j])
-                        dist[i][j] = dist[i][k] + dist[k][j];
-                }
-            }
-        }
-
-        cout<<"Following matrix shows the shortest distances between every pair of vertices \n";
-        for (int i = 0; i < ordem; i++)
-        {
-            for (int j = 0; j < ordem; j++)
-            {
-                if (dist[i][j] == INFINITO)
-                    cout<<"%7s"<< "Infinito";
-                else
-                    cout<<"%7d"<< dist[i][j];
-            }
-            cout<<"\n";
-        }
-
-
-
-    }
-    else
-    {
-        cout<< "O algoritmo de Floyd precisa de um grafo com arestas direcionados para ser executado";
-
+        A[i] = new float[n+1];
+        B[i] = new int[n+1];
     }
 
+    for(int i = 0; i < n; i++)
+        for(int j = 0; j < n; j++)
+        {
+            if(matrizAdj[i][j] == -1)
+                A[i][j] = INT_MAX;
+            else
+                A[i][j] = matrizAdj[i][j];
+        }
+
+
+    for(int k = 0; k < n; k++)
+        for(int i = 0; i < n; i++)
+            for(int j = 0; j < n; j++)
+            {
+                if(A[i][k] + A[k][j] < A[i][j])
+                    A[i][j] = A[i][k] + A[k][j];
+            }
+
+    this->printSolucao(A);
 }
 
+Floyd::~Floyd()
+{
+}
+
+void Floyd::printSolucao(float** dist)
+{
+    for(int i = 0; i < n; i++)
+    {
+        cout << endl;
+        for(int j = 0; j < n; j++)
+        {
+            if(dist[i][j] == INT_MAX)
+                cout << "INFINITO";
+            else
+                cout << dist[i][j] << " ";
+        }
+    }
+}

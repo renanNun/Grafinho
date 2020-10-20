@@ -17,7 +17,7 @@ class kruskal
     kruskal (Grafo * grafo);
 
     private:
-     
+
 };
 
 #endif // KRUSKAL_H

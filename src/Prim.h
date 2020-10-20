@@ -14,7 +14,8 @@ class Prim
 
 
     private:
-     
+
 };
 
 #endif // PRIM_H
+

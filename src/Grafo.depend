@@ -100,15 +100,18 @@
 	"grafo.h"
 	"no.h"
 
-1603118704 source:/home/luan/Github/Grafinho/src/aresta.cpp
+1601763104 source:c:\users\renan\documents\github\grafo\grafinho\src\aresta.cpp
 	"aresta.h"
 
-1603118704 /home/luan/Github/Grafinho/src/aresta.h
+1601763104 c:\users\renan\documents\github\grafo\grafinho\src\aresta.h
 
-1603153890 source:/home/luan/Github/Grafinho/src/grafo.cpp
+1601763104 source:c:\users\renan\documents\github\grafo\grafinho\src\kruskal.cpp
+	"Kruskal.h"
+
+1601763104 c:\users\renan\documents\github\grafo\grafinho\src\kruskal.h
 	"grafo.h"
 
-1603153674 /home/luan/Github/Grafinho/src/grafo.h
+1603120763 c:\users\renan\documents\github\grafo\grafinho\src\grafo.h
 	<iostream>
 	<fstream>
 	<chrono>
@@ -119,10 +122,10 @@
 	"no.h"
 	"aresta.h"
 
-1603118704 /home/luan/Github/Grafinho/src/no.h
+1603209737 /home/luan/Github/Grafinho/src/no.h
 	"aresta.h"
 
-1603118704 source:/home/luan/Github/Grafinho/src/main.cpp
+1603216675 source:/home/luan/Github/Grafinho/src/main.cpp
 	<iostream>
 	<fstream>
 	<sstream>
@@ -130,44 +133,67 @@
 	<chrono>
 	"grafo.h"
 	"no.h"
-
-1603118704 source:/home/luan/Github/Grafinho/src/no.cpp
-	"no.h"
-
-1603153545 source:/home/luan/Github/Grafinho/src/Floyd.cpp
+	"Dijkstra.h"
 	"Floyd.h"
 
-1603153545 /home/luan/Github/Grafinho/src/Floyd.h
-	"grafo.h"
-
-1603118704 source:/home/luan/Github/Grafinho/src/Dijkstra.cpp
-	"Dijkstra.h"
-
-1603118704 /home/luan/Github/Grafinho/src/Dijkstra.h
+1603118977 source:c:\users\renan\documents\github\grafo\grafinho\src\no.cpp
 	"no.h"
 
-1603118704 source:/home/luan/Github/Grafinho/src/Prim.cpp
+1603118974 source:c:\users\renan\documents\github\grafo\grafinho\src\prim.cpp
 	"Prim.h"
 
-1603118704 /home/luan/Github/Grafinho/src/Prim.h
+1603118974 c:\users\renan\documents\github\grafo\grafinho\src\prim.h
 
-1603118704 source:/home/luan/Github/Grafinho/src/Kruskal.cpp
+1603120757 source:c:\users\renan\documents\github\grafo\grafinho\src\grafo.cpp
+	"grafo.h"
+
+1603124759 source:c:\users\renan\documents\github\grafo\grafinho\src\dijkstra.cpp
+	"dijkstra.h"
+
+1603124822 c:\users\renan\documents\github\grafo\grafinho\src\dijkstra.h
+	"grafo.h"
+
+1603118704 source:/home/luan/Github/Grafinho/src/aresta.cpp
+	"aresta.h"
+
+1603118704 /home/luan/Github/Grafinho/src/aresta.h
+
+1603216565 source:/home/luan/Github/Grafinho/src/Floyd.cpp
+	"Floyd.h"
+
+1603216548 /home/luan/Github/Grafinho/src/Floyd.h
+	"grafo.h"
+
+1603216633 /home/luan/Github/Grafinho/src/grafo.h
+	<iostream>
+	<fstream>
+	<chrono>
+	<stack>
+	<list>
+	<queue>
+	"no.h"
+	"aresta.h"
+
+1603209728 source:/home/luan/Github/Grafinho/src/no.cpp
+	"no.h"
+
+1603216708 source:/home/luan/Github/Grafinho/src/grafo.cpp
+	"grafo.h"
+
+1603154672 source:/home/luan/Github/Grafinho/src/Dijkstra.cpp
+	"Dijkstra.h"
+
+1603154524 /home/luan/Github/Grafinho/src/Dijkstra.h
+	"grafo.h"
+
+1603209431 source:/home/luan/Github/Grafinho/src/Kruskal.cpp
 	"Kruskal.h"
 
-1603118704 /home/luan/Github/Grafinho/src/Kruskal.h
+1603209431 /home/luan/Github/Grafinho/src/Kruskal.h
 	"grafo.h"
 
-1603146424 source:/home/luan/Github/Grafinho/src/caminhoMinimo.cpp
-	"caminhoMinimo.h"
+1603154937 source:/home/luan/Github/Grafinho/src/Prim.cpp
+	"Prim.h"
 
-1603146329 /home/luan/Github/Grafinho/src/caminhoMinimo.h
-	"grafo.h"
-
-1603146421 source:/home/luan/Github/Grafinho/src/ListaAdjacencia.cpp
-	"ListaAdjacencia.h"
-
-1603146190 /home/luan/Github/Grafinho/src/ListaAdjacencia.h
-	"no.h"
-	"grafo.h"
-	<vector>
+1603154918 /home/luan/Github/Grafinho/src/Prim.h
 

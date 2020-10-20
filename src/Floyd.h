@@ -1,9 +1,6 @@
 #ifndef FLOYD_H
 #define FLOYD_H
-
 #include "grafo.h"
-
-
 
 using namespace std;
 
@@ -14,19 +11,17 @@ using namespace std;
 */
 class Floyd
 {
-public:
+    public:
+        Floyd(Grafo* g, float** matrizAdj);
+        ~Floyd();
 
-    Floyd (Grafo *G);
+        void algoritmo();
+        void printSolucao(float** dist);
 
-
-
-
-private:
-
-    int ordem;
-
-
-
+    private:
+       int n;
+       float** A;
+       int** B;
 };
 
 #endif // FLOYD_H
