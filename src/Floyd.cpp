@@ -1,5 +1,5 @@
 #include "Floyd.h"
-#define infinito=999999
+#define INFINITO 999999
 
 Floyd::Floyd(Grafo * G)
 {
@@ -8,26 +8,33 @@ Floyd::Floyd(Grafo * G)
         ordem= G->getOrdem();
 
         int dist [ordem][ordem];
+
+        No* head=G->getPrimeiroNo();
+
+        for(int i=0; i<ordem; i++)
+        {
+            head->i=i;
+        }
+
         for (int i = 0; i < ordem; i++)
             for (int j = 0; j < ordem; j++)
             {
-                if(G->getNo(i)->existeArestaEntreBool(j))
+                if(G->getNoInt(i)->existeArestaEntreBool(j))
                 {
-                    Aresta* aresta= G->getNo(i)->existeArestaEntre(j);
+                    Aresta* aresta= G->getNoInt(i)->existeArestaEntre(j);
                     dist[i][j] = aresta->getPeso();
                 }
-
                 else
-                    dist[i][j]=infinito;
+                    dist[i][j]=INFINITO;
             }
 
         for (int k = 0; k < ordem; k++)
         {
 
-            for (i = 0; i < ordem; i++)
+            for (int i = 0; i < ordem; i++)
             {
-                /
-                for (j = 0; j < ordem; j++)
+
+                for (int j = 0; j < ordem; j++)
                 {
 
                     if (dist[i][k] + dist[k][j] < dist[i][j])
@@ -35,7 +42,22 @@ Floyd::Floyd(Grafo * G)
                 }
             }
         }
-        imprimirMatrizSolucao(dist);
+
+        cout<<"Following matrix shows the shortest distances between every pair of vertices \n";
+        for (int i = 0; i < ordem; i++)
+        {
+            for (int j = 0; j < ordem; j++)
+            {
+                if (dist[i][j] == INFINITO)
+                    cout<<"%7s"<< "Infinito";
+                else
+                    cout<<"%7d"<< dist[i][j];
+            }
+            cout<<"\n";
+        }
+
+
+
     }
     else
     {
@@ -45,22 +67,3 @@ Floyd::Floyd(Grafo * G)
 
 }
 
-Floyd::imprimirMatrizSolucao(int dist[][ordem])
-{
-
-
-    cout<<"Following matrix shows the shortest distances between every pair of vertices \n";
-    for (int i = 0; i < ordem; i++)
-    {
-        for (int j = 0; j < ordem; j++)
-        {
-            if (dist[i][j] == infinito)
-                cout<<"%7s"<< "Infinito";
-            else
-                cout<<"%7d"<< dist[i][j];
-        }
-        cout<<"\n";
-    }
-
-
-}

@@ -37,6 +37,7 @@ public:
     void removerNo(int id);
     bool buscarNo(int id);
     No* getNo(int id);
+    No* getNoInt(int i);
 
     void aumentaNumArestas();
     void diminuiNumArestas();
@@ -55,7 +56,7 @@ public:
     void adicionaArestaMatriz(int i,int j);
     void removeArestaMatriz(int i, int j);
     void getMatrizAdj();
-    void ListAdj();
+
 
 private:
     int ordem;
@@ -71,8 +72,8 @@ private:
 
     void deleteMatrizAdj();
     int getPosicaoMatriz(int id);
-    void adicionaArestaLista(list<int> listAdj[], int u, int v);
-    void imprimirListaAdj(list<int> listAdj[], int v);
+
+
 
     //Funções auxiliares
     bool existeNo(int id);

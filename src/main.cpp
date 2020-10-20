@@ -119,6 +119,7 @@ void mainMenu(Grafo* graph)
     string id_inicial;
     string id_alvo;
     int a,b;
+    Floyd *floyd;
 
     cout << endl << endl;
 
@@ -198,8 +199,8 @@ void mainMenu(Grafo* graph)
 
                 break;
             case 9:
-                    cout<< "Imprimindo solução Floyd: "
-                    Floyd(graph);
+                    cout<< "Imprimindo solução Floyd: ";
+                    floyd= new Floyd(graph);
 
                 break;
             case 10:

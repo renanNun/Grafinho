@@ -17,7 +17,7 @@ class Floyd
 public:
 
     Floyd (Grafo *G);
-    void imprimirMatrizSolucao(int dist[][ordem]);
+
 
 
 

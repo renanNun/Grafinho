@@ -114,6 +114,19 @@ No* Grafo::getNo(int id)
     return nullptr;
 }
 
+No* Grafo::getNoInt(int i)
+{
+    if(this->primeiro_no != nullptr)
+    {
+        for(No* aux = this->primeiro_no; aux != nullptr; aux = aux->getProx())
+            if(aux->i == i)
+                return aux;
+    }
+
+    return nullptr;
+}
+
+
 /**
     Função que verifica a existencia de um Nó dado um id
     @param id: informação contida no Id
@@ -487,20 +500,7 @@ void Grafo::imprimirMatriz()
 
 }
 
-void Grafo::imprimirListaAdj(list<int> listAdj[], int v)
-{
-    for(int i = 0; i<v; i++)
-    {
-        cout << i << "--->";
-        list<int> :: iterator it;
-        for(it = listAdj[i].begin(); it != listAdj[i].end(); ++it)
-        {
-            cout << *it << " ";
-        }
-        cout << endl;
-    }
 
-}
 
 void Grafo::getMatrizAdj()
 {
@@ -517,32 +517,10 @@ void Grafo::getMatrizAdj()
 
 
 
-void Grafo::ListAdj()
-{
-
-    list<int> listaAdj[]=new list<int>[];
-
-    for(int i = 0; i < this->ordem; i++)
-    {
-        for(int j = 0; j < this->ordem; j++)
-        {
-            adicionaArestaLista(listaAdj,i,j);
-        }
-    }
-
-    imprimirListaAdj(listaAdj,ordem);
-
-}
 
 void Grafo::adicionaArestaMatriz(int i, int j)
 {
     matriz_adjacencia[this->getPosicaoMatriz(i)][this->getPosicaoMatriz(j)] = true;
-}
-
-Grafo::adicionaArestaLista(list<int> listAdj[], int u, int v)
-{
-    listAdj[u].push_back(v);
-    listAdj[v].push_back(u);
 }
 
 
