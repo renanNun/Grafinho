@@ -1,11 +1,9 @@
 
-
-
 		TRABALHO DE GRAFOS
 alunos: Luan Reis Ciribelli e Renan Nunes da Costa Gon�alves
 
-Numero de Vertices: 585
-Numero de Arestas: 5850
+Numero de Vertices: 209
+Numero de Arestas: 2090
 Grau Medio do Grafo
 	Por Adjacencia: 20
 	Por Adjacencia: 19

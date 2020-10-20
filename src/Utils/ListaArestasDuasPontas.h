@@ -1,8 +1,7 @@
-
-
 #ifndef LISTAARESTADUASPONTAS_H
 #define LISRAARESTADUASPONTAS_H
 
+#include "ArestaDuasPontas.h"
 
 
 using namespace std;
@@ -14,12 +13,21 @@ using namespace std;
 */
 class ListaArestaDuasPontas
 {
-    public:
+public:
+    ListaArestaDuasPontas();
+    ~ListaArestaDuasPontas();
 
+    ArestaDuasPontas* getPrimeiro();
+    void insereAresta(int id,int id2, float peso);
+    ArestaDuasPontas* removeAresta(int id,int id2);
+    ArestaDuasPontas* removePrimeiraAresta();
+    int getTamanho();
+    bool vazia();
 
-
-    private:
-
+private:
+    ArestaDuasPontas* primeiro;
+    ArestaDuasPontas* ultimo;
+    int tamanho;
 };
 
 #endif //LISTAARESTADUASPONTAS_H

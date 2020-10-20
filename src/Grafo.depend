@@ -122,10 +122,10 @@
 	"no.h"
 	"aresta.h"
 
-1603209737 /home/luan/Github/Grafinho/src/no.h
+1603218209 /home/luan/Github/Grafinho/src/no.h
 	"aresta.h"
 
-1603216675 source:/home/luan/Github/Grafinho/src/main.cpp
+1603218655 source:/home/luan/Github/Grafinho/src/main.cpp
 	<iostream>
 	<fstream>
 	<sstream>
@@ -158,13 +158,13 @@
 
 1603118704 /home/luan/Github/Grafinho/src/aresta.h
 
-1603216565 source:/home/luan/Github/Grafinho/src/Floyd.cpp
+1603219856 source:/home/luan/Github/Grafinho/src/Floyd.cpp
 	"Floyd.h"
 
-1603216548 /home/luan/Github/Grafinho/src/Floyd.h
+1603218209 /home/luan/Github/Grafinho/src/Floyd.h
 	"grafo.h"
 
-1603216633 /home/luan/Github/Grafinho/src/grafo.h
+1603218209 /home/luan/Github/Grafinho/src/grafo.h
 	<iostream>
 	<fstream>
 	<chrono>
@@ -174,26 +174,45 @@
 	"no.h"
 	"aresta.h"
 
-1603209728 source:/home/luan/Github/Grafinho/src/no.cpp
+1603218209 source:/home/luan/Github/Grafinho/src/no.cpp
 	"no.h"
 
-1603216708 source:/home/luan/Github/Grafinho/src/grafo.cpp
+1603218209 source:/home/luan/Github/Grafinho/src/grafo.cpp
 	"grafo.h"
 
-1603154672 source:/home/luan/Github/Grafinho/src/Dijkstra.cpp
+1603218209 source:/home/luan/Github/Grafinho/src/Dijkstra.cpp
 	"Dijkstra.h"
 
-1603154524 /home/luan/Github/Grafinho/src/Dijkstra.h
+1603218209 /home/luan/Github/Grafinho/src/Dijkstra.h
 	"grafo.h"
 
-1603209431 source:/home/luan/Github/Grafinho/src/Kruskal.cpp
+1603218209 source:/home/luan/Github/Grafinho/src/Kruskal.cpp
 	"Kruskal.h"
 
-1603209431 /home/luan/Github/Grafinho/src/Kruskal.h
+1603218209 /home/luan/Github/Grafinho/src/Kruskal.h
 	"grafo.h"
 
-1603154937 source:/home/luan/Github/Grafinho/src/Prim.cpp
-	"Prim.h"
+1603222294 source:/home/luan/Github/Grafinho/src/Prim.cpp
 
-1603154918 /home/luan/Github/Grafinho/src/Prim.h
+1603218209 /home/luan/Github/Grafinho/src/Prim.h
+
+1603220326 source:/home/luan/Github/Grafinho/src/Utils/ListaArestasDuasPontas.cpp
+	"ListaArestasDuasPontas.h"
+
+1603220846 /home/luan/Github/Grafinho/src/Utils/ListaArestasDuasPontas.h
+	"ArestaDuasPontas.h"
+
+1603222565 source:/home/luan/Github/Grafinho/src/Utils/ArestaDuasPontas.cpp
+	"Utils/ArestaDuasPontas.h"
+
+1603222546 /home/luan/Github/Grafinho/src//Utils/ArestaDuasPontas.h
+	"no.h"
+
+1603218209 /home/luan/Github/Grafinho/src//no.h
+	"aresta.h"
+
+1603118704 /home/luan/Github/Grafinho/src//aresta.h
+
+1603222546 /home/luan/Github/Grafinho/src/Utils/ArestaDuasPontas.h
+	"no.h"
 

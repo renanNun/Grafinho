@@ -10,6 +10,8 @@
 
 #include "Floyd.h"
 
+#include "Prim.h"
+
 using namespace std;
 std::ifstream input_file;
 std::ofstream output_file;
@@ -126,6 +128,7 @@ void mainMenu(Grafo* graph)
 
     Dijkstra* algoritmoDijkstra;
     Floyd* floyd;
+    Prim * prim;
 
     cout << endl << endl;
 
@@ -154,8 +157,8 @@ void mainMenu(Grafo* graph)
         cout << "[06] Busca Em Profundidade" << endl;
         cout << "[07] Busca em Largura" << endl;
         cout << "[08] Algoritmo de Dijkstra" << endl;
-        cout << "[09] Algoritmo de Prim" << endl;
-        cout << "[10] Algoritmo de FloydMarshall" << endl;
+        cout << "[09] Algoritmo de FloydMarshall" << endl;
+        cout << "[10] Algoritmo de Prim" << endl;
         cout << "[11] Algoritmo de Kruskal" << endl;
         cout << " [0] Sair" << endl;
 
@@ -211,14 +214,14 @@ void mainMenu(Grafo* graph)
                 algoritmoDijkstra = new Dijkstra(graph, a);
                 break;
             case 9:
-
+                if (graph->getPonderadoAresta())
+                    floyd = new Floyd(graph,graph->getMatriz());
+                else
+                    cout<< "Floyd só pode ser usado quando as arestas são ponderadas"<<endl;
                 break;
             case 10:
+                    prim= new Prim(graph);
 
-                if (graph->getPonderadoAresta())
-                floyd = new Floyd(graph,graph->getMatriz());
-                else
-                cout<< "Floyd só pode ser usado quando as arestas são ponderadas"<<endl;
 
                 break;
             case 11:
