@@ -58,6 +58,7 @@ public:
     void getMatrizAdj();
 
 
+    int frequenciaRelativa(int d);
 private:
     int ordem;
     int numero_arestas;
@@ -79,6 +80,7 @@ private:
     bool existeNo(int id);
     void removerAdjacencias(int id);
     void depthFirstSearchF(No* no, bool* vetor_coloracao,No* pai, int nivel);
+
 };
 
 #endif // GRAFO_H
