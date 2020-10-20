@@ -48,8 +48,6 @@ public:
     bool depthFirstSearch(int id_inicial);
     void breathFirstSearch(ofstream& output_file);
 
-    Grafo* copiaGrafo();
-
     void imprimir();
     void imprimirMatriz();
 
