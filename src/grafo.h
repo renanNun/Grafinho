@@ -58,7 +58,8 @@ public:
     void getMatrizAdj();
 
 
-    int frequenciaRelativa(int d);
+    double frequenciaRelativa(int d);
+
 private:
     int ordem;
     int numero_arestas;

@@ -5,7 +5,11 @@
 #include <chrono>
 #include "grafo.h"
 #include "no.h"
+
+#include "dijkstra.h"
+
 #include "Floyd.h"
+
 
 using namespace std;
 std::ifstream input_file;
@@ -118,8 +122,11 @@ void mainMenu(Grafo* graph)
 
     string id_inicial;
     string id_alvo;
+    string d;
     int a,b;
     Floyd *floyd;
+
+    Dijkstra* algoritmoDijkstra;
 
     cout << endl << endl;
 
@@ -144,12 +151,13 @@ void mainMenu(Grafo* graph)
         cout << "[02] Impressao por Matriz de Adjacencia " << endl;
         cout << "[03] Ordem e Numero de Arestas do Grafo" << endl;
         cout << "[04] Grau Medio do Grafo" << endl;
-        cout << "[05] Busca Em Profundidade" << endl;
-        cout << "[06] Busca em Largura" << endl;
-        cout << "[07] Algoritmo de Dijkstra" << endl;
-        cout << "[08] Algoritmo de Prim" << endl;
-        cout << "[09] Algoritmo de FloydMarshall" << endl;
-        cout << "[10] Algoritmo de Kruskal" << endl;
+        cout << "[05] Frequencia Relativa do Grafo" << endl;
+        cout << "[06] Busca Em Profundidade" << endl;
+        cout << "[07] Busca em Largura" << endl;
+        cout << "[08] Algoritmo de Dijkstra" << endl;
+        cout << "[09] Algoritmo de Prim" << endl;
+        cout << "[10] Algoritmo de FloydMarshall" << endl;
+        cout << "[11] Algoritmo de Kruskal" << endl;
         cout << " [0] Sair" << endl;
 
         cout << endl << "Escolha: ";
@@ -180,32 +188,47 @@ void mainMenu(Grafo* graph)
                 cout << "\tPor Adjacencia: " << graph->grauMedioPorAdjacencia() << endl;
                 break;
             case 5:
-                cout << "\tNo inicial: ";
-                cin >> id_inicial;
-                cout << "\tNo alvo: ";
-                cin >> id_alvo;
+
+                cout << "\tFrequencia: ";
+                cin >> d;
                 cout << endl;
-                a = atoi(id_inicial.c_str());
-                b = atoi(id_alvo.c_str());
-                graph->depthFirstSearch(a,b);
+                a = atoi(d.c_str());
+                cout << "Frequencia Relativa do Grafo: " << graph->frequenciaRelativa(a) << endl;
                 break;
             case 6:
-                graph->breathFirstSearch(output_file);
+
+                cout << "\tNo inicial: ";
+                cin >> id_inicial;
+                cout << endl;
+                a = atoi(id_inicial.c_str());
+                graph->depthFirstSearch(a);
                 break;
             case 7:
 
+                graph->breathFirstSearch(output_file);
                 break;
             case 8:
-
+                cout << "\tNo inicial: ";
+                cin >> id_inicial;
+                cout << endl;
+                a = atoi(id_inicial.c_str());
+                algoritmoDijkstra = new Dijkstra(graph, a);
                 break;
+  
             case 9:
                     cout<< "Imprimindo solução Floyd: ";
                     floyd= new Floyd(graph);
+
 
                 break;
             case 10:
 
                 break;
+
+            case 11:
+
+                break;
+
             default:
                 flag = true;
             }
@@ -234,7 +257,7 @@ void mainMenu(Grafo* graph)
 int main(int argc, char const *argv[])
 {
     //Verifica��o se todos os par�metros do programa foram entrados
-    if(argc != 6)
+    if(argc != 3)
     {
         cout << "ERROR: Espera-se: ./<program_name> <input_file> <output_file> <direcionado> <ponderado_aresta> <ponderado_no>" << endl;
         return 1;
@@ -254,8 +277,8 @@ int main(int argc, char const *argv[])
     if(input_file.is_open())
     {
 
-        graph = leitura(atoi(argv[3]), atoi(argv[4]), atoi(argv[5]));
-
+        //graph = leitura(atoi(argv[3]), atoi(argv[4]), atoi(argv[5]));
+        graph = leitura(0,1,0);
     }
     else
         cout << "Unable to open " << argv[1];
@@ -276,7 +299,7 @@ int main(int argc, char const *argv[])
     output_file << "Grau Medio do Grafo" << endl;
     output_file << "\tPor Adjacencia: " << graph->grauMedioPorAdjacencia() << endl;
     output_file << "\tPor Adjacencia: " << graph->grauMedioPorSomatorio() << endl;
-    output_file << "Fecho Triadico: " << endl;
+    output_file << "Frequencia média para o grau 5: " << graph->frequenciaRelativa(5) << endl;
     output_file << endl << endl;
 
     //Fechando arquivo de entrada

@@ -385,7 +385,7 @@ void Grafo::depthFirstSearchF(No* no, bool* vetor_coloracao, No* pai, int nivel)
     {
         No* aux = getNo(aresta->getId());
         if(vetor_coloracao[aux->i] == 0)
-            depthFirstSearchF(aux,vetor_coloracao,no,nivel+1,id_alvo);
+            depthFirstSearchF(aux,vetor_coloracao,no,nivel+1);
         aresta = aresta->getProxAresta();
     }
 }
@@ -551,5 +551,27 @@ int Grafo::getPosicaoMatriz(int id)
     }
 
     return -1;
+}
+
+/**
+    Frequencia Relativa
+    @param d: grau do nó
+    autor: Renan Nunes da Costa Gonçalves
+*/
+double Grafo::frequenciaRelativa(int d)
+{
+    if(this->primeiro_no == nullptr)
+        return -1;
+    else {
+        int cont = 0;
+
+        for(No* no = this->primeiro_no; no != nullptr; no = no->getProx())
+        {
+            if(no->getGrauEntrada() == d)
+                cont++;
+        }
+
+        return (cont/this->ordem);
+    }
 }
 
