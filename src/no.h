@@ -34,6 +34,7 @@ class No
         void diminuiGrauEntrada();
         void aumentaGrauSaida();
         void diminuiGrauSaida();
+        void setId(int newId);
         Aresta* existeArestaEntre(int id_alvo);
         bool existeArestaEntreBool(int id_alvo);
 

@@ -37,7 +37,6 @@ Floyd::Floyd(Grafo* g,float** matrizAdj)
 Floyd::~Floyd()
 {
 
-}
 
 void Floyd::printSolucao(float** dist)
 {
@@ -47,7 +46,9 @@ void Floyd::printSolucao(float** dist)
         for(int j = 0; j < n; j++)
         {
             if(dist[i][j] == INT_MAX)
-                cout << "INFINITO ";
+
+                cout << "INFINITO";
+
             else
                 cout << dist[i][j] << " ";
         }

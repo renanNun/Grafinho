@@ -5,7 +5,9 @@
 #include <chrono>
 #include "grafo.h"
 #include "no.h"
-#include "dijkstra.h"
+
+#include "Dijkstra.h"
+
 #include "Floyd.h"
 
 using namespace std;
@@ -212,7 +214,12 @@ void mainMenu(Grafo* graph)
 
                 break;
             case 10:
+
+                if (graph->getPonderadoAresta())
                 floyd = new Floyd(graph,graph->getMatriz());
+                else
+                cout<< "Floyd só pode ser usado quando as arestas são ponderadas"<<endl;
+
                 break;
             case 11:
 

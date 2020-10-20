@@ -1,4 +1,4 @@
-#include "dijkstra.h"
+#include "Dijkstra.h"
 #define INFINITO 500000
 
 Dijkstra::Dijkstra(Grafo* g,int no_inicial)
