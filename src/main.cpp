@@ -6,7 +6,7 @@
 #include "grafo.h"
 #include "no.h"
 
-#include "dijkstra.h"
+#include "Dijkstra.h"
 
 #include "Floyd.h"
 
@@ -214,7 +214,7 @@ void mainMenu(Grafo* graph)
                 a = atoi(id_inicial.c_str());
                 algoritmoDijkstra = new Dijkstra(graph, a);
                 break;
-  
+
             case 9:
                     cout<< "Imprimindo solução Floyd: ";
                     floyd= new Floyd(graph);

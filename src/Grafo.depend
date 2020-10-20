@@ -100,7 +100,6 @@
 	"grafo.h"
 	"no.h"
 
-
 1601763104 source:c:\users\renan\documents\github\grafo\grafinho\src\aresta.cpp
 	"aresta.h"
 
@@ -113,15 +112,12 @@
 	"grafo.h"
 
 1603120763 c:\users\renan\documents\github\grafo\grafinho\src\grafo.h
-
-
 	<iostream>
 	<fstream>
 	<chrono>
 	<stack>
 	<list>
 	<queue>
-
 	<iterator>
 	"no.h"
 	"aresta.h"
@@ -129,8 +125,7 @@
 1603118704 /home/luan/Github/Grafinho/src/no.h
 	"aresta.h"
 
-1603118704 source:/home/luan/Github/Grafinho/src/main.cpp
-
+1603154676 source:/home/luan/Github/Grafinho/src/main.cpp
 	<iostream>
 	<fstream>
 	<sstream>
@@ -138,7 +133,8 @@
 	<chrono>
 	"grafo.h"
 	"no.h"
-
+	"Dijkstra.h"
+	"Floyd.h"
 
 1603118977 source:c:\users\renan\documents\github\grafo\grafinho\src\no.cpp
 	"no.h"
@@ -157,4 +153,37 @@
 1603124822 c:\users\renan\documents\github\grafo\grafinho\src\dijkstra.h
 	"grafo.h"
 
+1603118704 source:/home/luan/Github/Grafinho/src/aresta.cpp
+	"aresta.h"
+
+1603118704 /home/luan/Github/Grafinho/src/aresta.h
+
+1603153545 source:/home/luan/Github/Grafinho/src/Floyd.cpp
+	"Floyd.h"
+
+1603153545 /home/luan/Github/Grafinho/src/Floyd.h
+	"grafo.h"
+
+1603154524 /home/luan/Github/Grafinho/src/grafo.h
+	<iostream>
+	<fstream>
+	<chrono>
+	<stack>
+	<list>
+	<queue>
+	<iterator>
+	"no.h"
+	"aresta.h"
+
+1603118704 source:/home/luan/Github/Grafinho/src/no.cpp
+	"no.h"
+
+1603154524 source:/home/luan/Github/Grafinho/src/grafo.cpp
+	"grafo.h"
+
+1603154672 source:/home/luan/Github/Grafinho/src/Dijkstra.cpp
+	"Dijkstra.h"
+
+1603154524 /home/luan/Github/Grafinho/src/Dijkstra.h
+	"grafo.h"
 
