@@ -24,6 +24,8 @@ public:
     int getTamanho();
     bool vazia();
 
+    bool existeAresta(int id,int id2);
+
 private:
     ArestaDuasPontas* primeiro;
     ArestaDuasPontas* ultimo;

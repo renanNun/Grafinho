@@ -1,4 +1,4 @@
-#include "Utils/ArestaDuasPontas.h"
+#include "ArestaDuasPontas.h"
 
 
 ArestaDuasPontas::ArestaDuasPontas() {};

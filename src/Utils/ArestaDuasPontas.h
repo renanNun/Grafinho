@@ -1,7 +1,7 @@
 #ifndef ARESTADUASPONTAS_H
 #define ARESTADUASPONTAS_H
 
-#include "no.h"
+#include "../no.h"
 
 using namespace std;
 
