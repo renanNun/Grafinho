@@ -30,6 +30,7 @@ public:
     bool getPonderadoNo();
     No* getPrimeiroNo();
     No* getUltimoNo();
+    void setOrdem(int ordem);
 
     void inserirNo(int id);
     void inserirAresta(int id, int id_alvo,float peso);

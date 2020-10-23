@@ -77,6 +77,11 @@ No* Grafo::getUltimoNo()
     return this->ultimo_no;
 }
 
+void Grafo::setOrdem(int ordem)
+{
+    this->ordem = ordem;
+}
+
 //Outros Métodos
 /**
     Função que aumenta o número de arestas do Grafo

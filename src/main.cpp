@@ -233,8 +233,10 @@ void mainMenu(Grafo* graph)
                 {
                     float pesoTotal;
                     Prim *prim = new Prim(graph);
+                    cout << "ENTRA" << endl;
                     Grafo *arvoreAGM =  prim->gerar(&pesoTotal);
-
+                    cout << "GEROU" << endl;
+                    arvoreAGM->imprimir();
                 }
 
                 break;

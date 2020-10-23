@@ -196,7 +196,7 @@ void Kruskal::vetorIdNos(int* idNos) // Função auxiliar que preenche o vetor c
         Aresta arestasAGM[ordem - 1];
         *soma = auxKruskal(arestasAGM); // Chama a função 'auxKruskal' e encontra as arestas da árvore geradora mínima.
 
-        Grafo *h = new Grafo(NULL,false,true,false); // Cria-se o grafo que irá receber as arestas encontradas por 'auxKruskal'.
+        Grafo *h = new Grafo(0,false,true,false); // Cria-se o grafo que irá receber as arestas encontradas por 'auxKruskal'.
 
         for(int i = 0; i < ordem - 1; i++)   // Cria em 'h' as arestas com as mesmas características das presentes em 'arestasAGM'.
         {
@@ -207,6 +207,7 @@ void Kruskal::vetorIdNos(int* idNos) // Função auxiliar que preenche o vetor c
             h->inserirNo(origem);
             h->inserirNo(fim);
             h->inserirAresta(origem, fim, peso);
+            h->setOrdem(h->getOrdem()+1);
         }
 
         return h;
