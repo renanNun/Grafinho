@@ -2,9 +2,10 @@
 #define GRAFO_COMPONENTES_CONEXAS_H
 
 #include <iostream>
-#include "aresta.h"
-#include "no.h"
-#include "grafo.h"
+#include "../grafo.h"
+
+
+using namespace std;
 
 class ComponentesConexas
 {
@@ -17,12 +18,9 @@ public:
 
 
 private:
-    Grafo *grafo;
+    Grafo * grafo;
     void buscaProfCompConexa(int *indComp, int i, int numComp, int *idNos);
     int encontraIndice(int *idNos, int id);
-
-
-
 
 
 };

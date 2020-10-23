@@ -223,12 +223,42 @@ void mainMenu(Grafo* graph)
                     cout<< "Floyd só pode ser usado quando as arestas são ponderadas"<<endl;
                 break;
             case 10:
-                    prim= new Prim(graph);
+                cout<<"\n Prim: Árvore Geradora Mínima para grafos não orientados ponderados ou não \n";
+                if(graph->getDirecionado())
+                {
+                    cout<<"\n Atenção: O grafo não pode ser orientado para calcular a arvore geradora mínima por Prim! \n";
+                }
+                else
+                {
+                    float pesoTotal;
+                    Prim *prim = new Prim(graph);
+                    Grafo *arvoreAGM =  prim->gerar(&pesoTotal);
 
+                }
 
                 break;
+
             case 11:
-                kruskal=new Kruskal(graph);
+                cout<<"\n Kruskal: Árvore Geradora Mínima para grafos não orientados ponderados ou não \n";
+
+                if(graph->getDirecionado())
+                {
+                    cout<<"Atenção: O grafo não pode ser orientado para calcular a arvore geradora mínima por Kruskal! \n";
+                }
+                else
+                {
+                    Aresta arestasAGM[graph->getOrdem() - 1];
+                    int indComp[graph->getOrdem()];
+                    int idNos[graph->getOrdem()];
+
+                    if(graph->listarComponentesConexas(indComp, idNos) == 1)
+                    {
+                        float pesoTotal;
+                        Grafo *arvoreAGM = graph->KruskalAGM(&pesoTotal);
+
+
+                    }
+                }
 
                 break;
             default:

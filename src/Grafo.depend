@@ -166,7 +166,7 @@
 1603218209 /home/luan/Github/Grafinho/src/Floyd.h
 	"grafo.h"
 
-1603479479 /home/luan/Github/Grafinho/src/grafo.h
+1603488570 /home/luan/Github/Grafinho/src/grafo.h
 	<iostream>
 	<fstream>
 	<chrono>
@@ -175,6 +175,7 @@
 	<queue>
 	"no.h"
 	"aresta.h"
+	"Utils/ComponentesConexas.h"
 
 1603479112 source:/home/luan/Github/Grafinho/src/no.cpp
 	"no.h"
@@ -191,14 +192,14 @@
 1603480495 source:/home/luan/Github/Grafinho/src/Kruskal.cpp
 	"Kruskal.h"
 
-1603480294 /home/luan/Github/Grafinho/src/Kruskal.h
+1603488635 /home/luan/Github/Grafinho/src/Kruskal.h
 	<iostream>
 	"aresta.h"
 	"no.h"
 	"grafo.h"
-	"ComponentesConexas.h"
+	"Utils/ComponentesConexas.h"
 
-1603478965 source:/home/luan/Github/Grafinho/src/Prim.cpp
+1603480712 source:/home/luan/Github/Grafinho/src/Prim.cpp
 	"Prim.h"
 
 1603480680 /home/luan/Github/Grafinho/src/Prim.h
@@ -228,13 +229,11 @@
 1603316676 /home/luan/Github/Grafinho/src/Utils/ArestaDuasPontas.h
 	"../no.h"
 
-1603480065 /home/luan/Github/Grafinho/src/Utils/ComponentesConexas.h
+1603488706 /home/luan/Github/Grafinho/src/Utils/ComponentesConexas.h
 	<iostream>
-	"aresta.h"
-	"no.h"
-	"grafo.h"
+	"../grafo.h"
 
-1603479479 /home/luan/Github/Grafinho/src//grafo.h
+1603488570 /home/luan/Github/Grafinho/src//grafo.h
 	<iostream>
 	<fstream>
 	<chrono>
@@ -243,7 +242,12 @@
 	<queue>
 	"no.h"
 	"aresta.h"
+	"Utils/ComponentesConexas.h"
 
 1603480088 source:/home/luan/Github/Grafinho/src/Utils/ComponentesConexas.cpp
 	"ComponentesConexas.h"
+
+1603488683 /home/luan/Github/Grafinho/src//Utils/ComponentesConexas.h
+	<iostream>
+	"grafo.h"
 

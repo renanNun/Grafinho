@@ -295,28 +295,6 @@ int Grafo::grauMedioPorAdjacencia()
     }
 }
 
-bool fechoTriadico(No *a, No  *b)
-{
-
-    if (!a->existeArestaEntreBool(b->getId()))
-    {
-
-        return false;
-    }
-    else
-    {
-
-        return true;
-    }
-
-
-}
-
-double coeficienteDeAgrupamento()
-{
-    return 0;
-
-}
 
 /**
     Função responsável por realizar a busca em profundidade
@@ -582,4 +560,11 @@ double Grafo::frequenciaRelativa(int d)
 
         return (cont/this->ordem);
     }
+}
+
+
+int Grafo::listarComponentesConexas(int* indComp, int* idNos)
+{
+    ComponentesConexas *conexas = new ComponentesConexas(this);
+    return conexas->componenteConexa(indComp, idNos);
 }

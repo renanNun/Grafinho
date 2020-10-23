@@ -2,6 +2,7 @@
 
 void Prim::ordenar(Aresta **a,int n)
 {
+
     int i, loc, j, k;
     Aresta *selected=NULL;
 
@@ -41,6 +42,8 @@ int Prim::binarySearch(Aresta **a, Aresta *item, int low, int high)
 
 Grafo * Prim::gerar(float *soma)
 {
+
+
     Grafo *h = new Grafo(NULL,false,true,false); // Cria-se o grafo que irá receber as arestas encontradas por 'auxKruskal'.
 
     Aresta **listaPrim = prim();
@@ -69,6 +72,7 @@ Grafo * Prim::gerar(float *soma)
 
 Aresta** Prim::prim()
 {
+
     No *noAtual=NULL;
     int aux;
     int tamSolucao=0;
@@ -148,6 +152,7 @@ Aresta** Prim::prim()
 
 Prim::Prim(Grafo *grafo)
 {
+
     this->grafo = grafo;
 }
 

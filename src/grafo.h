@@ -9,6 +9,7 @@
 
 #include "no.h"
 #include "aresta.h"
+#include "Utils/ComponentesConexas.h"
 
 using namespace std;
 
@@ -42,8 +43,7 @@ public:
 
     int grauMedioPorSomatorio();
     int grauMedioPorAdjacencia();
-    bool fechoTriadico(No *a, No* b);
-    double coeficienteDeAgrupamento();
+
 
     bool depthFirstSearch(int id_inicial);
     void breathFirstSearch(ofstream& output_file);
@@ -58,6 +58,10 @@ public:
     bool verificaAdjacencia(int i, int j);
 
     double frequenciaRelativa(int d);
+
+    // Kruskal
+    int listarComponentesConexas(int* indComp, int* idNos);
+
 private:
     int ordem;
     int numero_arestas;

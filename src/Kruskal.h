@@ -5,7 +5,11 @@
 #include "aresta.h"
 #include "no.h"
 #include "grafo.h"
-#include "ComponentesConexas.h"
+#include "Utils/ComponentesConexas.h"
+
+
+
+using namespace std;
 
 class Kruskal
 {
