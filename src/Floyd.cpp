@@ -35,7 +35,7 @@ Floyd::Floyd(Grafo* g,float** matrizAdj)
 }
 
 Floyd::~Floyd()
-{
+{}
 
 
 void Floyd::printSolucao(float** dist)

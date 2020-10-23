@@ -77,6 +77,11 @@ No* Grafo::getUltimoNo()
     return this->ultimo_no;
 }
 
+void Grafo::setOrdem(int ordem)
+{
+    this->ordem = ordem;
+}
+
 //Outros Métodos
 /**
     Função que aumenta o número de arestas do Grafo
@@ -295,24 +300,6 @@ int Grafo::grauMedioPorAdjacencia()
     }
 }
 
-bool fechoTriadico(No *a, No  *b){
-
-if (!a->existeArestaEntreBool(b->getId())){
-
-return false;
-}
-else{
-
-return true;
-}
-
-
-}
-
-double coeficienteDeAgrupamento(){
-return 0;
-
-}
 
 /**
     Função responsável por realizar a busca em profundidade
@@ -382,7 +369,7 @@ void Grafo::depthFirstSearchF(No* no, bool* vetor_coloracao, No* pai, int nivel)
 
     while(aresta != nullptr)
     {
-        No* aux = getNo(aresta->getId());
+        No* aux = getNo(aresta->getId_alvo());
         if(vetor_coloracao[aux->i] == 0)
             depthFirstSearchF(aux,vetor_coloracao,no,nivel+1);
         aresta = aresta->getProxAresta();
@@ -428,7 +415,7 @@ void Grafo::breathFirstSearch(ofstream& output_file)
 
         while(aresta != nullptr)
         {
-            No* no_aux = getNo(aresta->getId());
+            No* no_aux = getNo(aresta->getId_alvo());
             if(visitado[no_aux->i] == 0)
             {
                 visitado[no_aux->i] = 1;
@@ -462,16 +449,16 @@ void Grafo::imprimir()
             if(this->ponderado_aresta)
             {
                 if(aresta->getProxAresta() != nullptr)
-                    cout << aresta->getId() << "(" << aresta->getPeso() << ")--->";
+                    cout << aresta->getId_alvo() << "(" << aresta->getPeso() << ")--->";
                 else
-                    cout << aresta->getId();
+                    cout << aresta->getId_alvo();
             }
             else
             {
                 if(aresta->getProxAresta() != nullptr)
-                    cout << aresta->getId() << "--->";
+                    cout << aresta->getId_alvo() << "--->";
                 else
-                    cout << aresta->getId();
+                    cout << aresta->getId_alvo();
             }
         }
 
@@ -484,7 +471,7 @@ void Grafo::imprimirMatriz()
     cout << endl << "IMPRESSAO POR MATRIZ DE ADJACENCIA" << endl;
     cout << endl;
     int a,b;
-    for( No* no = this->primeiro_no;no != nullptr; no = no->getProx())
+    for( No* no = this->primeiro_no; no != nullptr; no = no->getProx())
     {
         a = getPosicaoMatriz(no->getId());
         cout << endl;
@@ -492,7 +479,7 @@ void Grafo::imprimirMatriz()
         for(Aresta* aresta = no->getPrimeiraAresta(); aresta != nullptr; aresta = aresta->getProxAresta())
         {
             //cout << "ENTROU" << endl;
-            b = getPosicaoMatriz(aresta->getId());
+            b = getPosicaoMatriz(aresta->getId_alvo());
             cout << this->matriz_adjacencia[a][b] << " | ";
         }
     }
@@ -566,7 +553,8 @@ double Grafo::frequenciaRelativa(int d)
 {
     if(this->primeiro_no == nullptr)
         return -1;
-    else {
+    else
+    {
         int cont = 0;
 
         for(No* no = this->primeiro_no; no != nullptr; no = no->getProx())
@@ -578,3 +566,7 @@ double Grafo::frequenciaRelativa(int d)
         return (cont/this->ordem);
     }
 }
+
+
+
+

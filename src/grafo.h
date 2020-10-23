@@ -30,6 +30,7 @@ public:
     bool getPonderadoNo();
     No* getPrimeiroNo();
     No* getUltimoNo();
+    void setOrdem(int ordem);
 
     void inserirNo(int id);
     void inserirAresta(int id, int id_alvo,float peso);
@@ -42,8 +43,7 @@ public:
 
     int grauMedioPorSomatorio();
     int grauMedioPorAdjacencia();
-    bool fechoTriadico(No *a, No* b);
-    double coeficienteDeAgrupamento();
+
 
     bool depthFirstSearch(int id_inicial);
     void breathFirstSearch(ofstream& output_file);
@@ -58,6 +58,10 @@ public:
     bool verificaAdjacencia(int i, int j);
 
     double frequenciaRelativa(int d);
+
+    // Kruskal
+    int listarComponentesConexas(int* indComp, int* idNos);
+
 private:
     int ordem;
     int numero_arestas;
@@ -77,6 +81,10 @@ private:
     bool existeNo(int id);
     void removerAdjacencias(int id);
     void depthFirstSearchF(No* no, bool* vetor_coloracao,No* pai, int nivel);
+
+
+
+
 };
 
 #endif // GRAFO_H
