@@ -196,14 +196,14 @@
 
 1603218209 /home/luan/Github/Grafinho/src/Prim.h
 
-1603220326 source:/home/luan/Github/Grafinho/src/Utils/ListaArestasDuasPontas.cpp
+1603316676 source:/home/luan/Github/Grafinho/src/Utils/ListaArestasDuasPontas.cpp
 	"ListaArestasDuasPontas.h"
 
-1603220846 /home/luan/Github/Grafinho/src/Utils/ListaArestasDuasPontas.h
+1603471367 /home/luan/Github/Grafinho/src/Utils/ListaArestasDuasPontas.h
 	"ArestaDuasPontas.h"
 
-1603222565 source:/home/luan/Github/Grafinho/src/Utils/ArestaDuasPontas.cpp
-	"Utils/ArestaDuasPontas.h"
+1603316676 source:/home/luan/Github/Grafinho/src/Utils/ArestaDuasPontas.cpp
+	"ArestaDuasPontas.h"
 
 1603222546 /home/luan/Github/Grafinho/src//Utils/ArestaDuasPontas.h
 	"no.h"
@@ -213,6 +213,6 @@
 
 1603118704 /home/luan/Github/Grafinho/src//aresta.h
 
-1603222546 /home/luan/Github/Grafinho/src/Utils/ArestaDuasPontas.h
-	"no.h"
+1603316676 /home/luan/Github/Grafinho/src/Utils/ArestaDuasPontas.h
+	"../no.h"
 

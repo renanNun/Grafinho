@@ -11,6 +11,7 @@ using namespace std;
 *   Criador: Luan Reis Ciribelli e Renan Nunes
 *   vers�o: 1.0
 */
+
 class ListaArestaDuasPontas
 {
 public:
