@@ -23,10 +23,9 @@ class Prim
 
 public:
     Prim(Grafo *grafo);
-
     ~Prim();
+    Grafo *gerar(float *soma);
 
-    void preencheLista();
 
 private:
     Grafo *grafo;
@@ -34,9 +33,7 @@ private:
     int binarySearch(Aresta **a, Aresta *item, int low, int high);
     Aresta** prim();
 
-public:
 
-    Grafo *gerar(float *soma);
 
 };
 

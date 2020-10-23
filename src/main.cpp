@@ -12,6 +12,8 @@
 
 #include "Prim.h"
 
+#include "Kruskal.h"
+
 using namespace std;
 std::ifstream input_file;
 std::ofstream output_file;
@@ -129,6 +131,7 @@ void mainMenu(Grafo* graph)
     Dijkstra* algoritmoDijkstra;
     Floyd* floyd;
     Prim * prim;
+    Kruskal *kruskal;
 
     cout << endl << endl;
 
@@ -220,11 +223,12 @@ void mainMenu(Grafo* graph)
                     cout<< "Floyd só pode ser usado quando as arestas são ponderadas"<<endl;
                 break;
             case 10:
-                    //prim= new Prim(graph);
+                    prim= new Prim(graph);
 
 
                 break;
             case 11:
+                kruskal=new Kruskal(graph);
 
                 break;
             default:

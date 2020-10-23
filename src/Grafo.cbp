@@ -15,6 +15,7 @@
 					<Add option="-g" />
 					<Add directory="./" />
 					<Add directory="include" />
+					<Add directory="Utils" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -26,6 +27,7 @@
 					<Add option="-O2" />
 					<Add directory="./" />
 					<Add directory="include" />
+					<Add directory="Utils" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -44,15 +46,15 @@
 		<Unit filename="Kruskal.h" />
 		<Unit filename="Prim.cpp" />
 		<Unit filename="Prim.h" />
+		<Unit filename="Utils/ComponentesConexas.cpp" />
+		<Unit filename="Utils/ComponentesConexas.h" />
 		<Unit filename="aresta.cpp" />
 		<Unit filename="aresta.h" />
 		<Unit filename="grafo.cpp" />
 		<Unit filename="grafo.h" />
-		<Unit filename="include/ComponentesConexas.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="no.cpp" />
 		<Unit filename="no.h" />
-		<Unit filename="src/ComponentesConexas.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

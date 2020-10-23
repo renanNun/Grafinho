@@ -295,22 +295,26 @@ int Grafo::grauMedioPorAdjacencia()
     }
 }
 
-bool fechoTriadico(No *a, No  *b){
+bool fechoTriadico(No *a, No  *b)
+{
 
-if (!a->existeArestaEntreBool(b->getId())){
+    if (!a->existeArestaEntreBool(b->getId()))
+    {
 
-return false;
+        return false;
+    }
+    else
+    {
+
+        return true;
+    }
+
+
 }
-else{
 
-return true;
-}
-
-
-}
-
-double coeficienteDeAgrupamento(){
-return 0;
+double coeficienteDeAgrupamento()
+{
+    return 0;
 
 }
 
@@ -484,7 +488,7 @@ void Grafo::imprimirMatriz()
     cout << endl << "IMPRESSAO POR MATRIZ DE ADJACENCIA" << endl;
     cout << endl;
     int a,b;
-    for( No* no = this->primeiro_no;no != nullptr; no = no->getProx())
+    for( No* no = this->primeiro_no; no != nullptr; no = no->getProx())
     {
         a = getPosicaoMatriz(no->getId());
         cout << endl;
@@ -566,7 +570,8 @@ double Grafo::frequenciaRelativa(int d)
 {
     if(this->primeiro_no == nullptr)
         return -1;
-    else {
+    else
+    {
         int cont = 0;
 
         for(No* no = this->primeiro_no; no != nullptr; no = no->getProx())
