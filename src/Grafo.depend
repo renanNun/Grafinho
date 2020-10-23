@@ -122,10 +122,10 @@
 	"no.h"
 	"aresta.h"
 
-1603218209 /home/luan/Github/Grafinho/src/no.h
+1603474685 /home/luan/Github/Grafinho/src/no.h
 	"aresta.h"
 
-1603222812 source:/home/luan/Github/Grafinho/src/main.cpp
+1603473126 source:/home/luan/Github/Grafinho/src/main.cpp
 	<iostream>
 	<fstream>
 	<sstream>
@@ -175,7 +175,7 @@
 	"no.h"
 	"aresta.h"
 
-1603472941 source:/home/luan/Github/Grafinho/src/no.cpp
+1603474717 source:/home/luan/Github/Grafinho/src/no.cpp
 	"no.h"
 
 1603473114 source:/home/luan/Github/Grafinho/src/grafo.cpp

@@ -38,7 +38,16 @@ class No
         Aresta* existeArestaEntre(int id_alvo);
         bool existeArestaEntreBool(int id_alvo);
 
+
         int i; //Variavel para DFS e BFS
+
+        // Funções Prim
+
+        bool getMarca();
+        void setMarca();
+        void desmarca();
+
+
 
     private:
         Aresta* primeira_aresta;
@@ -48,6 +57,7 @@ class No
         unsigned int grau_saida;
         float peso;
         No* prox;
+        bool marca; //Para o Prim
 };
 
 #endif // NO_H

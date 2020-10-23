@@ -14,6 +14,7 @@ No::No(int id)
     this->primeira_aresta = nullptr;
     this->ultima_aresta = nullptr;
     this->prox = nullptr;
+    this->marca=false;
 }
 
 /**
@@ -78,8 +79,9 @@ void No::setPeso(float peso)
     this->peso = peso;
 }
 
-void No::setId (int Newid){
-this->id=Newid;
+void No::setId (int Newid)
+{
+    this->id=Newid;
 }
 
 //Outros métodos
@@ -98,7 +100,8 @@ void No::inserirAresta(int id_alvo,float peso)
         this->ultima_aresta->setProxAresta(aresta);
         this->ultima_aresta = aresta;
     }
-    else {
+    else
+    {
         this->primeira_aresta = new Aresta(id_alvo);
         this->primeira_aresta->setPeso(peso);
         this->ultima_aresta = this->primeira_aresta;
@@ -161,7 +164,8 @@ int No::removerAresta(int id,bool direcionado, No* no_alvo)
 
         if(direcionado)
             this->diminuiGrauSaida();
-        else{
+        else
+        {
             this->diminuiGrauEntrada();
             no_alvo->diminuiGrauEntrada();
         }
@@ -251,4 +255,20 @@ bool No::existeArestaEntreBool(int id_alvo)
         if(aux->getId_alvo() == id_alvo)
             return true;
     return false;
+}
+
+
+// Funções Prim
+
+bool No::getMarca()
+{
+    return marca;
+}
+void No::setMarca()
+{
+    marca=true;
+}
+void No::desmarca()
+{
+    marca=false;
 }

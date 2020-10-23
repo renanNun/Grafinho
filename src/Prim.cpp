@@ -1,33 +1,9 @@
 #include "Prim.h"
-/*
-Prim::Prim(Grafo *grafo)
-{
-    this->grafo = grafo;
 
-}
-
-Prim::~Prim() {}
-
-
-void Prim::preencheLista()
-{
-    for(No* no = grafo->getPrimeiroNo(); no != nullptr; no->getProx())
-    {
-        for(Aresta* a = no->getPrimeiraAresta(); a != nullptr; a = a->getProxAresta())
-        {
-            ArestaDuasPontas* aux= new ArestaDuasPontas();
-            aux->setPeso(a->getPeso());
-            aux->setnoOrigem(no->getId());
-            aux->setnoOrigem(a->getId());
-            prim()->setProxAresta(aux);
-        }
-    }
-}
-
-void Prim::ordenar(ArestaDuasPontas **a,int n)
+void Prim::ordenar(Aresta **a,int n)
 {
     int i, loc, j, k;
-    ArestaDuasPontas *selected=NULL;
+    Aresta *selected=NULL;
 
     for (i = 1; i < n; ++i)
     {
@@ -45,7 +21,7 @@ void Prim::ordenar(ArestaDuasPontas **a,int n)
     }
 }
 
-int Prim::binarySearch(ArestaDuasPontas **a, ArestaDuasPontas *item, int low, int high)
+int Prim::binarySearch(Aresta **a, Aresta *item, int low, int high)
 {
     if (high <= low)
     {
@@ -63,115 +39,95 @@ int Prim::binarySearch(ArestaDuasPontas **a, ArestaDuasPontas *item, int low, in
     return binarySearch(a, item, low, mid-1);
 }
 
-ArestaDuasPontas** Prim::prim()
+Grafo * Prim::gerar(float *soma)
 {
-    No *noAtual=NULL;
-    int aux;
-    int tamSolucao=0;//conta o tamanho de primVet
-    int cont=0;//conta o tamanho da lista de arestas adjacentes do noAtual
-    noAtual=grafo->getListaNos();//nó atual de análise
-    ArestaDuasPontas **primVet=new Aresta*[grafo->getOrdem()];//vetor de arestas de menor peso
-    ArestaDuasPontas *arestaAdj=NULL;//lista de arestas adjacentes aos noAtuais, que são atualizados na interação
-    ArestaDuasPontas **arestaVet=new Aresta*[grafo->getOrdem()];//auxilar para arestaAdj com o objetivo de ordenar
-    //1º passo: transformar em um vetor de aresta
-    //2º passo: pegar o vetor de arestas adjacentes e ordenar
-    //3º passo: marcar o nó visitado
-    //4º passo: pegar a primeira posiçãoo deste vetor
-    //5º passo: atualizar o nó atual
+    Grafo *h = new Grafo(NULL,false,true,false); // Cria-se o grafo que irá receber as arestas encontradas por 'auxKruskal'.
 
-    //desmarca os nós
-    No *p = grafo->getListaNos();
-    while(p != NULL)
-    {
-        p->desmarca();
-        p = p->getProx();
-    }
-
-    while(noAtual->getMarca()==false&&tamSolucao<grafo->getOrdem()-1)
-    {
-        arestaAdj=noAtual->getAresta();//recebeu uma lista de arestas adjacentes
-        for(Aresta *w=arestaAdj; w!=NULL; w=w->getProx())
-        {
-            if(tamSolucao==0) //primeira vez que for inserir no vetor de arestas adjacentes
-            {
-                arestaVet[cont]=new Aresta(w->getNoAdj(),w->getOrigem(),w->getPeso());
-                cont++;
-            }
-            else //evitar a formação de ciclos
-            {
-                for(aux=0; aux<cont&&grafo->getNo(arestaVet[aux]->getNoAdj())!=grafo->getNo(w->getNoAdj()); aux++); //verificar se o nó adjacente da lista de arestaAdj já foi inserido como nó adjacente da solução primVet
-                if(aux==cont) //percorreu e não encontrou no adjacente igual ao da arestaVet
-                {
-                    arestaVet[cont]=new Aresta(w->getNoAdj(),w->getOrigem(),w->getPeso());
-                    cont++;
-                }
-                else
-                {
-                    if(arestaVet[aux]->getPeso()>w->getPeso()) //se uma aresta com o nó adjacente a um já pertencente ao vetor arestaVet tiver peso menor a aresta do vetor arestaVet, faço a substituição
-                    {
-                        arestaVet[aux]=new Aresta(w->getNoAdj(),w->getOrigem(),w->getPeso());
-                    }
-                }
-            }
-        }
-
-        this->ordenar(arestaVet,cont);
-        if(grafo->getNo(arestaVet[0]->getNoAdj())->getMarca()==true) //se a menor aresta já foi inserida, verifica a possibilidade de inserir até achar uma que ainda não tenha sido inserida, na lista de arestas de menor peso
-        {
-            for(aux=0; aux<tamSolucao && grafo->getNo(arestaVet[aux]->getNoAdj())->getMarca()==true; aux++);
-            primVet[tamSolucao]=arestaVet[aux];
-            tamSolucao++;
-            noAtual->setMarca();
-            noAtual=grafo->getNo(arestaVet[aux]->getNoAdj());
-            for(int i=aux; i<cont-1; i++)
-            {
-                arestaVet[i]=arestaVet[i+1];
-            }
-            cont--;
-        }
-        else
-        {
-            primVet[tamSolucao]=arestaVet[0];
-            tamSolucao++;
-            noAtual->setMarca();
-            noAtual=grafo->getNo(arestaVet[0]->getNoAdj());
-            for(int i=0; i<cont-1; i++)
-            {
-                arestaVet[i]=arestaVet[i+1];
-            }
-            cont--;
-        }
-
-    }
-
-    return primVet;
-}
-
-Grafo* Prim::gerar(float *soma)
-{
-    Grafo *h = new Grafo("", "", "", false, true); // Cria-se o grafo que irá receber as arestas encontradas por 'auxKruskal'.
-
-    ArestaDuasPontas **listaPrim = prim();
+    Aresta **listaPrim = prim();
 
     *soma = 0;
     for(int i = 0; i < grafo->getOrdem()-1; i++)   // Cria em 'h' as arestas com as mesmas características das presentes em 'arestasAGM'.
     {
 
-        ArestaDuasPontas *w = listaPrim[i];
+        Aresta *w = listaPrim[i];
         //cout << w << " " << w->getNoAdj() << " " << w->getOrigem() << " " << w->getPeso() << endl;
 
-        int origem = w->getOrigem();
-        int fim = w->getNoAdj();
+        int origem = w->getId_Origem();
+        int fim = w->getId_alvo();
         float peso = w->getPeso();
 
         (*soma) += peso;
 
-        h->setNo(origem);
-        h->setNo(fim);
-        h->setAresta(origem, fim, peso);
+        h->inserirNo(origem);
+        h->inserirNo(fim);
+        h->inserirAresta(origem, fim, peso);
     }
 
     return h;
 }
-*/
 
+
+ Aresta** Prim::prim(){
+            No *noAtual=NULL;
+            int aux;
+            int tamSolucao=0;
+            int cont=0;
+            noAtual=grafo->getListaNos();
+            Aresta **primVet=new Aresta*[grafo->getOrdem()];
+            Aresta *arestaAdj=NULL;
+            Aresta **arestaVet=new Aresta*[grafo->getOrdem()];
+
+            No *p = grafo->getListaNos();
+            while(p != NULL){
+                p->desmarca();
+                p = p->getProx();
+            }
+
+            while(noAtual->getMarca()==false&&tamSolucao<grafo->getOrdem()-1){
+                arestaAdj=noAtual->getAresta();//recebeu uma lista de arestas adjacentes
+                for(Aresta *w=arestaAdj;w!=NULL;w=w->getProxAresta()){
+                    if(tamSolucao==0){//primeira vez que for inserir no vetor de arestas adjacentes
+                        arestaVet[cont]=new Aresta(w->getId_alvo(),w->getId_Origem(),w->getPeso());
+                        cont++;
+                    }
+                    else{//evitar a formação de ciclos
+                        for(aux=0;aux<cont&&grafo->getNo(arestaVet[aux]->getId_alvo())!=grafo->getNo(w->getId_alvo());aux++);//verificar se o nó adjacente da lista de arestaAdj já foi inserido como nó adjacente da solução primVet
+                        if(aux==cont){//percorreu e não encontrou no adjacente igual ao da arestaVet
+                            arestaVet[cont]=new Aresta(w->getId_alvo(),w->getId_Origem(),w->getPeso());
+                            cont++;
+                        }
+                        else{
+                            if(arestaVet[aux]->getPeso()>w->getPeso()){//se uma aresta com o nó adjacente a um já pertencente ao vetor arestaVet tiver peso menor a aresta do vetor arestaVet, faço a substituição
+                                arestaVet[aux]=new Aresta(w->getId_alvo(),w->getId_Origem(),w->getPeso());
+                            }
+                        }
+                    }
+                }
+
+                this->ordenar(arestaVet,cont);
+                if(grafo->getNo(arestaVet[0]->getId_alvo())->getMarca()==true){//se a menor aresta já foi inserida, verifica a possibilidade de inserir até achar uma que ainda não tenha sido inserida, na lista de arestas de menor peso
+                    for(aux=0;aux<tamSolucao && grafo->getNo(arestaVet[aux]->getId_alvo())->getMarca()==true;aux++);
+                    primVet[tamSolucao]=arestaVet[aux];
+                    tamSolucao++;
+                    noAtual->setMarca();
+                    noAtual=grafo->getNo(arestaVet[aux]->getId_alvo());
+                    for(int i=aux;i<cont-1;i++){
+                        arestaVet[i]=arestaVet[i+1];
+                    }
+                    cont--;
+                }
+                else{
+                    primVet[tamSolucao]=arestaVet[0];
+                    tamSolucao++;
+                    noAtual->setMarca();
+                    noAtual=grafo->getNo(arestaVet[0]->getId_alvo());
+                    for(int i=0;i<cont-1;i++){
+                        arestaVet[i]=arestaVet[i+1];
+                    }
+                    cont--;
+                }
+
+            }
+
+            return primVet;
+        }
