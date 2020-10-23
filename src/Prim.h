@@ -2,7 +2,7 @@
 #define PRIM_H
 
 #include "grafo.h"
-#include "Utils/ListaArestasDuasPontas.h"
+
 
 using namespace std;
 
@@ -13,8 +13,7 @@ using namespace std;
 */
 
 #include <iostream>
-#include "Utils/ArestaDuasPontas.h"
-#include "Utils/ListaArestasDuasPontas.h"
+
 #include "no.h"
 #include "aresta.h"
 #include "grafo.h"
@@ -31,9 +30,9 @@ public:
 
 private:
     Grafo *grafo;
-    void ordenar(ArestaDuasPontas **a,int n);
-    int binarySearch(ArestaDuasPontas **a, ArestaDuasPontas *item, int low, int high);
-    ArestaDuasPontas** prim();
+    void ordenar(Aresta **a,int n);
+    int binarySearch(Aresta **a, Aresta *item, int low, int high);
+    Aresta** prim();
 
 public:
 

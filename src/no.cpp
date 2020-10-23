@@ -140,7 +140,7 @@ int No::removerAresta(int id,bool direcionado, No* no_alvo)
         Aresta* aux = this->primeira_aresta;
         Aresta* anterior = nullptr;
 
-        while(aux->getId() != id)
+        while(aux->getId_alvo() != id)
         {
             anterior = aux;
             aux = aux->getProxAresta();
@@ -182,7 +182,7 @@ bool No::buscaAresta(int id_alvo)
     if(this->primeira_aresta != nullptr)
     {
         for(Aresta* aux = this->primeira_aresta; aux != nullptr; aux = aux->getProxAresta())
-            if(aux->getId() == id_alvo)
+            if(aux->getId_alvo() == id_alvo)
                 return true;
     }
 
@@ -235,7 +235,7 @@ void No::diminuiGrauSaida()
 Aresta* No::existeArestaEntre(int id_alvo)
 {
     for(Aresta* aux = this->primeira_aresta; aux != nullptr; aux = aux->getProxAresta())
-        if(aux->getId() == id_alvo)
+        if(aux->getId_alvo() == id_alvo)
             return aux;
     return nullptr;
 }
@@ -248,7 +248,7 @@ Aresta* No::existeArestaEntre(int id_alvo)
 bool No::existeArestaEntreBool(int id_alvo)
 {
     for(Aresta* aux = this->primeira_aresta; aux != nullptr; aux = aux->getProxAresta())
-        if(aux->getId() == id_alvo)
+        if(aux->getId_alvo() == id_alvo)
             return true;
     return false;
 }

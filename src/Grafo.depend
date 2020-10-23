@@ -125,7 +125,7 @@
 1603218209 /home/luan/Github/Grafinho/src/no.h
 	"aresta.h"
 
-1603218655 source:/home/luan/Github/Grafinho/src/main.cpp
+1603222812 source:/home/luan/Github/Grafinho/src/main.cpp
 	<iostream>
 	<fstream>
 	<sstream>
@@ -135,6 +135,7 @@
 	"no.h"
 	"Dijkstra.h"
 	"Floyd.h"
+	"Prim.h"
 
 1603118977 source:c:\users\renan\documents\github\grafo\grafinho\src\no.cpp
 	"no.h"
@@ -153,10 +154,10 @@
 1603124822 c:\users\renan\documents\github\grafo\grafinho\src\dijkstra.h
 	"grafo.h"
 
-1603118704 source:/home/luan/Github/Grafinho/src/aresta.cpp
+1603472890 source:/home/luan/Github/Grafinho/src/aresta.cpp
 	"aresta.h"
 
-1603118704 /home/luan/Github/Grafinho/src/aresta.h
+1603472860 /home/luan/Github/Grafinho/src/aresta.h
 
 1603219856 source:/home/luan/Github/Grafinho/src/Floyd.cpp
 	"Floyd.h"
@@ -174,13 +175,13 @@
 	"no.h"
 	"aresta.h"
 
-1603218209 source:/home/luan/Github/Grafinho/src/no.cpp
+1603472941 source:/home/luan/Github/Grafinho/src/no.cpp
 	"no.h"
 
-1603218209 source:/home/luan/Github/Grafinho/src/grafo.cpp
+1603473114 source:/home/luan/Github/Grafinho/src/grafo.cpp
 	"grafo.h"
 
-1603218209 source:/home/luan/Github/Grafinho/src/Dijkstra.cpp
+1603472920 source:/home/luan/Github/Grafinho/src/Dijkstra.cpp
 	"Dijkstra.h"
 
 1603218209 /home/luan/Github/Grafinho/src/Dijkstra.h
@@ -192,14 +193,20 @@
 1603218209 /home/luan/Github/Grafinho/src/Kruskal.h
 	"grafo.h"
 
-1603222294 source:/home/luan/Github/Grafinho/src/Prim.cpp
+1603472973 source:/home/luan/Github/Grafinho/src/Prim.cpp
+	"Prim.h"
 
-1603218209 /home/luan/Github/Grafinho/src/Prim.h
+1603473093 /home/luan/Github/Grafinho/src/Prim.h
+	"grafo.h"
+	<iostream>
+	"no.h"
+	"aresta.h"
+	"grafo.h"
 
 1603316676 source:/home/luan/Github/Grafinho/src/Utils/ListaArestasDuasPontas.cpp
 	"ListaArestasDuasPontas.h"
 
-1603471367 /home/luan/Github/Grafinho/src/Utils/ListaArestasDuasPontas.h
+1603472986 /home/luan/Github/Grafinho/src/Utils/ListaArestasDuasPontas.h
 	"ArestaDuasPontas.h"
 
 1603316676 source:/home/luan/Github/Grafinho/src/Utils/ArestaDuasPontas.cpp

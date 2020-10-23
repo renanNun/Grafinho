@@ -73,7 +73,7 @@ void Dijkstra::algoritmo()
 
             while(adjacente != nullptr)
             {
-                No* aux = graph->getNo(adjacente->getId());
+                No* aux = graph->getNo(adjacente->getId_alvo());
                 if(distancias[indiceComMenorEstimativa] + adjacente->getPeso() < distancias[aux->i])
                 {
                     distancias[aux->i] = distancias[indiceComMenorEstimativa] + adjacente->getPeso();

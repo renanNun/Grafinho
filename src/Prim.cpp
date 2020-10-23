@@ -1,5 +1,5 @@
 #include "Prim.h"
-
+/*
 Prim::Prim(Grafo *grafo)
 {
     this->grafo = grafo;
@@ -173,5 +173,5 @@ Grafo* Prim::gerar(float *soma)
 
     return h;
 }
-
+*/
 

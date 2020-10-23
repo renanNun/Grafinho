@@ -220,7 +220,7 @@ void mainMenu(Grafo* graph)
                     cout<< "Floyd só pode ser usado quando as arestas são ponderadas"<<endl;
                 break;
             case 10:
-                    prim= new Prim(graph);
+                    //prim= new Prim(graph);
 
 
                 break;
