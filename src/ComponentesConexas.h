@@ -2,7 +2,7 @@
 #define GRAFO_COMPONENTES_CONEXAS_H
 
 #include <iostream>
-#include "../grafo.h"
+#include "grafo.h"
 
 
 using namespace std;

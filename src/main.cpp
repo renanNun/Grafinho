@@ -13,6 +13,7 @@
 #include "Prim.h"
 
 #include "Kruskal.h"
+#include "ComponentesConexas.h"
 
 using namespace std;
 std::ifstream input_file;
@@ -251,11 +252,14 @@ void mainMenu(Grafo* graph)
                     int indComp[graph->getOrdem()];
                     int idNos[graph->getOrdem()];
 
-                    if(graph->listarComponentesConexas(indComp, idNos) == 1)
+                    int teste;
+                    ComponentesConexas *conexas = new ComponentesConexas(graph);
+                    teste=conexas->componenteConexa(indComp, idNos);
+                    if(teste == 1)
                     {
                         float pesoTotal;
-                        Grafo *arvoreAGM = graph->KruskalAGM(&pesoTotal);
-
+                        Kruskal *kruskal = new Kruskal(graph);
+                        Grafo *arvoreAGM = kruskal->gerar(&pesoTotal);
 
                     }
                 }

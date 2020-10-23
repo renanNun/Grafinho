@@ -563,8 +563,5 @@ double Grafo::frequenciaRelativa(int d)
 }
 
 
-int Grafo::listarComponentesConexas(int* indComp, int* idNos)
-{
-    ComponentesConexas *conexas = new ComponentesConexas(this);
-    return conexas->componenteConexa(indComp, idNos);
-}
+
+

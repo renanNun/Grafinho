@@ -5,7 +5,7 @@
 #include "aresta.h"
 #include "no.h"
 #include "grafo.h"
-#include "Utils/ComponentesConexas.h"
+#include "ComponentesConexas.h"
 
 
 

@@ -9,7 +9,6 @@
 
 #include "no.h"
 #include "aresta.h"
-#include "Utils/ComponentesConexas.h"
 
 using namespace std;
 
@@ -81,6 +80,10 @@ private:
     bool existeNo(int id);
     void removerAdjacencias(int id);
     void depthFirstSearchF(No* no, bool* vetor_coloracao,No* pai, int nivel);
+
+
+
+
 };
 
 #endif // GRAFO_H
