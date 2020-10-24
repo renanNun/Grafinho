@@ -30,6 +30,7 @@ public:
     bool getPonderadoNo();
     No* getPrimeiroNo();
     No* getUltimoNo();
+    void setOrdem(int ordem);
 
     void inserirNo(int id);
     void inserirAresta(int id, int id_alvo,float peso);
@@ -42,8 +43,7 @@ public:
 
     int grauMedioPorSomatorio();
     int grauMedioPorAdjacencia();
-    bool fechoTriadico(No *a, No* b);
-    double coeficienteDeAgrupamento();
+
 
     bool depthFirstSearch(int id_inicial);
     void breathFirstSearch(ofstream& output_file);
@@ -51,13 +51,18 @@ public:
     void imprimir();
     void imprimirMatriz();
 
-    float** getMatriz();
+    bool** getMatrizDeAdj();
+    float** getMatrizDePesos();
 
     void adicionaArestaMatriz(int i,int j,float peso);
     void removeArestaMatriz(int i, int j);
     bool verificaAdjacencia(int i, int j);
 
     double frequenciaRelativa(int d);
+
+    // Kruskal
+    int listarComponentesConexas(int* indComp, int* idNos);
+
 private:
     int ordem;
     int numero_arestas;
@@ -67,9 +72,13 @@ private:
     No* primeiro_no;
     No* ultimo_no;
 
-    float** matriz_adjacencia;
+    bool** matriz_adjacencia;
+    float** matriz_de_pesos;
+
     void getMatrizAdj();
+    void getMatrizPesos();
     void deleteMatrizAdj();
+    void deleteMatrizPesos();
     int getPosicaoMatriz(int id);
 
 
@@ -77,6 +86,10 @@ private:
     bool existeNo(int id);
     void removerAdjacencias(int id);
     void depthFirstSearchF(No* no, bool* vetor_coloracao,No* pai, int nivel);
+
+
+
+
 };
 
 #endif // GRAFO_H

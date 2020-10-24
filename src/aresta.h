@@ -10,21 +10,30 @@ using namespace std;
 */
 class Aresta
 {
-    public:
-        Aresta(int id_alvo);
-        virtual ~Aresta();
+public:
+    Aresta();
+    Aresta(int id_alvo);
+    Aresta(int no, float peso);
+    Aresta(int no, int noOrigem, float peso);
 
-        int getId();
-        Aresta* getProxAresta();
-        float getPeso();
+    virtual ~Aresta();
 
-        void setProxAresta(Aresta* aresta);
-        void setPeso(float peso);
+    int getId_alvo();
+    int getId_Origem();
+    float getPeso();
+    Aresta* getProxAresta();
 
-    private:
-        int id_alvo;
-        Aresta* prox;
-        float peso;
+    void setProxAresta(Aresta* aresta);
+    void setPeso(float peso);
+    void setId_origem(int novo_id_Origem);
+    void setId_alvo(int novo_id_alvo);
+
+private:
+    int id_alvo;
+    int id_Origem;
+    Aresta* prox;
+    float peso;
+
 };
 
 #endif // ARESTA_H

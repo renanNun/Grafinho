@@ -1,5 +1,10 @@
 #include "no.h"
 
+No::No()
+{
+
+}
+
 /**
     Construtor da Classe No.h
     @param: id - informação contida no nó
@@ -14,6 +19,7 @@ No::No(int id)
     this->primeira_aresta = nullptr;
     this->ultima_aresta = nullptr;
     this->prox = nullptr;
+    this->marca=false;
 }
 
 /**
@@ -78,8 +84,9 @@ void No::setPeso(float peso)
     this->peso = peso;
 }
 
-void No::setId (int Newid){
-this->id=Newid;
+void No::setId (int Newid)
+{
+    this->id=Newid;
 }
 
 //Outros métodos
@@ -93,14 +100,14 @@ void No::inserirAresta(int id_alvo,float peso)
 {
     if(this->primeira_aresta != nullptr)
     {
-        Aresta* aresta = new Aresta(id_alvo);
-        aresta->setPeso(peso);
+        Aresta* aresta = new Aresta(id_alvo,this->id,peso);
         this->ultima_aresta->setProxAresta(aresta);
         this->ultima_aresta = aresta;
+
     }
-    else {
-        this->primeira_aresta = new Aresta(id_alvo);
-        this->primeira_aresta->setPeso(peso);
+    else
+    {
+        this->primeira_aresta = new Aresta(id_alvo,this->id,peso);
         this->ultima_aresta = this->primeira_aresta;
     }
 }
@@ -140,7 +147,7 @@ int No::removerAresta(int id,bool direcionado, No* no_alvo)
         Aresta* aux = this->primeira_aresta;
         Aresta* anterior = nullptr;
 
-        while(aux->getId() != id)
+        while(aux->getId_alvo() != id)
         {
             anterior = aux;
             aux = aux->getProxAresta();
@@ -161,7 +168,8 @@ int No::removerAresta(int id,bool direcionado, No* no_alvo)
 
         if(direcionado)
             this->diminuiGrauSaida();
-        else{
+        else
+        {
             this->diminuiGrauEntrada();
             no_alvo->diminuiGrauEntrada();
         }
@@ -182,7 +190,7 @@ bool No::buscaAresta(int id_alvo)
     if(this->primeira_aresta != nullptr)
     {
         for(Aresta* aux = this->primeira_aresta; aux != nullptr; aux = aux->getProxAresta())
-            if(aux->getId() == id_alvo)
+            if(aux->getId_alvo() == id_alvo)
                 return true;
     }
 
@@ -235,7 +243,7 @@ void No::diminuiGrauSaida()
 Aresta* No::existeArestaEntre(int id_alvo)
 {
     for(Aresta* aux = this->primeira_aresta; aux != nullptr; aux = aux->getProxAresta())
-        if(aux->getId() == id_alvo)
+        if(aux->getId_alvo() == id_alvo)
             return aux;
     return nullptr;
 }
@@ -248,7 +256,30 @@ Aresta* No::existeArestaEntre(int id_alvo)
 bool No::existeArestaEntreBool(int id_alvo)
 {
     for(Aresta* aux = this->primeira_aresta; aux != nullptr; aux = aux->getProxAresta())
-        if(aux->getId() == id_alvo)
+        if(aux->getId_alvo() == id_alvo)
             return true;
     return false;
+}
+
+
+// Funções Prim
+
+bool No::getMarca()
+{
+    return marca;
+}
+void No::setMarca()
+{
+    marca=true;
+}
+void No::desmarca()
+{
+    marca=false;
+}
+
+Aresta* No::getAresta()
+{
+    for(Aresta* aux = this->primeira_aresta; aux != nullptr; aux = aux->getProxAresta())
+        return aux;
+    return nullptr;
 }

@@ -18,7 +18,9 @@ Grafo::Grafo(int ordem, bool direcionado,bool ponderado_aresta,bool ponderado_no
     this->numero_arestas = 0;
 
     this->matriz_adjacencia = nullptr;
+    this->matriz_de_pesos = nullptr;
     this->getMatrizAdj();
+    this->getMatrizPesos();
 }
 
 /**
@@ -75,6 +77,11 @@ No* Grafo::getPrimeiroNo()
 No* Grafo::getUltimoNo()
 {
     return this->ultimo_no;
+}
+
+void Grafo::setOrdem(int ordem)
+{
+    this->ordem = ordem;
 }
 
 //Outros Métodos
@@ -295,24 +302,6 @@ int Grafo::grauMedioPorAdjacencia()
     }
 }
 
-bool fechoTriadico(No *a, No  *b){
-
-if (!a->existeArestaEntreBool(b->getId())){
-
-return false;
-}
-else{
-
-return true;
-}
-
-
-}
-
-double coeficienteDeAgrupamento(){
-return 0;
-
-}
 
 /**
     Função responsável por realizar a busca em profundidade
@@ -382,7 +371,7 @@ void Grafo::depthFirstSearchF(No* no, bool* vetor_coloracao, No* pai, int nivel)
 
     while(aresta != nullptr)
     {
-        No* aux = getNo(aresta->getId());
+        No* aux = getNo(aresta->getId_alvo());
         if(vetor_coloracao[aux->i] == 0)
             depthFirstSearchF(aux,vetor_coloracao,no,nivel+1);
         aresta = aresta->getProxAresta();
@@ -428,7 +417,7 @@ void Grafo::breathFirstSearch(ofstream& output_file)
 
         while(aresta != nullptr)
         {
-            No* no_aux = getNo(aresta->getId());
+            No* no_aux = getNo(aresta->getId_alvo());
             if(visitado[no_aux->i] == 0)
             {
                 visitado[no_aux->i] = 1;
@@ -462,16 +451,16 @@ void Grafo::imprimir()
             if(this->ponderado_aresta)
             {
                 if(aresta->getProxAresta() != nullptr)
-                    cout << aresta->getId() << "(" << aresta->getPeso() << ")--->";
+                    cout << aresta->getId_alvo() << "(" << aresta->getPeso() << ")--->";
                 else
-                    cout << aresta->getId();
+                    cout << aresta->getId_alvo();
             }
             else
             {
                 if(aresta->getProxAresta() != nullptr)
-                    cout << aresta->getId() << "--->";
+                    cout << aresta->getId_alvo() << "--->";
                 else
-                    cout << aresta->getId();
+                    cout << aresta->getId_alvo();
             }
         }
 
@@ -484,7 +473,7 @@ void Grafo::imprimirMatriz()
     cout << endl << "IMPRESSAO POR MATRIZ DE ADJACENCIA" << endl;
     cout << endl;
     int a,b;
-    for( No* no = this->primeiro_no;no != nullptr; no = no->getProx())
+    for( No* no = this->primeiro_no; no != nullptr; no = no->getProx())
     {
         a = getPosicaoMatriz(no->getId());
         cout << endl;
@@ -492,7 +481,7 @@ void Grafo::imprimirMatriz()
         for(Aresta* aresta = no->getPrimeiraAresta(); aresta != nullptr; aresta = aresta->getProxAresta())
         {
             //cout << "ENTROU" << endl;
-            b = getPosicaoMatriz(aresta->getId());
+            b = getPosicaoMatriz(aresta->getId_alvo());
             cout << this->matriz_adjacencia[a][b] << " | ";
         }
     }
@@ -501,26 +490,46 @@ void Grafo::imprimirMatriz()
 
 void Grafo::getMatrizAdj()
 {
-    this->matriz_adjacencia = new float*[this->ordem];
+    this->matriz_adjacencia = new bool*[this->ordem];
     for(int i = 0; i < this->ordem; i++)
     {
         //cout << " " << i;
-        this->matriz_adjacencia[i] = new float[this->ordem];
+        this->matriz_adjacencia[i] = new bool[this->ordem];
         for(int j = 0; j < this->ordem; j++)
         {
-            this->matriz_adjacencia[i][j] = -1;
+            this->matriz_adjacencia[i][j] = false;
         }
     }
 }
 
-float** Grafo::getMatriz()
+void Grafo::getMatrizPesos()
+{
+    this->matriz_de_pesos = new float*[this->ordem];
+    for(int i = 0; i < this->ordem; i++)
+    {
+        //cout << " " << i;
+        this->matriz_de_pesos[i] = new float[this->ordem];
+        for(int j = 0; j < this->ordem; j++)
+        {
+            this->matriz_de_pesos[i][j] = -1;
+        }
+    }
+}
+
+bool** Grafo::getMatrizDeAdj()
 {
     return this->matriz_adjacencia;
 }
 
+float** Grafo::getMatrizDePesos()
+{
+    return this->matriz_de_pesos;
+}
+
 void Grafo::adicionaArestaMatriz(int i, int j,float peso)
 {
-    matriz_adjacencia[this->getPosicaoMatriz(i)][this->getPosicaoMatriz(j)] = peso;
+    matriz_adjacencia[this->getPosicaoMatriz(i)][this->getPosicaoMatriz(j)] = true;
+    matriz_de_pesos[this->getPosicaoMatriz(i)][this->getPosicaoMatriz(j)] = peso;
 }
 
 bool Grafo::verificaAdjacencia(int i, int j)
@@ -539,6 +548,18 @@ void Grafo::deleteMatrizAdj()
             delete [] matriz_adjacencia[i];
         }
         delete [] matriz_adjacencia;
+    }
+}
+
+void Grafo::deleteMatrizPesos()
+{
+    for(int i = 0; i < this->ordem; i++)
+    {
+        for(int j = 0; j < this->ordem; j++)
+        {
+            delete [] matriz_de_pesos[i];
+        }
+        delete [] matriz_de_pesos;
     }
 }
 
@@ -566,7 +587,8 @@ double Grafo::frequenciaRelativa(int d)
 {
     if(this->primeiro_no == nullptr)
         return -1;
-    else {
+    else
+    {
         int cont = 0;
 
         for(No* no = this->primeiro_no; no != nullptr; no = no->getProx())
@@ -578,3 +600,7 @@ double Grafo::frequenciaRelativa(int d)
         return (cont/this->ordem);
     }
 }
+
+
+
+
