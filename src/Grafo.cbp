@@ -44,6 +44,8 @@
 		<Unit filename="Floyd.h" />
 		<Unit filename="Kruskal.cpp" />
 		<Unit filename="Kruskal.h" />
+		<Unit filename="ListaAresta.cpp" />
+		<Unit filename="ListaAresta.h" />
 		<Unit filename="Prim.cpp" />
 		<Unit filename="Prim.h" />
 		<Unit filename="Utils/ComponentesConexas.cpp" />

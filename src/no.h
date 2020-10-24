@@ -12,6 +12,7 @@ using namespace std;
 class No
 {
 public:
+    No();
     No(int id);
     virtual ~No();
 

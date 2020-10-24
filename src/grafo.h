@@ -51,7 +51,8 @@ public:
     void imprimir();
     void imprimirMatriz();
 
-    float** getMatriz();
+    bool** getMatrizDeAdj();
+    float** getMatrizDePesos();
 
     void adicionaArestaMatriz(int i,int j,float peso);
     void removeArestaMatriz(int i, int j);
@@ -71,9 +72,13 @@ private:
     No* primeiro_no;
     No* ultimo_no;
 
-    float** matriz_adjacencia;
+    bool** matriz_adjacencia;
+    float** matriz_de_pesos;
+
     void getMatrizAdj();
+    void getMatrizPesos();
     void deleteMatrizAdj();
+    void deleteMatrizPesos();
     int getPosicaoMatriz(int id);
 
 

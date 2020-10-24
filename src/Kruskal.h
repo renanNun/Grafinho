@@ -2,12 +2,10 @@
 #define GRAFO_KRUSKAL_H
 
 #include <iostream>
-#include "aresta.h"
-#include "no.h"
+#include <stdlib.h>
+
 #include "grafo.h"
-#include "ComponentesConexas.h"
-
-
+#include "ListaAresta.h"
 
 using namespace std;
 
@@ -15,41 +13,31 @@ class Kruskal
 {
 
 public:
-    Kruskal(Grafo *grafo);
+    Kruskal(Grafo* grafo);
     ~Kruskal();
 
-      Grafo* gerar(float *soma);
+    //void algoritmo();
+    void kruskal();
+    void quickSort(int inicio, int fim);
+    void auxQuickSort(Aresta vetor[],int inicio,int fim);
+    float comparacao(Aresta* a,Aresta* b);
 
 private:
-    Grafo *grafo;
-    bool direcional;
-    int ordem;
-    int m;
-    No *listaNos;
-
-    void vetorIdNos(int* idNos);
-
-    int encontraIndice(int *idNos, int id);
-
-    // Fun��o auxiliar que realiza a troca de posi��es entre valores dos vetores passados como par�metro.
-    void troca(float *pesos, Aresta *conj, int i, int j);
-
-    // Fun��o auxiliar que retorna o �ndice da parti��o do QuickSort. Utiliza-se como piv� a �ltima posi��o do vetor.
-    int particao(float *pesos, Aresta *conj, int inicio, int fim);
-
-    // Fun��o recursiva que implementa um QuickSort para fazer a ordena��o dos vetores passados como par�metro.
-    void ordenaVetor(float *pesos, Aresta *conj, int inicio, int fim);
+    Grafo* grafo;
+    ListaAresta* listaDeArestas;
 
 
-    // Função usada para encontrar o conjunto de arestas da arvore geradora mínima de um grafo.
-    // Retorna a soma dos pesos das arestas desse conjunto.
-    float auxKruskal(Aresta *arestasAGM);
+    /*No* parent;
+    ListaAresta* listaDeArestas;
+    int numeroDeNos;
 
+    void quickSort(ListaAresta* vetor, int inicio, int fim, int tam);
+    void auxiliarQuickSort(Aresta* vetor,int inicio, int fim);
 
+    int find_set(int i);
+    void union_set(int u,int v);
 
-
-    // Função que retorna o subgrafo correspondente a arvore geradora mínima do grafo.
-
+    int retornaIndices(int i);*/
 };
 
 

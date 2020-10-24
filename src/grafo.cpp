@@ -18,7 +18,9 @@ Grafo::Grafo(int ordem, bool direcionado,bool ponderado_aresta,bool ponderado_no
     this->numero_arestas = 0;
 
     this->matriz_adjacencia = nullptr;
+    this->matriz_de_pesos = nullptr;
     this->getMatrizAdj();
+    this->getMatrizPesos();
 }
 
 /**
@@ -488,26 +490,46 @@ void Grafo::imprimirMatriz()
 
 void Grafo::getMatrizAdj()
 {
-    this->matriz_adjacencia = new float*[this->ordem];
+    this->matriz_adjacencia = new bool*[this->ordem];
     for(int i = 0; i < this->ordem; i++)
     {
         //cout << " " << i;
-        this->matriz_adjacencia[i] = new float[this->ordem];
+        this->matriz_adjacencia[i] = new bool[this->ordem];
         for(int j = 0; j < this->ordem; j++)
         {
-            this->matriz_adjacencia[i][j] = -1;
+            this->matriz_adjacencia[i][j] = false;
         }
     }
 }
 
-float** Grafo::getMatriz()
+void Grafo::getMatrizPesos()
+{
+    this->matriz_de_pesos = new float*[this->ordem];
+    for(int i = 0; i < this->ordem; i++)
+    {
+        //cout << " " << i;
+        this->matriz_de_pesos[i] = new float[this->ordem];
+        for(int j = 0; j < this->ordem; j++)
+        {
+            this->matriz_de_pesos[i][j] = -1;
+        }
+    }
+}
+
+bool** Grafo::getMatrizDeAdj()
 {
     return this->matriz_adjacencia;
 }
 
+float** Grafo::getMatrizDePesos()
+{
+    return this->matriz_de_pesos;
+}
+
 void Grafo::adicionaArestaMatriz(int i, int j,float peso)
 {
-    matriz_adjacencia[this->getPosicaoMatriz(i)][this->getPosicaoMatriz(j)] = peso;
+    matriz_adjacencia[this->getPosicaoMatriz(i)][this->getPosicaoMatriz(j)] = true;
+    matriz_de_pesos[this->getPosicaoMatriz(i)][this->getPosicaoMatriz(j)] = peso;
 }
 
 bool Grafo::verificaAdjacencia(int i, int j)
@@ -526,6 +548,18 @@ void Grafo::deleteMatrizAdj()
             delete [] matriz_adjacencia[i];
         }
         delete [] matriz_adjacencia;
+    }
+}
+
+void Grafo::deleteMatrizPesos()
+{
+    for(int i = 0; i < this->ordem; i++)
+    {
+        for(int j = 0; j < this->ordem; j++)
+        {
+            delete [] matriz_de_pesos[i];
+        }
+        delete [] matriz_de_pesos;
     }
 }
 

@@ -24,15 +24,15 @@ class Prim
 public:
     Prim(Grafo *grafo);
     ~Prim();
-    Grafo *gerar(float *soma);
+
+    void algoritmo();
 
 
 private:
-    Grafo *grafo;
-    void ordenar(Aresta **a,int n);
-    int binarySearch(Aresta **a, Aresta *item, int low, int high);
-    Aresta** prim();
+    int numeroDeArestas;
+    Grafo* grafo;
 
+    void corrigePesos(float** matriz);
 
 
 };

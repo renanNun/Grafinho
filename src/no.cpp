@@ -1,5 +1,10 @@
 #include "no.h"
 
+No::No()
+{
+
+}
+
 /**
     Construtor da Classe No.h
     @param: id - informação contida no nó

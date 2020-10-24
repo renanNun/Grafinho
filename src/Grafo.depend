@@ -259,3 +259,83 @@
 	<iostream>
 	"grafo.h"
 
+1603497364 source:c:\users\renan\documents\github\grafinho\src\aresta.cpp
+	"aresta.h"
+
+1603497364 c:\users\renan\documents\github\grafinho\src\aresta.h
+
+1603497364 source:c:\users\renan\documents\github\grafinho\src\dijkstra.cpp
+	"Dijkstra.h"
+
+1603218449 c:\users\renan\documents\github\grafinho\src\dijkstra.h
+	"grafo.h"
+
+1603507364 c:\users\renan\documents\github\grafinho\src\grafo.h
+	<iostream>
+	<fstream>
+	<chrono>
+	<stack>
+	<list>
+	<queue>
+	"no.h"
+	"aresta.h"
+
+1603516395 c:\users\renan\documents\github\grafinho\src\no.h
+	"aresta.h"
+
+1603497364 source:c:\users\renan\documents\github\grafinho\src\floyd.cpp
+	"Floyd.h"
+
+1603215986 c:\users\renan\documents\github\grafinho\src\floyd.h
+	"grafo.h"
+
+1603507373 source:c:\users\renan\documents\github\grafinho\src\grafo.cpp
+	"grafo.h"
+
+1603515500 source:c:\users\renan\documents\github\grafinho\src\main.cpp
+	<iostream>
+	<fstream>
+	<sstream>
+	<string>
+	<chrono>
+	"grafo.h"
+	"no.h"
+	"Dijkstra.h"
+	"Floyd.h"
+	"Prim.h"
+	"Kruskal.h"
+	"ComponentesConexas.h"
+
+1603507830 c:\users\renan\documents\github\grafinho\src\prim.h
+	"grafo.h"
+	<iostream>
+	"no.h"
+	"aresta.h"
+	"grafo.h"
+
+1603547343 c:\users\renan\documents\github\grafinho\src\kruskal.h
+	<iostream>
+	<stdlib.h>
+	"grafo.h"
+	"ListaAresta.h"
+
+1603497364 c:\users\renan\documents\github\grafinho\src\componentesconexas.h
+	<iostream>
+	"grafo.h"
+
+1603516417 source:c:\users\renan\documents\github\grafinho\src\no.cpp
+	"no.h"
+
+1603508015 source:c:\users\renan\documents\github\grafinho\src\prim.cpp
+	"Prim.h"
+
+1603543812 c:\users\renan\documents\github\grafinho\src\listaaresta.h
+	<iostream>
+	"aresta.h"
+
+1603543985 source:c:\users\renan\documents\github\grafinho\src\listaaresta.cpp
+	"ListaAresta.h"
+
+1603516530 source:c:\users\renan\documents\github\grafinho\src\kruskal.cpp
+	"Kruskal.h"
+

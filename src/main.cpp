@@ -132,7 +132,7 @@ void mainMenu(Grafo* graph)
     Dijkstra* algoritmoDijkstra;
     Floyd* floyd;
     Prim * prim;
-    Kruskal *kruskal;
+    Kruskal *k;
 
     cout << endl << endl;
 
@@ -219,7 +219,7 @@ void mainMenu(Grafo* graph)
                 break;
             case 9:
                 if (graph->getPonderadoAresta())
-                    floyd = new Floyd(graph,graph->getMatriz());
+                    floyd = new Floyd(graph,graph->getMatrizDePesos());
                 else
                     cout<< "Floyd só pode ser usado quando as arestas são ponderadas"<<endl;
                 break;
@@ -231,12 +231,7 @@ void mainMenu(Grafo* graph)
                 }
                 else
                 {
-                    float pesoTotal;
-                    Prim *prim = new Prim(graph);
-                    cout << "ENTRA" << endl;
-                    Grafo *arvoreAGM =  prim->gerar(&pesoTotal);
-                    cout << "GEROU" << endl;
-                    arvoreAGM->imprimir();
+                    prim = new Prim(graph);
                 }
 
                 break;
@@ -250,7 +245,8 @@ void mainMenu(Grafo* graph)
                 }
                 else
                 {
-                    Aresta arestasAGM[graph->getOrdem() - 1];
+                    k = new Kruskal(graph);
+                   /* Aresta arestasAGM[graph->getOrdem() - 1];
                     int indComp[graph->getOrdem()];
                     int idNos[graph->getOrdem()];
 
@@ -259,11 +255,8 @@ void mainMenu(Grafo* graph)
                     teste=conexas->componenteConexa(indComp, idNos);
                     if(teste == 1)
                     {
-                        float pesoTotal;
-                        Kruskal *kruskal = new Kruskal(graph);
-                        Grafo *arvoreAGM = kruskal->gerar(&pesoTotal);
 
-                    }
+                    }*/
                 }
 
                 break;
